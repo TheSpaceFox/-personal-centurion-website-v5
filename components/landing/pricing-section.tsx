@@ -35,18 +35,18 @@ const plans = [
   },
   {
     name: "Centurion Board",
-    description: "Board membership with Personal Centurion for each member",
+    description: "For company boards — a Personal Centurion for every member",
     price: "£25,000+",
-    priceNote: "Per Board membership — GBP",
+    priceNote: "Board edition — priced for the full board · GBP",
     features: [
-      "Each Board Member issued with Base Hardware — MSI NUK AI machines",
-      "Personal Centurion AI Brain",
-      "Remote Control iPhone App",
-      "Soul Document Process",
-      "Personal Mission Discovery",
-      "Swarm Collaboration Capability",
+      "Purchased by companies for their board of directors",
+      "Each board member issued a Personal Centurion (MSI NUK AI base hardware)",
+      "Personal Centurion AI Brain, iPhone app, Soul Document & Mission Discovery",
+      "Swarm collaboration — board Centurions work together across the table",
+      "Chairman receives the most senior Centurion in the board formation",
+      "Chairman of the Board remote control for iPhone — a special senior command app",
     ],
-    cta: "Join Centurion Board",
+    cta: "Enquire for Board Edition",
     popular: false,
   },
 ];
@@ -67,7 +67,9 @@ export function PricingSection() {
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl">
             Centurion is built, not rented. Register your interest, secure a Personal
-            Centurion build slot from £5,000, or join the Centurion Board from £25,000+.
+            Centurion from £5,000, or enquire about the Board edition from £25,000+ —
+            a coordinated set of Centurions for a company board, with the Chairman
+            holding the most senior unit.
           </p>
         </div>
 
