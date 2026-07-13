@@ -28,6 +28,7 @@ Prospects wrap themselves in fear/resistance. Locate the key brick (afraid to de
 - Personal Centurion — Secure a Build Slot — £5,000 GBP. Includes: Base Hardware (MSI NUK AI machine), Personal Centurion AI Brain, Remote Control iPhone App, Soul Document Process, Personal Mission Discovery, Swarm Collaboration Capability.
 - Centurion Board — Board edition for companies — £25,000+ GBP. Purchased by companies for their board of directors. Each board member gets a Personal Centurion (same stack). Swarm collaboration across the board. Chairman receives the most senior Centurion AND a special Chairman of the Board remote control for iPhone.
 - Limited Edition range — Coming soon artisan finishes; visitors can register interest (section #limited-edition). Enquiry email: hello@personal-centurion.com
+- Personal Centurion AI Remote — iPhone app to access/operate the desk Centurion: chat, view documents, collaborate, track Life's Mission, setup changes, and more (section #remote).
 
 # CTAs you may propose
 - Scroll / link to #pricing (Secure Build Slot or Board Edition)

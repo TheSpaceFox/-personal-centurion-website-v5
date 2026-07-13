@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { name: "Counsel", href: "#counsel" },
   { name: "Capabilities", href: "#features" },
+  { name: "Remote", href: "#remote" },
   { name: "Limited Edition", href: "#limited-edition" },
   { name: "Engagement", href: "#pricing" },
   { name: "Support", href: "https://help.personal-centurion.com/" },

@@ -7,6 +7,7 @@ const footerLinks = {
   Capabilities: [
     { name: "Sovereign Intelligence", href: "#features" },
     { name: "How it works", href: "#how-it-works" },
+    { name: "AI Remote", href: "#remote" },
     { name: "Infrastructure", href: "#integrations" },
     { name: "Skills Library", href: "#developers" },
   ],
