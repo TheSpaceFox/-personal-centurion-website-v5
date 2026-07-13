@@ -6,27 +6,32 @@ import { Shield, Lock, Eye, FileCheck } from "lucide-react";
 const securityFeatures = [
   {
     icon: Shield,
-    title: "Air-Gapped Deployment",
-    description: "Complete network isolation for the highest security environments.",
+    title: "Fully offline option",
+    description: "When nothing may leave the room, Centurion can work without the public internet.",
   },
   {
     icon: Eye,
-    title: "Zero Trust Architecture",
-    description: "Every request verified, every access authenticated. No exceptions.",
+    title: "Trust nothing by default",
+    description: "Access is careful and deliberate. Nothing is assumed safe without your say.",
   },
   {
     icon: FileCheck,
-    title: "Complete Audit Trails",
-    description: "Every AI decision logged and fully traceable.",
+    title: "A clear history of decisions",
+    description: "You can see what your Centurion did and why — records that stay with you.",
   },
   {
     icon: Lock,
-    title: "On-Premise Control",
-    description: "Hardware you own, software you control. Nothing leaves your perimeter.",
+    title: "You own it",
+    description: "Hardware in your home. Control in your hands. Your private life does not leave with a vendor.",
   },
 ];
 
-const certifications = ["SOC 2 Type II", "ISO 27001", "FedRAMP Ready", "ITAR Compliant"];
+const trustSignals = [
+  "Made for private lives",
+  "Nothing leaves without you",
+  "Built for serious work",
+  "Loyal by design",
+];
 
 export function SecuritySection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,7 +53,6 @@ export function SecuritySection() {
     <section id="security" ref={sectionRef} className="relative py-24 lg:py-32 bg-foreground/[0.02] overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left: Content */}
           <div
             className={`transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -56,36 +60,33 @@ export function SecuritySection() {
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Security
+              Privacy
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Sovereign,
+              Yours,
               <br />
               not compromised.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Built for defense, finance, and critical infrastructure. Security is not
-              a feature &mdash; it is the foundation. For those who cannot afford to trust
-              third parties with their intelligence.
+              Built for people who cannot put their life&apos;s work in a public
+              chat box. Privacy is not an add-on — it is the starting point.
             </p>
 
-            {/* Certifications */}
             <div className="flex flex-wrap gap-3">
-              {certifications.map((cert, index) => (
+              {trustSignals.map((signal, index) => (
                 <span
-                  key={cert}
+                  key={signal}
                   className={`px-4 py-2 border border-foreground/10 text-sm font-mono transition-all duration-500 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{ transitionDelay: `${index * 50 + 200}ms` }}
                 >
-                  {cert}
+                  {signal}
                 </span>
               ))}
             </div>
           </div>
 
-          {/* Right: Features */}
           <div className="grid gap-6">
             {securityFeatures.map((feature, index) => (
               <div

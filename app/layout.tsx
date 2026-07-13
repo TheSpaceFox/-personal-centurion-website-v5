@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'CENTURION - Sovereign AI Infrastructure',
+  title: 'Personal Centurion — A private AI for your life\'s mission',
   description: 'A private AI that answers only to you. For those who have built empires and guard their legacy with care. Private, sovereign, and loyal.',
   generator: 'v0.app',
 }

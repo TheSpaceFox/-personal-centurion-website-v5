@@ -25,22 +25,22 @@ const capabilities = [
   {
     icon: Users,
     title: "Collaborate",
-    description: "Work with others through swarm-ready sessions when your situation calls for more than one mind.",
+    description: "Work with others when your situation needs more than one mind — Centurions can work together, carefully.",
   },
   {
     icon: Target,
     title: "Track your Life's Mission",
-    description: "Pulse your progress — see whether days are aligning with the mission you are actually living.",
+    description: "See whether your days are lining up with the life you mean to live.",
   },
   {
     icon: Settings2,
     title: "Make setup changes",
-    description: "Connection, AI provider, appearance, and personality rules — tune the Remote without leaving iPhone.",
+    description: "Connection, how your AI thinks, look and feel, and personal rules — change them from your iPhone.",
   },
   {
     icon: Ellipsis,
     title: "And more",
-    description: "Privacy controls, Connect, and the full Remote stack evolve with your Centurion.",
+    description: "Privacy choices, Connect, and new Remote abilities as your Centurion grows with you.",
   },
 ];
 
@@ -152,7 +152,7 @@ function DeskToRemoteDiagram() {
           fontFamily="ui-monospace, monospace"
           opacity="0.45"
         >
-          CENTURION · DESK
+          PERSONAL CENTURION · DESK
         </text>
       </g>
 
@@ -234,7 +234,7 @@ function DeskToRemoteDiagram() {
         fontFamily="ui-monospace, monospace"
         opacity="0.4"
       >
-        YOUR CENTURION  ↔  CENTURIONAI REMOTE
+        PERSONAL CENTURION  ↔  REMOTE
       </text>
     </svg>
   );
@@ -281,10 +281,11 @@ export function RemoteAppSection() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Talk to your Centurion on your desk from your iPhone — on your home
-              network, encrypted end-to-end. CenturionAI Remote is the companion
-              interface: chat, Mission Control, watch work in progress, approve when
-              you&apos;re needed — not a cloud chatbot.
+              Talk to your Centurion on your desk from your iPhone — over your home
+              Wi‑Fi, locked so only your Centurion and your phone can read it.
+              CenturionAI Remote is your companion: chat, guide your mission, watch
+              work happen, and decide when you are needed — not another public AI
+              chat on the internet.
             </p>
         </div>
 

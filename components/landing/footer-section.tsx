@@ -8,7 +8,7 @@ const footerLinks = {
     { name: "Sovereign Intelligence", href: "#features" },
     { name: "How it works", href: "#how-it-works" },
     { name: "AI Remote", href: "#remote" },
-    { name: "Infrastructure", href: "#integrations" },
+    { name: "Who we serve", href: "#integrations" },
     { name: "Skills Library", href: "#developers" },
   ],
   Engagement: [
@@ -50,12 +50,12 @@ export function FooterSection() {
             {/* Brand Column */}
             <div className="col-span-2">
               <a href="#" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display tracking-[0.2em]">CENTURION</span>
+                <span className="text-xl sm:text-2xl font-display tracking-[0.12em]">PERSONAL CENTURION</span>
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                Sovereign AI infrastructure. Private, loyal, and entirely yours. For those
-                who understand that sovereignty cannot be borrowed, rented, or shared.
+                A private AI for your life&apos;s mission. Loyal, and entirely yours.
+                For those who know that real privacy cannot be borrowed, rented, or shared.
               </p>
 
               {/* Social Links */}
@@ -102,13 +102,13 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            {new Date().getFullYear()} CENTURION. All rights reserved.
+            {new Date().getFullYear()} Personal Centurion. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500" />
-              Sovereign &amp; operational
+              Private &amp; ready
             </span>
           </div>
         </div>

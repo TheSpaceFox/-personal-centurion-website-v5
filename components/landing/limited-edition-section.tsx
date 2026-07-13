@@ -141,7 +141,7 @@ export function LimitedEditionSection() {
             </h2>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-xl mb-8">
               A scarce series of Personal Centurions in artisan finishes.
-              Register now to be considered when allocation opens.
+              Register now to be considered when places open.
             </p>
             <p className="font-mono text-xs tracking-widest uppercase text-white/50">
               {active.name}

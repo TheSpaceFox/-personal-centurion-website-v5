@@ -5,54 +5,73 @@ import { Copy, Check } from "lucide-react";
 
 const codeExamples = [
   {
-    label: "Discovery",
-    code: `// Centurion reads the public manifest
-manifest.read({
-  download: false,
-  understand: 'capabilities'
+    label: "Don't trust strangers",
+    code: `// Skills from other people are not trusted
+skill.fromSomeoneElse({
+  trust: 'none',
+  risk: 'stolen secrets | hidden behaviour'
 })
 
-// Knows what a skill does
-// without ever downloading it`,
+// Centurion will not install
+// a stranger's skill on your say-so alone.`,
   },
   {
-    label: "Deliberation",
-    code: `centurion.deliberate({
-  needed: 'does my human need this?',
-  conflict: 'incompatible with my model?',
-  safe: 'private and verified?'
+    label: "Skill maker",
+    code: `centurion.makeSkill({
+  for: 'what you actually need',
+  basedOn: 'your life's mission',
+  author: 'your Centurion'
 })
 
-// It decides. Not the vendor.`,
+// It builds skills. It does not
+// shop for skills in a store.`,
   },
   {
-    label: "Integration",
-    code: `vault.integrate({
-  package: 'signed & verified',
-  encryption: 'end-to-end',
-  retrain: 'locally, on your data'
+    label: "When needed",
+    code: `work.continues({
+  gap: 'found',
+  skill: 'made now',
+  stays: 'with you'
 })
 
-// The skill becomes yours.`,
+// Skills appear when they are needed —
+// and stay in your home, under your control.`,
+  },
+  {
+    label: "Improve",
+    code: `loop.run({
+  notice: true,
+  act: true,
+  learn: true,
+  improve: true
+})
+
+// Notice. Act. Learn. Improve.
+// Skills get better with use —
+// without reporting home.`,
   },
 ];
 
 const features = [
-  { 
-    title: "Discovery", 
-    description: "Reads the public manifest and understands each skill without downloading it."
+  {
+    title: "Don't trust skills from strangers",
+    description:
+      "A skill written by someone else can hide quiet ways to leak your private life or change how your AI behaves. Centurion will not take that risk for you.",
   },
-  { 
-    title: "Deliberation", 
-    description: "Asks whether you need it, whether it conflicts, and whether it is safe."
+  {
+    title: "Your Centurion makes the skills",
+    description:
+      "It is not scrolling a store of other people's tools. It builds what you need from your mission and your way of working.",
   },
-  { 
-    title: "Opt-in Download", 
-    description: "Approved skills arrive as verified, signed packages inside your Iron Vault."
+  {
+    title: "Made in the moment",
+    description:
+      "When work opens a gap, Centurion creates the skill it needs — then keeps it with you, not on someone else's shelf.",
   },
-  { 
-    title: "Integration", 
-    description: "Retrains locally on your data. The skill becomes truly yours."
+  {
+    title: "Gets better with use",
+    description:
+      "Notice what happened. Act. Learn. Improve. Skills tighten as you live with them — without sending your life back to a vendor.",
   },
 ];
 
@@ -113,7 +132,6 @@ export function DevelopersSection() {
       <style dangerouslySetInnerHTML={{ __html: codeAnimationStyles }} />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          {/* Left: Content */}
           <div
             className={`transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -121,21 +139,33 @@ export function DevelopersSection() {
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Opt-in evolution
+              Skills Library
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
               The Skills
               <br />
               <span className="text-muted-foreground">Library.</span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              Your Centurion does not auto-update. It does not phone home. Instead it
-              uses a curious, opt-in skills library model &mdash; like a bookseller who
-              leaves a catalogue at your door. You choose what to read.
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Other AIs treat skills like apps from a shop — made by strangers.
+              Centurion does the opposite. It does not trust skills made by others.
+              Your Centurion builds what you need, when you need it, and improves as
+              you go.
             </p>
-            
-            {/* Features */}
-            <div className="grid grid-cols-2 gap-6">
+
+            <div className="mb-12 p-6 border border-foreground/10 bg-foreground/[0.02]">
+              <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-3">
+                Why skills from others are risky
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                A skill you did not write can quietly send information out, change how
+                your AI behaves later, or hide instructions you never agreed to. That is
+                not a shortcut. It is a door into your private life. Centurion keeps that
+                door closed.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {features.map((feature, index) => (
                 <div
                   key={feature.title}
@@ -150,22 +180,20 @@ export function DevelopersSection() {
               ))}
             </div>
           </div>
-          
-          {/* Right: Code block */}
+
           <div
             className={`lg:sticky lg:top-32 transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
             }`}
           >
             <div className="border border-foreground/10">
-              {/* Tabs */}
-              <div className="flex items-center border-b border-foreground/10">
+              <div className="flex items-center border-b border-foreground/10 overflow-x-auto">
                 {codeExamples.map((example, idx) => (
                   <button
                     key={example.label}
                     type="button"
                     onClick={() => setActiveTab(idx)}
-                    className={`px-6 py-4 text-sm font-mono transition-colors relative ${
+                    className={`px-5 py-4 text-sm font-mono transition-colors relative shrink-0 ${
                       activeTab === idx
                         ? "text-foreground"
                         : "text-muted-foreground hover:text-foreground"
@@ -181,8 +209,8 @@ export function DevelopersSection() {
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="px-4 py-4 text-muted-foreground hover:text-foreground transition-colors"
-                  aria-label="Copy code"
+                  className="px-4 py-4 text-muted-foreground hover:text-foreground transition-colors shrink-0"
+                  aria-label="Copy example"
                 >
                   {copied ? (
                     <Check className="w-4 h-4 text-green-600" />
@@ -191,18 +219,17 @@ export function DevelopersSection() {
                   )}
                 </button>
               </div>
-              
-              {/* Code content */}
-              <div className="p-8 font-mono text-sm bg-foreground/[0.01] min-h-[220px]">
+
+              <div className="p-8 font-mono text-sm bg-foreground/[0.01] min-h-[260px]">
                 <pre className="text-foreground/80">
-                  {codeExamples[activeTab].code.split('\n').map((line, lineIndex) => (
-                    <div 
-                      key={`${activeTab}-${lineIndex}`} 
+                  {codeExamples[activeTab].code.split("\n").map((line, lineIndex) => (
+                    <div
+                      key={`${activeTab}-${lineIndex}`}
                       className="leading-loose dev-code-line"
                       style={{ animationDelay: `${lineIndex * 80}ms` }}
                     >
                       <span className="inline-flex">
-                        {line.split('').map((char, charIndex) => (
+                        {line.split("").map((char, charIndex) => (
                           <span
                             key={`${activeTab}-${lineIndex}-${charIndex}`}
                             className="dev-code-char"
@@ -210,7 +237,7 @@ export function DevelopersSection() {
                               animationDelay: `${lineIndex * 80 + charIndex * 15}ms`,
                             }}
                           >
-                            {char === ' ' ? '\u00A0' : char}
+                            {char === " " ? "\u00A0" : char}
                           </span>
                         ))}
                       </span>
@@ -219,14 +246,12 @@ export function DevelopersSection() {
                 </pre>
               </div>
             </div>
-            
-            {/* Your right to reject */}
+
             <div className="mt-6 p-6 border border-foreground/10 bg-foreground/[0.01]">
-              <h4 className="text-sm font-medium mb-2">Your Right to Reject</h4>
+              <h4 className="text-sm font-medium mb-2">Made for you, kept with you</h4>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Reject any skill at any time. Your Centurion can also reject skills
-                autonomously if it detects incompatibility with your values. It will
-                never nag, never force, never expire.
+                Skills your Centurion makes stay in your home. They serve your life&apos;s
+                mission — not someone else&apos;s product plan.
               </p>
             </div>
           </div>

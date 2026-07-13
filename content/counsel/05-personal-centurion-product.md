@@ -6,14 +6,14 @@ tags: [product, pricing, personal, hardware]
 priority: 9
 ---
 
-Offer: Secure a Build Slot — Buy a Personal Centurion — £5,000 GBP.
+Offer: Secure a Build Slot — Buy a Personal Centurion — £5,000.
 
 Includes:
-- Base Hardware — MSI NUK AI machine
+- Your private Centurion for the desk
 - Personal Centurion AI Brain
-- Remote Control iPhone App
+- CenturionAI Remote on iPhone
 - Soul Document Process
 - Personal Mission Discovery
-- Swarm Collaboration Capability
+- Work together with other Centurions when needed
 
-Position as the mission vehicle for an individual who wants a loyal, private counterpart — not as a generic computer purchase.
+Position as the mission companion for someone who wants a loyal, private AI — not as a computer purchase.

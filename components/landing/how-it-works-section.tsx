@@ -5,39 +5,42 @@ import { useEffect, useRef, useState } from "react";
 const steps = [
   {
     number: "I",
-    title: "Assess your needs",
-    description: "We analyze your sovereignty requirements, compliance needs, and operational constraints to design the perfect AI infrastructure.",
-    code: `centurion.assess({
-  sovereignty: 'absolute',
-  compliance: ['ITAR', 'SOC2'],
-  constraints: 'defined'
+    title: "Understand your world",
+    description:
+      "We listen to how you live and work — privacy, family, business, and what your life’s mission needs — then shape the right Centurion for you.",
+    code: `centurion.listen({
+  mission: 'yours',
+  privacy: 'absolute',
+  home: 'defined'
 })
 
-// Requirements captured`,
+// Understood.`,
   },
   {
     number: "II",
-    title: "Deploy on your terms",
-    description: "Install Centurion on your infrastructure — on-premise, in your private cloud, or air-gapped. You control the hardware, we provide the intelligence.",
-    code: `centurion.deploy({
-  location: 'your-estate',
-  mode: 'air-gapped',
-  external: false
+    title: "Place it on your terms",
+    description:
+      "Your Centurion lives with you — at home or in your office. You choose how connected it is to the outside world, including fully offline when that matters.",
+    code: `centurion.place({
+  where: 'your home',
+  outsideWorld: 'your choice',
+  leaves: false
 })
 
-// Installed. Nothing leaves.`,
+// Settled. Nothing wanders out.`,
   },
   {
     number: "III",
-    title: "Operate with confidence",
-    description: "Your AI assistant runs 24/7, learning from your data, adapting to your workflows, and never sharing information outside your perimeter.",
-    code: `centurion.operate({
-  uptime: '24/7',
-  learns: 'your data only',
+    title: "Live with it every day",
+    description:
+      "It works around the clock on your life’s mission, learns only from what you share with it, and never sells or shares your private world.",
+    code: `centurion.live({
+  always: true,
+  learns: 'from you only',
   shares: 'nothing'
 })
 
-// Sovereign. Loyal. Yours.`,
+// Private. Loyal. Yours.`,
   },
 ];
 
@@ -96,9 +99,9 @@ export function HowItWorksSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Assess. Deploy.
+            Listen. Place.
             <br />
-            <span className="text-background/50">Operate.</span>
+            <span className="text-background/50">Live.</span>
           </h2>
         </div>
 
@@ -152,7 +155,7 @@ export function HowItWorksSection() {
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                 </div>
-                <span className="text-xs font-mono text-background/40">deployment.ts</span>
+                <span className="text-xs font-mono text-background/40">your-centurion</span>
               </div>
 
               {/* Code content */}

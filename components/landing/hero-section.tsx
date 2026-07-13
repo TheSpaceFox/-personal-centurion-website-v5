@@ -73,7 +73,7 @@ export function HeroSection() {
               >
                 <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground">
                   <span className="w-8 h-px bg-foreground/30" />
-                  Sovereign AI for life&apos;s mission
+                  A private AI for your life&apos;s mission
                 </span>
               </div>
 
@@ -110,8 +110,8 @@ export function HeroSection() {
                 }`}
               >
                 An AI that helps you discover and live your life&apos;s mission —
-                private, sovereign, and loyal. Talk with Centurion now; scroll for the
-                full dossier.
+              private, sovereign, and loyal. Talk with Personal Centurion now; scroll for the
+              full dossier.
               </p>
 
               <div
@@ -126,7 +126,7 @@ export function HeroSection() {
                     document.getElementById("counsel")?.scrollIntoView({ behavior: "smooth" })
                   }
                 >
-                  Speak with Centurion
+                  Speak with Personal Centurion
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
                 <Button
@@ -160,10 +160,10 @@ export function HeroSection() {
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex gap-16">
               {[
-                { value: "100%", label: "Complete data sovereignty", company: "PRIVATE" },
-                { value: "Your", label: "Full operational control", company: "HARDWARE" },
-                { value: "Zero", label: "No third-party access", company: "YOURS FOREVER" },
-                { value: "Air-Gapped", label: "Native offline operation", company: "DOOMSDAY PROTOCOL" },
+                { value: "100%", label: "Your private world stays yours", company: "PRIVATE" },
+                { value: "Your", label: "You decide how it works", company: "IN YOUR HOME" },
+                { value: "Zero", label: "No strangers reading along", company: "YOURS FOREVER" },
+                { value: "Offline", label: "Can work with no outside line", company: "WHEN NEEDED" },
               ].map((stat) => (
                 <div key={`${stat.company}-${i}`} className="flex items-baseline gap-4">
                   <span className="text-4xl lg:text-5xl font-display">{stat.value}</span>
@@ -187,7 +187,7 @@ export function HeroSection() {
         }`}
       >
         <MessageSquare className="w-4 h-4" />
-        Speak with Centurion
+        Speak with Personal Centurion
       </a>
     </section>
   );

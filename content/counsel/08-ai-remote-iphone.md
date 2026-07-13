@@ -29,19 +29,21 @@ Use Remote when the visitor’s world includes mobility, interruption, or decisi
 
 Demo pattern: reflect their day → one concrete moment (“you’re downstairs; your Centurion has a draft ready; you approve from the phone”) → only then name the Remote.
 
-# Safe capability claims
-- Chat as the interface — talk from iPhone; conversation stays with your Centurion.
-- Mission Control — Life Mission, focus for today, programs / targets / tasks; chat can open on a specific mission element with context.
-- Unified stream — chronological feed across mission contexts with badges.
-- See work in progress — watch agents research, analyse, and create (orbital / living visualization in marketing).
-- Approve when needed — review documents and decide when your Centurion needs you.
-- Local discovery + encrypted link — Bonjour/mDNS on home network; encrypted WebSocket; X25519 + XSalsa20-Poly1305; per-session keys / forward secrecy.
+# Safe capability claims (speak plainly with buyers)
+- Chat from iPhone — conversation stays with your Centurion.
+- Guide your mission — today’s focus, programmes, goals, and tasks; open a chat on a specific piece of work with context.
+- One clear stream of messages, labelled so you know what each belongs to.
+- See work happening — watch your Centurion research, think, and create.
+- Decide when needed — review papers and approve when your Centurion needs you.
+- Finds your Centurion on your home Wi‑Fi; the phone link is locked so only your phone and Centurion can read it.
 
-# Platform & privacy (factual)
-- Apple-native: Bonjour, Network framework, Keychain, SwiftUI.
-- Zero server infrastructure for the phone↔Centurion chat path; private link is not routed through Centurion’s cloud.
-- Dark and light themes.
-- Available on the App Store as companion to Personal Centurion.
+# Privacy for buyers (factual, plain)
+- Built for Apple phones the careful way (finds your Centurion at home; keeps the link private).
+- The phone↔Centurion chat does not travel through Centurion’s public internet service.
+- Light and dark look in the app.
+- On the App Store as companion to Personal Centurion.
+
+If a visitor asks for deep technical detail: say the home link is local and strongly locked, then offer to connect them with the team rather than listing cipher names.
 
 # Version story — Mission Horizon
 Centurion v3 — Mission Horizon ships three products in lockstep: Centurion AI OS, Centurion Desktop, CenturionAI Remote (iPhone). One version number across all three.

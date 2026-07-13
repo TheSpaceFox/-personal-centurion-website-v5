@@ -52,14 +52,14 @@ export function CtaSection() {
               {/* Left content */}
               <div className="flex-1">
                 <h2 className="text-4xl lg:text-7xl font-display tracking-tight mb-8 leading-[0.95]">
-                  Ready for
+                  Ready for an AI
                   <br />
-                  sovereign AI?
+                  that is truly yours?
                 </h2>
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
-                  For individuals who have built extraordinary lives and demand an AI
-                  worthy of their legacy. Begin with a private, confidential conversation.
+                  For people who have built remarkable lives and need an AI worthy
+                  of that care. Begin with a private, quiet conversation.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">

@@ -49,25 +49,25 @@ const metrics = [
     value: 0, 
     suffix: "", 
     prefix: "",
-    label: "Data breaches or external exposures",
+    label: "Quiet leaks of your private life",
   },
   { 
     value: 100, 
     suffix: "%", 
     prefix: "",
-    label: "Ownership of your data and models",
+    label: "You own your Centurion and your story",
   },
   { 
     value: 30, 
     suffix: " days", 
     prefix: "<",
-    label: "From consultation to deployment",
+    label: "From first talk to placement in your home",
   },
   { 
     value: 24, 
     suffix: "/7", 
     prefix: "",
-    label: "White-glove operational support",
+    label: "Careful human support when you need it",
   },
 ];
 
@@ -99,19 +99,19 @@ export function MetricsSection() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
           <div>
-            <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-              <span className="w-8 h-px bg-foreground/30" />
-              Security status
-            </span>
-            <h2
-              className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-            >
-              Sovereignty you
-              <br />
-              can measure.
-            </h2>
+              <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
+                <span className="w-8 h-px bg-foreground/30" />
+                In numbers
+              </span>
+              <h2
+                className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+              >
+                Privacy you
+                <br />
+                can count on.
+              </h2>
           </div>
           <div className="flex items-center gap-4 font-mono text-sm text-muted-foreground">
             <span className="flex items-center gap-2">

@@ -8,8 +8,8 @@ const integrations = [
   { name: "Collectors", category: "Keepers of legacy" },
   { name: "Families", category: "Multi-generational wealth" },
   { name: "Family Offices", category: "Principals & advisors" },
-  { name: "Defense", category: "Critical infrastructure" },
-  { name: "Statesmen", category: "Discretion & sovereignty" },
+  { name: "Defense", category: "Quiet, serious work" },
+  { name: "Statesmen", category: "Discretion & trust" },
   { name: "Institutions", category: "Finance & governance" },
 ];
 
@@ -49,8 +49,8 @@ export function IntegrationsSection() {
             true privacy.
           </h2>
           <p className="text-xl text-muted-foreground">
-            By invitation and referral. For individuals who understand that true
-            sovereignty cannot be borrowed, rented, or shared.
+            By invitation and referral. For people who know that real privacy
+            cannot be borrowed, rented, or shared.
           </p>
         </div>
 

@@ -5,26 +5,30 @@ import { useEffect, useRef, useState } from "react";
 const features = [
   {
     number: "01",
-    title: "The Device",
-    description: "Custom made hardware in crystal, bronze, leather, and unique alloys so it's not only practical, it's beautiful to look at. Interact with Centurion from your phone, or via the built-in screen and keyboard.",
+    title: "The Centurion",
+    description:
+      "Made to live in your home — crafted materials, beautiful to look at, ready for a desk you care about. Talk through your phone, or use the screen and keys on the Centurion itself.",
     visual: "ai",
   },
   {
     number: "02",
-    title: "Air-Gapped Infrastructure",
-    description: "Fully isolated deployment options for defense and critical infrastructure. Zero external network dependencies when required.",
+    title: "Works fully offline when you need it",
+    description:
+      "When your world must stay sealed from the outside, Centurion can run without any link to the public internet. Your private life stays in the room.",
     visual: "security",
   },
   {
     number: "03",
-    title: "Custom Model Training",
-    description: "Train foundation models on your proprietary data. Fine-tune for your specific domain without ever exposing sensitive information.",
+    title: "Learns your way of working",
+    description:
+      "It shapes itself around your papers, habits, and life’s mission — without sending that material to a company you do not own.",
     visual: "collab",
   },
   {
     number: "04",
     title: "Luxury Case",
-    description: "Residing in a heavy duty impact resistant case, fit for a king. Leather and alloys for an impressive look on a truly unique device.",
+    description:
+      "Held in a heavy, impact-resistant case fit for a desk of consequence. Leather and alloys for a look that matches the work inside.",
     visual: "deploy",
   },
 ];
@@ -330,13 +334,13 @@ export function FeaturesSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Sovereign
+            Private
             <br />
             <span className="text-muted-foreground">intelligence.</span>
           </h2>
           <p className="mt-8 text-xl text-muted-foreground leading-relaxed max-w-2xl">
-            Deploy AI infrastructure that you own completely. No third-party dependencies,
-            no data exposure, no compromises on sovereignty.
+            An AI you own completely. No company in the middle. No quiet copies of
+            your life leaving home.
           </p>
         </div>
 

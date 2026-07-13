@@ -23,12 +23,12 @@ const plans = [
     price: "£5,000",
     priceNote: "Personal Centurion — GBP",
     features: [
-      "Base Hardware — MSI NUK AI machine",
+      "Your private Centurion computer for the desk",
       "Personal Centurion AI Brain",
-      "Remote Control iPhone App",
+      "CenturionAI Remote on iPhone",
       "Soul Document Process",
       "Personal Mission Discovery",
-      "Swarm Collaboration Capability",
+      "Work together with other Centurions when needed",
     ],
     cta: "Secure Build Slot",
     popular: true,
@@ -39,12 +39,12 @@ const plans = [
     price: "£25,000+",
     priceNote: "Board edition — priced for the full board · GBP",
     features: [
-      "Purchased by companies for their board of directors",
-      "Each board member issued a Personal Centurion (MSI NUK AI base hardware)",
-      "Personal Centurion AI Brain, iPhone app, Soul Document & Mission Discovery",
-      "Swarm collaboration — board Centurions work together across the table",
-      "Chairman receives the most senior Centurion in the board formation",
-      "Chairman of the Board remote control for iPhone — a special senior command app",
+      "Bought by companies for their board of directors",
+      "Each board member receives their own Personal Centurion",
+      "AI Brain, iPhone Remote, Soul Document & Mission Discovery",
+      "Board Centurions can work together across the table",
+      "The Chairman receives the most senior Centurion",
+      "Special Chairman of the Board remote for iPhone",
     ],
     cta: "Enquire for Board Edition",
     popular: false,
@@ -66,10 +66,9 @@ export function PricingSection() {
             <span className="text-stroke">with us.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl">
-            Centurion is built, not rented. Register your interest, secure a Personal
-            Centurion from £5,000, or enquire about the Board edition from £25,000+ —
-            a coordinated set of Centurions for a company board, with the Chairman
-            holding the most senior unit.
+            Personal Centurion is built, not rented. Register your interest, secure yours
+            from £5,000, or enquire about the Board edition from £25,000+ — a coordinated
+            set for a company board, with the Chairman holding the most senior unit.
           </p>
         </div>
 
@@ -132,9 +131,9 @@ export function PricingSection() {
 
         {/* Bottom Note */}
         <p className="mt-12 text-center text-sm text-muted-foreground">
-          Complete discretion. White-glove service. By invitation and referral.{" "}
+          Careful service. By invitation and referral.{" "}
           <a href="#" className="underline underline-offset-4 hover:text-foreground transition-colors">
-            Download capability brief
+            Read more about Personal Centurion
           </a>
         </p>
       </div>

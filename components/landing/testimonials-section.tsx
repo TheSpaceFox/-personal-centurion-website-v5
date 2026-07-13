@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const testimonials = [
   {
-    quote: "My life's work, my family's legacy, my private correspondence — I refuse to let any of it touch a public cloud. Centurion understands what sovereignty truly means.",
+    quote: "My life's work, my family's legacy, my private letters — I refuse to let any of it sit in a public chat. Centurion understands what privacy truly means.",
     author: "Private Investor",
     role: "Family Office Principal",
     company: "Multi-Generational Wealth",
@@ -22,7 +22,7 @@ const testimonials = [
     author: "Collector",
     role: "Keeper of Legacy",
     company: "By Invitation",
-    metric: "Zero third-party access",
+    metric: "No strangers reading along",
   },
 ];
 

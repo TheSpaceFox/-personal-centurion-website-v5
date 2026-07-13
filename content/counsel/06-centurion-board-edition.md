@@ -6,13 +6,14 @@ tags: [product, board, pricing, swarm, chairman]
 priority: 9
 ---
 
-Offer: Centurion Board — Board edition for companies — £25,000+ GBP.
+Offer: Centurion Board — for company boards — £25,000+.
 
-This is not "joining Centurion's corporate board." It is a product purchased by companies that have a board of directors.
+Not “joining Centurion’s company board.” Bought by companies that have a board of directors.
 
-- Each board member is issued a Personal Centurion (MSI NUK base hardware + AI Brain + iPhone remote + Soul Document + Mission Discovery).
-- Swarm Collaboration lets board Centurions work together across the table.
-- The Chairman receives the most senior Centurion in the formation.
-- The Chairman also receives a special Chairman of the Board remote control for iPhone — senior command for the board swarm.
+- Each board member receives a Personal Centurion
+- Same core experience: AI Brain, iPhone Remote, Soul Document, Mission Discovery
+- Board Centurions can work together across the table
+- The Chairman receives the most senior Centurion
+- The Chairman also receives a special Chairman of the Board remote for iPhone
 
-Enquire via #pricing CTA or hello@personal-centurion.com.
+Enquire via #pricing or hello@personal-centurion.com.

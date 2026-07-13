@@ -75,7 +75,7 @@ export function CounselChamber({ compact = false }: { compact?: boolean }) {
           <p className="font-mono text-[10px] tracking-[0.28em] uppercase text-white/45">
             Briefing
           </p>
-          <h3 className="font-display text-xl tracking-tight">Speak with Centurion</h3>
+          <h3 className="font-display text-xl tracking-tight">Speak with Personal Centurion</h3>
         </div>
         <span className="font-mono text-[10px] tracking-widest uppercase text-white/40">
           Mission counsel
@@ -112,9 +112,9 @@ export function CounselChamber({ compact = false }: { compact?: boolean }) {
               What are you building your life toward?
             </p>
             <p className="text-sm text-white/55 leading-relaxed max-w-md mb-5">
-              Centurion helps people discover and live their life&apos;s mission —
+              Personal Centurion helps people discover and live their life&apos;s mission —
               privately, on hardware they own. Share your situation and we will
-              find whether a Personal Centurion fits.
+              find whether one fits.
             </p>
             <div className="flex flex-wrap gap-2">
               {CHIPS.map((chip) => (
@@ -143,7 +143,7 @@ export function CounselChamber({ compact = false }: { compact?: boolean }) {
               }`}
             >
               <p className="font-mono text-[10px] tracking-widest uppercase text-white/35 mb-1">
-                {isUser ? "You" : "Centurion"}
+                {isUser ? "You" : "Personal Centurion"}
               </p>
               <div
                 className={`inline-block max-w-full whitespace-pre-wrap text-sm leading-relaxed px-4 py-3 ${
