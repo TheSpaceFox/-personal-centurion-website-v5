@@ -234,7 +234,7 @@ function DeskToRemoteDiagram() {
         fontFamily="ui-monospace, monospace"
         opacity="0.4"
       >
-        DESK UNIT  ↔  IPHONE REMOTE
+        YOUR CENTURION  ↔  CENTURIONAI REMOTE
       </text>
     </svg>
   );
@@ -263,30 +263,29 @@ export function RemoteAppSection() {
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="mb-16 lg:mb-20 max-w-3xl">
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-            <span className="w-8 h-px bg-foreground/30" />
-            Personal Centurion AI Remote
-          </span>
-          <h2
-            className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            Your Centurion
-            <br />
-            <span className="text-muted-foreground">on the desk.</span>
-            <br />
-            You in command.
-          </h2>
-          <p
-            className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-2xl transition-all duration-700 delay-150 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            The sphere stays put — private, on your hardware. You access and operate it
-            through the Personal Centurion AI Remote on iPhone: chat, documents,
-            collaboration, mission tracking, setup, and more.
-          </p>
+            <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
+              <span className="w-8 h-px bg-foreground/30" />
+              CenturionAI Remote
+            </span>
+            <h2
+              className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              Your Centurion
+              <br />
+              <span className="text-muted-foreground">in your pocket.</span>
+            </h2>
+            <p
+              className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-2xl transition-all duration-700 delay-150 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
+              Talk to your Centurion on your desk from your iPhone — on your home
+              network, encrypted end-to-end. CenturionAI Remote is the companion
+              interface: chat, Mission Control, watch work in progress, approve when
+              you&apos;re needed — not a cloud chatbot.
+            </p>
         </div>
 
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-start mb-20">
@@ -307,7 +306,7 @@ export function RemoteAppSection() {
               <div className="overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-[#f4f1ec]">
                 <Image
                   src="/personal-centurion-ai-remote.png"
-                  alt="Personal Centurion AI Remote on iPhone — Settings, connection, and AI provider controls"
+                  alt="Personal Centurion AI Remote on iPhone — Home view with mission work in progress"
                   width={470}
                   height={1024}
                   className="w-full h-auto"
@@ -316,7 +315,7 @@ export function RemoteAppSection() {
               </div>
             </div>
             <p className="mt-4 text-center font-mono text-xs tracking-widest uppercase text-muted-foreground">
-              iPhone · AI Remote
+              iPhone · CenturionAI Remote
             </p>
           </div>
         </div>
