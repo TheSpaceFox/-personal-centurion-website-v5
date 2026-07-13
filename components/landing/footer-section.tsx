@@ -11,10 +11,10 @@ const footerLinks = {
     { name: "Skills Library", href: "#developers" },
   ],
   Engagement: [
+    { name: "Limited Edition", href: "#limited-edition" },
     { name: "Register Interest", href: "#pricing" },
     { name: "Secure a Build Slot", href: "#pricing" },
     { name: "Private Consultation", href: "#pricing" },
-    { name: "Whitepaper", href: "#" },
   ],
   Company: [
     { name: "Our Philosophy", href: "#" },
