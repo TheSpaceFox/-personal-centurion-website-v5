@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
+  { name: "Counsel", href: "#counsel" },
   { name: "Capabilities", href: "#features" },
-  { name: "The Landscape", href: "#how-it-works" },
   { name: "Limited Edition", href: "#limited-edition" },
   { name: "Engagement", href: "#pricing" },
   { name: "Support", href: "https://help.personal-centurion.com/" },

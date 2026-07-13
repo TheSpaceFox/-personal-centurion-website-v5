@@ -6,6 +6,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  outputFileTracingIncludes: {
+    "/api/counsel": ["./content/counsel/**/*"],
+  },
 }
 
 export default nextConfig
