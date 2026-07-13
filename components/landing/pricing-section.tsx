@@ -19,32 +19,34 @@ const plans = [
   },
   {
     name: "Secure a Build Slot",
-    description: "Lock in delivery with a 10% deposit",
-    price: "£100,000",
-    priceNote: "10% deposit (£10,000) to secure your slot",
+    description: "Buy a Personal Centurion",
+    price: "£5,000",
+    priceNote: "Personal Centurion — GBP",
     features: [
-      "Shareholding position for build-slot holders",
-      "Hand delivered by a member of the tech team",
-      "Home / office setup included",
-      "1 day of training included",
-      "Priority access & delivery",
-      "Delivery fee quoted separately by location",
+      "Base Hardware — MSI NUK AI machine",
+      "Personal Centurion AI Brain",
+      "Remote Control iPhone App",
+      "Soul Document Process",
+      "Personal Mission Discovery",
+      "Swarm Collaboration Capability",
     ],
-    cta: "Secure Slot (10% Deposit)",
+    cta: "Secure Build Slot",
     popular: true,
   },
   {
-    name: "Private Consultation",
-    description: "Discuss fit, timing, and delivery discreetly",
-    price: "By appointment",
-    priceNote: "Complete discretion",
+    name: "Centurion Board",
+    description: "Board membership with Personal Centurion for each member",
+    price: "£25,000+",
+    priceNote: "Per Board membership — GBP",
     features: [
-      "Confidential scoping call",
-      "Delivery planning for your home / office",
-      "Security and privacy requirements review",
-      "Build-slot availability discussion",
+      "Each Board Member issued with Base Hardware — MSI NUK AI machines",
+      "Personal Centurion AI Brain",
+      "Remote Control iPhone App",
+      "Soul Document Process",
+      "Personal Mission Discovery",
+      "Swarm Collaboration Capability",
     ],
-    cta: "Request Consultation",
+    cta: "Join Centurion Board",
     popular: false,
   },
 ];
@@ -64,9 +66,8 @@ export function PricingSection() {
             <span className="text-stroke">with us.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl">
-            Centurion is built, not rented. Register your interest to join our verified
-            buyer list, or secure a build slot with a 10% deposit to lock in delivery
-            and priority access.
+            Centurion is built, not rented. Register your interest, secure a Personal
+            Centurion build slot from £5,000, or join the Centurion Board from £25,000+.
           </p>
         </div>
 

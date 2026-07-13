@@ -14,7 +14,7 @@ const footerLinks = {
     { name: "Limited Edition", href: "#limited-edition" },
     { name: "Register Interest", href: "#pricing" },
     { name: "Secure a Build Slot", href: "#pricing" },
-    { name: "Private Consultation", href: "#pricing" },
+    { name: "Centurion Board", href: "#pricing" },
   ],
   Company: [
     { name: "Our Philosophy", href: "#" },
