@@ -20,7 +20,7 @@ const footerLinks = {
     { name: "Our Philosophy", href: "#" },
     { name: "Who we serve", href: "#integrations" },
     { name: "Discretion", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Support", href: "https://help.personal-centurion.com/" },
   ],
   Legal: [
     { name: "Privacy", href: "#" },

@@ -9,6 +9,7 @@ const navLinks = [
   { name: "The Landscape", href: "#how-it-works" },
   { name: "Skills Library", href: "#developers" },
   { name: "Engagement", href: "#pricing" },
+  { name: "Support", href: "https://help.personal-centurion.com/" },
 ];
 
 export function Navigation() {
