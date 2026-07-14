@@ -64,12 +64,35 @@ export function LimitedEditionSection() {
     setUserPaused(true);
   }
 
-  function handleRegister(event: FormEvent<HTMLFormElement>) {
+  async function handleRegister(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
     if (!trimmedName || !trimmedEmail) return;
+
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          kind: "limited-edition",
+          name: trimmedName,
+          email: trimmedEmail,
+          edition: active.name,
+          note: note.trim() || undefined,
+        }),
+      });
+      if (res.ok) {
+        setName("");
+        setEmail("");
+        setNote("");
+        window.alert("Thank you — your Limited Edition interest is registered.");
+        return;
+      }
+    } catch {
+      // fall through to mailto
+    }
 
     const subject = encodeURIComponent(
       `Limited Edition Centurion — Registration (${active.name})`

@@ -35,6 +35,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local quote / lead store
+.data/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

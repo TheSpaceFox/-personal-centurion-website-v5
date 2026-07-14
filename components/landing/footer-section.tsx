@@ -10,30 +10,31 @@ const footerLinks = {
     { name: "AI Remote", href: "#remote" },
     { name: "Who it serves", href: "#integrations" },
     { name: "Skills Library", href: "#developers" },
+    { name: "Talk plainly", href: "#plain-talk" },
   ],
   Engagement: [
     { name: "Limited Edition", href: "#limited-edition" },
-    { name: "Register Interest", href: "#pricing" },
-    { name: "Secure a Build Slot", href: "#pricing" },
-    { name: "Centurion Board", href: "#pricing" },
+    { name: "Register Interest", href: "/order?engagement=interest" },
+    { name: "Secure a Build Slot", href: "/order?engagement=personal" },
+    { name: "Centurion Board", href: "/order?engagement=board" },
+    { name: "Buyer account", href: "/account" },
   ],
   Company: [
-    { name: "Our Philosophy", href: "#" },
     { name: "Who it serves", href: "#integrations" },
     { name: "Family Beneficiary Program", href: "/family-beneficiary-program" },
-    { name: "Discretion", href: "#" },
     { name: "Support", href: "https://help.personal-centurion.com/" },
+    { name: "Enquiries", href: "mailto:hello@personal-centurion.com" },
   ],
   Legal: [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
+    { name: "Privacy", href: "/privacy" },
+    { name: "Terms", href: "/terms" },
     { name: "Security", href: "#security" },
   ],
 };
 
 const socialLinks = [
-  { name: "Enquiries", href: "#" },
-  { name: "By Referral", href: "#" },
+  { name: "Enquiries", href: "mailto:hello@personal-centurion.com" },
+  { name: "Support", href: "https://help.personal-centurion.com/" },
 ];
 
 export function FooterSection() {
@@ -103,7 +104,7 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            {new Date().getFullYear()} Personal Centurion. All rights reserved.
+            {new Date().getFullYear()} Personal Centurion. All rights reserved. · v5.0.0
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">

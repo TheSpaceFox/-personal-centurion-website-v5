@@ -42,10 +42,21 @@ function PrivacyDiagram() {
   return (
     <svg
       viewBox="0 0 520 320"
-      className="h-auto w-full text-foreground"
+      className="h-auto w-full text-foreground motion-safe:[&_.privacy-motion]:opacity-100"
       role="img"
       aria-label="Diagram of your private world inside the home, sealed from public chat and cloud systems"
     >
+      <style>{`
+        @media (prefers-reduced-motion: reduce) {
+          .privacy-motion { animation: none !important; }
+          .privacy-motion animate,
+          .privacy-motion animateTransform,
+          .privacy-motion animateMotion {
+            display: none !important;
+          }
+        }
+      `}</style>
+
       <text
         x="260"
         y="28"
@@ -71,14 +82,24 @@ function PrivacyDiagram() {
         >
           PUBLIC
         </text>
-        {/* Cloud */}
-        <path
-          d="M60 110 C60 90, 80 80, 100 85 C108 70, 132 70, 140 88 C158 88, 168 102, 164 118 L56 118 C48 118, 44 108, 52 100 Z"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.25"
-          opacity="0.5"
-        />
+        {/* Cloud — soft hover */}
+        <g className="privacy-motion">
+          <path
+            d="M60 110 C60 90, 80 80, 100 85 C108 70, 132 70, 140 88 C158 88, 168 102, 164 118 L56 118 C48 118, 44 108, 52 100 Z"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.25"
+            opacity="0.5"
+          >
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              values="0 0; 0 -3; 0 0"
+              dur="4.5s"
+              repeatCount="indefinite"
+            />
+          </path>
+        </g>
         {/* Chat bubble */}
         <rect
           x="72"
@@ -94,13 +115,40 @@ function PrivacyDiagram() {
         <path d="M88 186 L96 198 L104 186" fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.45" />
         <line x1="82" y1="162" x2="118" y2="162" stroke="currentColor" strokeWidth="1" opacity="0.3" />
         <line x1="82" y1="172" x2="110" y2="172" stroke="currentColor" strokeWidth="1" opacity="0.25" />
-        {/* Block X */}
-        <circle cx="100" cy="230" r="18" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.55" />
-        <line x1="90" y1="220" x2="110" y2="240" stroke="currentColor" strokeWidth="1.5" opacity="0.55" />
-        <line x1="110" y1="220" x2="90" y2="240" stroke="currentColor" strokeWidth="1.5" opacity="0.55" />
+        {/* Block X — gentle pulse */}
+        <g className="privacy-motion">
+          <circle cx="100" cy="230" r="18" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.55">
+            <animate attributeName="opacity" values="0.35;0.65;0.35" dur="3.2s" repeatCount="indefinite" />
+          </circle>
+          <line x1="90" y1="220" x2="110" y2="240" stroke="currentColor" strokeWidth="1.5" opacity="0.55" />
+          <line x1="110" y1="220" x2="90" y2="240" stroke="currentColor" strokeWidth="1.5" opacity="0.55" />
+        </g>
+        {/* Probe toward the wall — approaches, then fades (blocked) */}
+        <circle r="2.5" fill="currentColor" opacity="0" className="privacy-motion">
+          <animate
+            attributeName="cx"
+            values="140;205;205"
+            keyTimes="0;0.55;1"
+            dur="3.6s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="cy"
+            values="180;180;180"
+            dur="3.6s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="opacity"
+            values="0;0.45;0"
+            keyTimes="0;0.45;1"
+            dur="3.6s"
+            repeatCount="indefinite"
+          />
+        </circle>
       </g>
 
-      {/* Boundary wall */}
+      {/* Boundary wall — soft seam shimmer */}
       <line
         x1="220"
         y1="56"
@@ -119,7 +167,15 @@ function PrivacyDiagram() {
         strokeWidth="1"
         opacity="0.15"
         strokeDasharray="4 6"
-      />
+        className="privacy-motion"
+      >
+        <animate
+          attributeName="stroke-dashoffset"
+          values="0;20"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+      </line>
       <text
         x="224"
         y="48"
@@ -163,15 +219,30 @@ function PrivacyDiagram() {
           strokeWidth="1.25"
           opacity="0.45"
         />
+        {/* Soft living glow behind Centurion */}
+        <circle cx="370" cy="180" r="42" fill="currentColor" opacity="0.04" className="privacy-motion">
+          <animate attributeName="opacity" values="0.03;0.07;0.03" dur="3.8s" repeatCount="indefinite" />
+          <animate attributeName="r" values="40;46;40" dur="3.8s" repeatCount="indefinite" />
+        </circle>
         {/* Inner private circle / Centurion */}
         <circle cx="370" cy="180" r="34" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.55" />
-        <circle cx="370" cy="180" r="22" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.25" strokeDasharray="3 4">
+        <circle
+          cx="370"
+          cy="180"
+          r="22"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+          opacity="0.25"
+          strokeDasharray="3 4"
+          className="privacy-motion"
+        >
           <animateTransform
             attributeName="transform"
             type="rotate"
             from="0 370 180"
             to="-360 370 180"
-            dur="22s"
+            dur="18s"
             repeatCount="indefinite"
           />
         </circle>
@@ -181,16 +252,41 @@ function PrivacyDiagram() {
           stroke="currentColor"
           strokeWidth="1.25"
           opacity="0.4"
-        />
+          className="privacy-motion"
+        >
+          <animate attributeName="opacity" values="0.3;0.55;0.3" dur="2.8s" repeatCount="indefinite" />
+        </path>
+        {/* Sealed orbit — private activity stays inside */}
+        <circle r="3.5" fill="currentColor" opacity="0.5" className="privacy-motion">
+          <animateMotion
+            dur="5.5s"
+            repeatCount="indefinite"
+            path="M370 146 A34 34 0 1 1 369.9 146"
+          />
+        </circle>
         {/* Offline seal arc */}
         <path
+          id="privacySealPath"
           d="M300 250 A80 40 0 0 0 440 250"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.25"
           opacity="0.35"
           strokeDasharray="6 5"
-        />
+          className="privacy-motion"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            values="0;-22"
+            dur="2.8s"
+            repeatCount="indefinite"
+          />
+        </path>
+        <circle r="3" fill="currentColor" opacity="0.4" className="privacy-motion">
+          <animateMotion dur="3.2s" repeatCount="indefinite">
+            <mpath href="#privacySealPath" />
+          </animateMotion>
+        </circle>
         <text
           x="370"
           y="278"
