@@ -8,8 +8,8 @@ const steps = [
     number: "I",
     title: "Understand your world",
     description:
-      "We listen to how you live and work — privacy, family, business, and what your life’s mission needs — then shape the right Centurion for you.",
-    code: `centurion.listen({
+      "In conversation with you, we learn how you live and work — privacy, family, business, and what your life’s mission needs — then shape the right Centurion for you.",
+    code: `centurion.understand({
   mission: 'yours',
   privacy: 'absolute',
   home: 'defined'
@@ -51,7 +51,7 @@ function HowItWorksDiagram() {
       viewBox="0 0 520 320"
       className="h-auto w-full text-background"
       role="img"
-      aria-label="Diagram of Listen, Place, and Live — the three steps of bringing a Personal Centurion home"
+      aria-label="Diagram of Understand, Place, and Live — the three steps of bringing a Personal Centurion home"
     >
       <defs>
         <marker id="hiwArrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -67,10 +67,10 @@ function HowItWorksDiagram() {
         fontFamily="ui-monospace, monospace"
         opacity="0.4"
       >
-        LISTEN  →  PLACE  →  LIVE
+        UNDERSTAND  →  PLACE  →  LIVE
       </text>
 
-      {/* Stage I — Listen */}
+      {/* Stage I — Understand (brief / conversation, not audio listening) */}
       <g transform="translate(40, 70)">
         <text
           x="70"
@@ -84,38 +84,21 @@ function HowItWorksDiagram() {
           I
         </text>
         <circle cx="70" cy="90" r="52" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
-        <circle cx="70" cy="90" r="28" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.25" strokeDasharray="3 4">
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="0 70 90"
-            to="360 70 90"
-            dur="20s"
-            repeatCount="indefinite"
-          />
-        </circle>
-        {/* Concentric listen waves */}
-        <path
-          d="M48 78 Q70 58 92 78"
+        {/* Briefing card — what we learn in conversation with you */}
+        <rect
+          x="42"
+          y="62"
+          width="56"
+          height="56"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.25"
-          opacity="0.55"
+          opacity="0.5"
         />
-        <path
-          d="M40 70 Q70 44 100 70"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-          opacity="0.3"
-        />
-        <path
-          d="M34 64 Q70 32 106 64"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-          opacity="0.18"
-        />
+        <line x1="50" y1="76" x2="90" y2="76" stroke="currentColor" strokeWidth="1.25" opacity="0.55" />
+        <line x1="50" y1="88" x2="84" y2="88" stroke="currentColor" strokeWidth="1" opacity="0.35" />
+        <line x1="50" y1="98" x2="78" y2="98" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+        <line x1="50" y1="108" x2="86" y2="108" stroke="currentColor" strokeWidth="1" opacity="0.25" />
         <text
           x="70"
           y="168"
@@ -125,7 +108,7 @@ function HowItWorksDiagram() {
           fontFamily="ui-monospace, monospace"
           opacity="0.45"
         >
-          LISTEN
+          UNDERSTAND
         </text>
       </g>
 
@@ -304,7 +287,7 @@ export function HowItWorksSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            Listen. Place.
+            Understand. Place.
             <br />
             <span className="text-background/50">Live.</span>
           </h2>
@@ -313,9 +296,9 @@ export function HowItWorksSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            We listen to how you live and work, place your Centurion under your roof on
-            your terms, then stay with you every day — loyal, private, and quiet about
-            what is yours alone.
+            We learn your world in conversation with you — not by ambient recording —
+            then place your Centurion under your roof on your terms, and stay with you
+            every day: loyal, private, and quiet about what is yours alone.
           </p>
         </div>
 
@@ -346,7 +329,7 @@ export function HowItWorksSection() {
               </div>
             </div>
             <p className="mt-4 text-center font-mono text-xs tracking-widest text-background/45 uppercase">
-              Listen · Place · Live
+              Understand · Place · Live
             </p>
           </div>
         </div>
