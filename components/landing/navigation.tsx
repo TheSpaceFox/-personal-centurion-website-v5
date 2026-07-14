@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { CenturionLogo } from "@/components/centurion-logo";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -45,9 +46,9 @@ export function Navigation() {
             isScrolled ? "h-14" : "h-20"
           }`}
         >
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <span className={`font-display tracking-[0.12em] transition-all duration-500 ${isScrolled ? "text-sm sm:text-lg" : "text-base sm:text-xl"}`}>PERSONAL CENTURION</span>
+          {/* Logo — same lockup as Help */}
+          <a href="#" className="group shrink-0 transition-opacity hover:opacity-80">
+            <CenturionLogo size={isScrolled ? "sm" : "md"} />
           </a>
 
           {/* Desktop Navigation */}
