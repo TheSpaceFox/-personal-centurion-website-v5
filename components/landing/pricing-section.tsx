@@ -2,17 +2,48 @@
 
 import { ArrowRight, Check } from "lucide-react";
 
+const securingSteps = [
+  {
+    title: "Pick an option",
+    detail: "Personal, Pilot, or Board — choose the path that fits.",
+  },
+  {
+    title: "Pay £500 to hold your build position",
+    detail: "Reserves your place in the build queue.",
+  },
+  {
+    title: "Receive CenturionAI Remote immediately",
+    detail: "Your iPhone companion while your Centurion is built.",
+  },
+  {
+    title: "Discover your Mission",
+    detail: "Personal Mission Discovery clarifies what you are for.",
+  },
+  {
+    title: "Hone your Centurion’s Soul",
+    detail: "Soul Document Process shapes personality and focus.",
+  },
+  {
+    title: "Build completes · balance paid",
+    detail: "Remaining amount after the £500 hold is settled.",
+  },
+  {
+    title: "Receive your Centurion and services",
+    detail: "Hardware and purchased services delivered to you.",
+  },
+];
+
 const plans = [
   {
     id: "personal",
     name: "Buy a Personal Centurion",
     description: "Own yours outright — start now",
     price: "£5,000",
-    priceNote: "One Personal Centurion · GBP · secure your build slot today",
+    priceNote: "One Personal Centurion · GBP · £500 hold deposits your place",
     features: [
       "Your private Centurion computer for the desk — hardware you own",
       "Personal Centurion AI Brain, ready for serious mission work",
-      "CenturionAI Remote on iPhone — your Centurion in your pocket",
+      "CenturionAI Remote on iPhone — yours immediately after the hold",
       "Soul Document Process included",
       "Personal Mission Discovery included",
       "Collaborate with other Centurions when your work demands it",
@@ -27,7 +58,7 @@ const plans = [
     name: "Start a Pilot Program",
     description: "Three Centurions + a white-glove proof of concept",
     price: "£15,000",
-    priceNote: "Three Personal Centurions · GBP · full pilot programme included",
+    priceNote: "Three Personal Centurions · GBP · £500 hold deposits your place",
     features: [
       "Three Personal Centurions — ready for desk, boardroom, or home office",
       "Guided Proof of Concept / Pilot delivered with white-glove precision",
@@ -51,7 +82,7 @@ const plans = [
     name: "Centurion Board",
     description: "Equip the whole board — or lose ground to those who do",
     price: "£45,000+",
-    priceNote: "Board edition — priced for the full board · GBP",
+    priceNote: "Board edition · GBP · £500 hold deposits your place · priced for the full board",
     features: [
       "A Personal Centurion for every director — not one shared toy",
       "Board units that work together across the table when stakes are high",
@@ -70,7 +101,7 @@ export function PricingSection() {
   return (
     <section id="pricing" className="relative border-t border-foreground/10 py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="mb-20 max-w-3xl">
+        <div className="mb-16 max-w-3xl">
           <span className="mb-6 block font-mono text-xs tracking-widest text-muted-foreground uppercase">
             Decide
           </span>
@@ -80,11 +111,43 @@ export function PricingSection() {
             <span className="text-stroke">yours.</span>
           </h2>
           <p className="max-w-xl text-lg text-muted-foreground">
-            Your Centurion lives with you — not with the company. Buy one and own it.
-            Run a three-unit pilot and walk away with documented proof. Or equip the
-            entire board. No shared cloud. No long partnership that harvests your life.
-            Choose a path and move.
+            Choose a path. Hold your build position for £500. Receive CenturionAI Remote
+            immediately, then clarify your Mission and hone your Centurion&apos;s Soul while
+            your hardware is built — private work that stays with you, not with the company.
           </p>
+        </div>
+
+        <div className="mb-20">
+          <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <span className="mb-3 block font-mono text-xs tracking-widest text-muted-foreground uppercase">
+                How securing works
+              </span>
+              <h3 className="font-display text-2xl tracking-tight text-foreground sm:text-3xl">
+                Hold. Begin. Receive.
+              </h3>
+            </div>
+            <p className="max-w-md text-sm text-muted-foreground">
+              Seven steps from option to delivery. Mission Discovery and the Soul Document
+              both evolve — and neither lives in a company cloud.
+            </p>
+          </div>
+
+          <div className="grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-4">
+            {securingSteps.map((step, index) => (
+              <div key={step.title} className="bg-background p-6 lg:p-8">
+                <span className="font-mono text-xs text-muted-foreground">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h4 className="mt-3 font-display text-xl tracking-tight text-foreground">
+                  {step.title}
+                </h4>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {step.detail}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="grid gap-px bg-foreground/10 md:grid-cols-3">
