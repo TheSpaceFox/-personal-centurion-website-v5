@@ -34,29 +34,47 @@ export default function FamilyBeneficiaryProgramPage() {
           </p>
         </div>
 
-        <div className="mt-14 mb-16 grid items-start gap-12 lg:mb-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div className="mt-14 mb-12 grid items-start gap-12 lg:mb-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div className="border border-foreground/10 bg-card p-6 lg:p-10">
             <FamilyBeneficiaryDiagram />
           </div>
 
-          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-foreground/15 bg-foreground/[0.03] p-3 shadow-[0_30px_80px_rgba(0,0,0,0.08)]">
-              <div className="overflow-hidden rounded-[1.1rem] border border-foreground/10 bg-[#f4f1ec]">
+          <div className="relative mx-auto w-full max-w-[280px]">
+            <div className="relative rounded-[2rem] border border-foreground/15 bg-foreground/[0.03] p-3 shadow-[0_30px_80px_rgba(0,0,0,0.08)]">
+              <div className="overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-[#f4f1ec]">
                 <Image
-                  src="/family-beneficiary-scene.jpg"
-                  alt="Two Personal Centurions on a private desk — one yours, one earned for someone you love"
-                  width={1600}
-                  height={900}
+                  src="/family-beneficiary-remote.jpg"
+                  alt="CenturionAI Remote on iPhone — Family Beneficiary Program on the You tab"
+                  width={431}
+                  height={940}
                   className="h-auto w-full"
-                  sizes="(max-width: 1024px) 100vw, 420px"
+                  sizes="280px"
                   priority
                 />
               </div>
             </div>
             <p className="mt-4 text-center font-mono text-xs tracking-widest text-muted-foreground uppercase">
-              Earn a Centurion · for family
+              iPhone · You · Family Beneficiary
             </p>
           </div>
+        </div>
+
+        <div className="mb-16 lg:mb-20">
+          <div className="mx-auto max-w-3xl overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-foreground/[0.02] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
+            <div className="overflow-hidden rounded-[1.1rem] border border-foreground/10 bg-[#f4f1ec]">
+              <Image
+                src="/family-beneficiary-scene.jpg"
+                alt="Two Personal Centurions on a private desk — one yours, one earned for someone you love"
+                width={1600}
+                height={1066}
+                className="h-auto w-full"
+                sizes="(max-width: 768px) 100vw, 768px"
+              />
+            </div>
+          </div>
+          <p className="mt-4 text-center font-mono text-xs tracking-widest text-muted-foreground uppercase">
+            Earn a Centurion · for family
+          </p>
         </div>
 
         <div className="mx-auto max-w-3xl space-y-10 text-muted-foreground">
