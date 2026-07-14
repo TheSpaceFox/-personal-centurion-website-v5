@@ -25,8 +25,18 @@ export const metadata: Metadata = {
   description: 'A private AI that answers only to you. For those who have built empires and guard their legacy with care. Private, sovereign, and loyal.',
   icons: {
     icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      {
+        url: '/icon-light.png',
+        type: 'image/png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark.png',
+        type: 'image/png',
+        media: '(prefers-color-scheme: dark)',
+      },
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.png', type: 'image/png' },
     ],
     apple: '/apple-icon.png',
   },
