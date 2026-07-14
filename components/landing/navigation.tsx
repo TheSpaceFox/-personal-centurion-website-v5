@@ -9,7 +9,7 @@ const navLinks = [
   { name: "Capabilities", href: "#features" },
   { name: "Remote", href: "#remote" },
   { name: "Limited Edition", href: "#limited-edition" },
-  { name: "Engagement", href: "#pricing" },
+  { name: "Secure yours", href: "#pricing" },
   { name: "Support", href: "https://help.personal-centurion.com/" },
 ];
 

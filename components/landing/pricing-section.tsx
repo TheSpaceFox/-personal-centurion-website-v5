@@ -72,18 +72,18 @@ export function PricingSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-20 max-w-3xl">
           <span className="mb-6 block font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            Engagement
+            Decide
           </span>
           <h2 className="mb-6 font-display text-5xl tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Partner
+            Secure
             <br />
-            <span className="text-stroke">with us.</span>
+            <span className="text-stroke">yours.</span>
           </h2>
           <p className="max-w-xl text-lg text-muted-foreground">
-            Personal Centurion is not another cloud you rent. Buy one and own it. Run a
-            three-unit pilot with a fully guided Proof of Concept and walk away with
-            documented proof. Or equip the entire board. Serious buyers move first —
-            build slots are finite.
+            Your Centurion lives with you — not with the company. Buy one and own it.
+            Run a three-unit pilot and walk away with documented proof. Or equip the
+            entire board. No shared cloud. No long partnership that harvests your life.
+            Choose a path and move.
           </p>
         </div>
 
@@ -143,7 +143,7 @@ export function PricingSection() {
         <p className="mt-12 text-center text-sm text-muted-foreground">
           Serious programmes only. By invitation and referral when demand requires it.{" "}
           <a
-            href="mailto:hello@personal-centurion.com?subject=Partner%20with%20Personal%20Centurion"
+            href="mailto:hello@personal-centurion.com?subject=Secure%20a%20Personal%20Centurion"
             className="underline underline-offset-4 transition-colors hover:text-foreground"
           >
             Talk to the team now
