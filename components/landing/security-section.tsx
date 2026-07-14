@@ -250,7 +250,9 @@ export function SecuritySection() {
             }`}
           >
             Built for people who cannot put their life&apos;s work in a public chat box.
-            Privacy is not an add-on — it is the starting point.
+            Your Centurion holds what you share. Personal Centurion the company does not —
+            that private world never leaves your hardware. Privacy is not an add-on; it is
+            the starting point.
           </p>
 
           <div className="flex flex-wrap gap-3">

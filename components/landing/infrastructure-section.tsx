@@ -52,7 +52,7 @@ export function InfrastructureSection() {
               Your home.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Centurion is set up the way your life needs — in your house, in
+              Your Centurion is set up the way your life needs — in your house, in
               your office, fully offline, or a mix. You choose how much of the
               outside world it may ever touch.
             </p>

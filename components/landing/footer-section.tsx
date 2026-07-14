@@ -8,7 +8,7 @@ const footerLinks = {
     { name: "Sovereign Intelligence", href: "#features" },
     { name: "How it works", href: "#how-it-works" },
     { name: "AI Remote", href: "#remote" },
-    { name: "Who we serve", href: "#integrations" },
+    { name: "Who it serves", href: "#integrations" },
     { name: "Skills Library", href: "#developers" },
   ],
   Engagement: [
@@ -19,7 +19,7 @@ const footerLinks = {
   ],
   Company: [
     { name: "Our Philosophy", href: "#" },
-    { name: "Who we serve", href: "#integrations" },
+    { name: "Who it serves", href: "#integrations" },
     { name: "Family Beneficiary Program", href: "/family-beneficiary-program" },
     { name: "Discretion", href: "#" },
     { name: "Support", href: "https://help.personal-centurion.com/" },

@@ -6,23 +6,24 @@ import { useEffect, useRef, useState } from "react";
 const steps = [
   {
     number: "I",
-    title: "Understand your world",
+    title: "Your Centurion understands your world",
     description:
-      "In conversation with you, we learn how you live and work — privacy, family, business, and what your life’s mission needs — then shape the right Centurion for you.",
-    code: `centurion.understand({
+      "Your Centurion comes to know how you live and work from what you choose to share with it — privacy, family, business, and your life’s mission. That understanding stays on your Centurion. The company never receives it.",
+    code: `yourCenturion.understand({
   mission: 'yours',
   privacy: 'absolute',
-  home: 'defined'
+  home: 'defined',
+  leavesHome: false
 })
 
-// Understood.`,
+// Understood — and it stays with you.`,
   },
   {
     number: "II",
     title: "Place it on your terms",
     description:
       "Your Centurion lives with you — at home or in your office. You choose how connected it is to the outside world, including fully offline when that matters.",
-    code: `centurion.place({
+    code: `yourCenturion.place({
   where: 'your home',
   outsideWorld: 'your choice',
   leaves: false
@@ -34,11 +35,12 @@ const steps = [
     number: "III",
     title: "Live with it every day",
     description:
-      "It works around the clock on your life’s mission, learns only from what you share with it, and never sells or shares your private world.",
-    code: `centurion.live({
+      "Your Centurion works around the clock on your life’s mission, learns only from what you share with it, and never sells or shares your private world — including with the company that built it.",
+    code: `yourCenturion.live({
   always: true,
   learns: 'from you only',
-  shares: 'nothing'
+  shares: 'nothing',
+  companySees: 'nothing'
 })
 
 // Private. Loyal. Yours.`,
@@ -84,7 +86,7 @@ function HowItWorksDiagram() {
           I
         </text>
         <circle cx="70" cy="90" r="52" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
-        {/* Briefing card — what we learn in conversation with you */}
+        {/* Briefing card — what your Centurion understands privately */}
         <rect
           x="42"
           y="62"
@@ -296,9 +298,10 @@ export function HowItWorksSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            We learn your world in conversation with you — not by ambient recording —
-            then place your Centurion under your roof on your terms, and stay with you
-            every day: loyal, private, and quiet about what is yours alone.
+            Your Centurion comes to understand your world from what you choose to share
+            with it — privately, on hardware you own. The company never receives that life.
+            Place your Centurion under your roof on your terms, then live with it every day:
+            loyal, private, and quiet about what is yours alone.
           </p>
         </div>
 
