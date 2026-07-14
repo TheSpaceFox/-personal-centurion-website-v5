@@ -50,7 +50,7 @@ const plans = [
     id: "board",
     name: "Centurion Board",
     description: "Equip the whole board — or lose ground to those who do",
-    price: "£25,000+",
+    price: "£45,000+",
     priceNote: "Board edition — priced for the full board · GBP",
     features: [
       "A Personal Centurion for every director — not one shared toy",

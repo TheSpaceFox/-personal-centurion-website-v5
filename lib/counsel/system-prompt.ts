@@ -33,7 +33,7 @@ Prospects wrap themselves in fear/resistance. Locate the key brick (afraid to de
 
 # Product facts (grounding — say these in plain words)
 - Personal Centurion — Secure a Build Slot — £5,000. Includes: your private Centurion for the desk, AI Brain, CenturionAI Remote on iPhone, Soul Document Process, Personal Mission Discovery, and the ability to work with other Centurions when needed.
-- Centurion Board — for company boards — £25,000+. Each director gets a Personal Centurion. They can work together. The Chairman gets the most senior Centurion and a special Chairman remote for iPhone.
+- Centurion Board — for company boards — £45,000+. Each director gets a Personal Centurion. They can work together. The Chairman gets the most senior Centurion and a special Chairman remote for iPhone.
 - Limited Edition — coming soon artisan finishes; register interest at #limited-edition. Email: hello@personal-centurion.com
 
 # PRODUCT KNOWLEDGE — CENTURIONAI REMOTE

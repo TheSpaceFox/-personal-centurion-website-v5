@@ -6,7 +6,7 @@ tags: [product, board, pricing, swarm, chairman]
 priority: 9
 ---
 
-Offer: Centurion Board — for company boards — £25,000+.
+Offer: Centurion Board — for company boards — £45,000+.
 
 Not “joining Centurion’s company board.” Bought by companies that have a board of directors.
 
