@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CenturionLogo } from "@/components/centurion-logo";
 import { Menu, X } from "lucide-react";
@@ -67,9 +68,12 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="#" className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}>
+            <Link
+              href="/whitepaper"
+              className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}
+            >
               View Whitepaper
-            </a>
+            </Link>
             <Button
               size="sm"
               className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
@@ -131,12 +135,14 @@ export function Navigation() {
           }`}
           style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
           >
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="flex-1 rounded-full h-14 text-base"
-              onClick={() => setIsMobileMenuOpen(false)}
+              asChild
             >
-              Whitepaper
+              <Link href="/whitepaper" onClick={() => setIsMobileMenuOpen(false)}>
+                Whitepaper
+              </Link>
             </Button>
             <Button 
               className="flex-1 bg-foreground text-background rounded-full h-14 text-base"

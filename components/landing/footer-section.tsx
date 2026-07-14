@@ -1,6 +1,8 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import { CenturionLogo } from "@/components/centurion-logo";
+import { COMPANY, SITE_VERSION } from "@/lib/site-config";
 import { AnimatedWave } from "./animated-wave";
 
 const footerLinks = {
@@ -26,6 +28,7 @@ const footerLinks = {
     { name: "Enquiries", href: "mailto:hello@personal-centurion.com" },
   ],
   Legal: [
+    { name: "Whitepaper", href: "/whitepaper" },
     { name: "Privacy", href: "/privacy" },
     { name: "Terms", href: "/terms" },
     { name: "Security", href: "#security" },
@@ -51,8 +54,8 @@ export function FooterSection() {
           <div className="grid grid-cols-2 md:grid-cols-6 gap-12 lg:gap-8">
             {/* Brand Column */}
             <div className="col-span-2">
-              <a href="#" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-xl sm:text-2xl font-display tracking-[0.12em]">PERSONAL CENTURION</span>
+              <a href="#" className="mb-6 inline-flex items-center gap-2 transition-opacity hover:opacity-80">
+                <CenturionLogo size="lg" variant="full" />
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
@@ -104,7 +107,7 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            {new Date().getFullYear()} Personal Centurion. All rights reserved. · v5.0.0
+            {new Date().getFullYear()} {COMPANY.legalName}. All rights reserved. · v{SITE_VERSION}
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">

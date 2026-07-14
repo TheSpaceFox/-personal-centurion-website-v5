@@ -23,7 +23,13 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Personal Centurion — A private AI for your life\'s mission',
   description: 'A private AI that answers only to you. For those who have built empires and guard their legacy with care. Private, sovereign, and loyal.',
-  generator: 'v0.app',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: '/apple-icon.png',
+  },
 }
 
 export default function RootLayout({

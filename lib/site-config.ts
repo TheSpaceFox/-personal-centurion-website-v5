@@ -1,6 +1,6 @@
 export const COMPANY = {
   name: 'Personal Centurion',
-  legalName: 'Centurion AI Ltd',
+  legalName: 'Personal Centurion Ltd',
   email: 'hello@personal-centurion.com',
   phone: '',
   number: '',
