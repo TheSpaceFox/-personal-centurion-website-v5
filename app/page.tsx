@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/landing/navigation";
 import { HeroSection } from "@/components/landing/hero-section";
+import { CounselSection } from "@/components/landing/counsel-section";
 import { FeaturesSection } from "@/components/landing/features-section";
 import { HowItWorksSection } from "@/components/landing/how-it-works-section";
 import { RemoteAppSection } from "@/components/landing/remote-app-section";
@@ -19,6 +20,7 @@ export default function Home() {
     <main className="relative min-h-screen overflow-x-hidden noise-overlay">
       <Navigation />
       <HeroSection />
+      <CounselSection />
       <FeaturesSection />
       <HowItWorksSection />
       <RemoteAppSection />
