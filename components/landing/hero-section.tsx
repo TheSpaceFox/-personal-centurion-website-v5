@@ -112,10 +112,10 @@ export function HeroSection() {
                 size="lg"
                 className="group h-14 rounded-full bg-foreground px-8 text-base text-background hover:bg-foreground/90"
                 onClick={() =>
-                  document.getElementById("counsel")?.scrollIntoView({ behavior: "smooth" })
+                  document.getElementById("adrian")?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                Speak with Personal Centurion
+                Speak with Adrian
                 <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button
@@ -159,7 +159,7 @@ export function HeroSection() {
       </div>
 
       <a
-        href="#counsel"
+        href="#adrian"
         className={`fixed bottom-6 right-6 z-40 inline-flex h-12 items-center gap-2 rounded-full bg-foreground px-5 text-sm text-background shadow-lg transition-all duration-500 ${
           showDock
             ? "pointer-events-auto translate-y-0 opacity-100"
@@ -167,7 +167,7 @@ export function HeroSection() {
         }`}
       >
         <MessageSquare className="size-4" />
-        Speak with Personal Centurion
+        Speak with Adrian
       </a>
     </section>
   );

@@ -74,15 +74,16 @@ export function CounselChamber() {
 
   return (
     <div
-      id="counsel"
+      id="adrian"
       className="relative flex min-h-[420px] flex-col overflow-hidden rounded-2xl border border-foreground/10 bg-card"
     >
       <div className="border-b border-foreground/10 px-6 py-5 sm:px-8">
         <h2 className="font-display text-2xl tracking-tight text-foreground sm:text-3xl">
-          Speak with Personal Centurion
+          Speak with Adrian
         </h2>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          Share what you are building toward. We will see whether a Centurion belongs with you.
+          I help people see whether a Personal Centurion belongs with them. Share what you are
+          building toward.
         </p>
       </div>
 
@@ -137,7 +138,7 @@ export function CounselChamber() {
 
         {error && (
           <p className="rounded-xl border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive">
-            {error.message || "Counsel temporarily unavailable."}
+            {error.message || "Adrian is temporarily unavailable."}
           </p>
         )}
 

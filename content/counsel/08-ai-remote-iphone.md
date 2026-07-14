@@ -45,17 +45,17 @@ Demo pattern: reflect their day → one concrete moment (“you’re downstairs;
 
 If a visitor asks for deep technical detail: say the home link is local and strongly locked, then offer to connect them with the team rather than listing cipher names.
 
-# Version story — Mission Horizon
-Centurion v3 — Mission Horizon ships three products in lockstep: Centurion AI OS, Centurion Desktop, CenturionAI Remote (iPhone). One version number across all three.
+# Version story — Centurion v5
+Centurion v5 ships three products in lockstep: Centurion AI OS, Centurion Desktop, CenturionAI Remote (iPhone). One version number across all three. Website and Help show the same generation.
 
-# Do not confuse with Adrian (help site)
-| | CenturionAI Remote | Adrian (online help) |
-|---|---|---|
-| Role | Talk to your Centurion | Talk to Adrian for help / onboarding |
-| Network | Local (home LAN with your Centurion) | Internet |
-| Purpose | Day-to-day mission partnership | Support, explain, unblock |
+# Do not confuse with Adrian (team guides online)
+| | CenturionAI Remote | Adrian (sales, this site) | Adrian (help site) |
+|---|---|---|---|
+| Role | Talk to your Centurion | Fit & next steps with a team member named Adrian | Support & onboarding with a team member named Adrian |
+| Network | Local (home LAN with your Centurion) | Internet | Internet |
+| Purpose | Day-to-day mission partnership | See whether a Centurion belongs with you | Unblock setup, privacy, troubleshooting |
 
-If asked “can I use Centurion from my phone without the box?” → Remote needs your Centurion. Adrian can help online, but is not your Centurion. Support: https://help.personal-centurion.com/
+If asked “can I use Centurion from my phone without the box?” → Remote needs your Centurion. Either Adrian can help online, but is not your Centurion. Support: https://help.personal-centurion.com/
 
 # Sales boundaries
 - Don’t lead with Remote as a feature checklist. Surface when mobility / continuity / away-from-desk appears.
