@@ -20,6 +20,7 @@ const footerLinks = {
   Company: [
     { name: "Our Philosophy", href: "#" },
     { name: "Who we serve", href: "#integrations" },
+    { name: "Family Beneficiary Program", href: "/family-beneficiary-program" },
     { name: "Discretion", href: "#" },
     { name: "Support", href: "https://help.personal-centurion.com/" },
   ],
