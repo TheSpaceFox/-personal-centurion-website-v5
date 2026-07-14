@@ -21,6 +21,25 @@ function getMessageText(message: UIMessage): string {
     .join("");
 }
 
+/** Split so a trailing question sits on its own line under the statement. */
+function displayParagraphs(text: string, role: UIMessage["role"]): string[] {
+  const trimmed = text.trim();
+  if (!trimmed) return [];
+
+  const byBlank = trimmed
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+  if (byBlank.length > 1) return byBlank;
+
+  if (role === "assistant") {
+    const match = trimmed.match(/^([\s\S]+[.!…])\s+([^?]+\?)\s*$/);
+    if (match) return [match[1].trim(), match[2].trim()];
+  }
+
+  return [trimmed];
+}
+
 export function CounselChamber() {
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -83,24 +102,31 @@ export function CounselChamber() {
           </div>
         )}
 
-        {messages.map((message) => (
-          <div
-            key={message.id}
-            className={`max-w-[90%] text-sm leading-relaxed ${
-              message.role === "user" ? "ml-auto text-right" : ""
-            }`}
-          >
-            <p
-              className={`inline-block rounded-2xl px-4 py-3 ${
-                message.role === "user"
-                  ? "bg-foreground text-background"
-                  : "border border-foreground/10 bg-secondary text-foreground"
+        {messages.map((message) => {
+          const paragraphs = displayParagraphs(getMessageText(message), message.role);
+          return (
+            <div
+              key={message.id}
+              className={`max-w-[90%] text-sm leading-relaxed ${
+                message.role === "user" ? "ml-auto text-right" : ""
               }`}
             >
-              {getMessageText(message)}
-            </p>
-          </div>
-        ))}
+              <div
+                className={`inline-block space-y-3 rounded-2xl px-4 py-3 text-left ${
+                  message.role === "user"
+                    ? "bg-foreground text-background"
+                    : "border border-foreground/10 bg-secondary text-foreground"
+                }`}
+              >
+                {paragraphs.map((paragraph, i) => (
+                  <p key={i} className="m-0 whitespace-pre-wrap">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          );
+        })}
 
         {busy && (
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
