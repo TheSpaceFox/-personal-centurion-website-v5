@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { FamilyBeneficiaryDiagram } from "@/components/landing/family-beneficiary-diagram";
 
 export const metadata: Metadata = {
   title: "Family Beneficiary Program — Personal Centurion",
@@ -10,47 +12,74 @@ export const metadata: Metadata = {
 export default function FamilyBeneficiaryProgramPage() {
   return (
     <main className="noise-overlay relative min-h-dvh bg-background text-foreground">
-      <div className="mx-auto max-w-3xl px-6 py-16 lg:px-12 lg:py-24">
-        <Link
-          href="/"
-          className="font-display text-sm tracking-[0.12em] transition-opacity hover:opacity-80"
-        >
-          PERSONAL CENTURION
-        </Link>
+      <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-12 lg:py-24">
+        <div className="max-w-3xl">
+          <Link
+            href="/"
+            className="font-display text-sm tracking-[0.12em] transition-opacity hover:opacity-80"
+          >
+            PERSONAL CENTURION
+          </Link>
 
-        <p className="mt-12 font-mono text-xs tracking-widest text-muted-foreground uppercase">
-          CenturionAI Remote · You
-        </p>
+          <p className="mt-12 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+            CenturionAI Remote · You
+          </p>
 
-        <h1 className="mt-4 font-display text-4xl tracking-tight lg:text-5xl">
-          Family Beneficiary Program
-        </h1>
+          <h1 className="mt-4 font-display text-4xl tracking-tight lg:text-5xl">
+            Family Beneficiary Program
+          </h1>
 
-        <p className="mt-6 text-xl leading-relaxed text-muted-foreground">
-          Introduce four colleagues who buy Centurion — earn one for someone you love.
-        </p>
+          <p className="mt-6 text-xl leading-relaxed text-muted-foreground">
+            Introduce four colleagues who buy Centurion — earn one for someone you love.
+          </p>
+        </div>
 
-        <div className="mt-12 space-y-10 text-muted-foreground">
+        <div className="mt-14 mb-16 grid items-start gap-12 lg:mb-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div className="border border-foreground/10 bg-card p-6 lg:p-10">
+            <FamilyBeneficiaryDiagram />
+          </div>
+
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+            <div className="relative overflow-hidden rounded-[1.5rem] border border-foreground/15 bg-foreground/[0.03] p-3 shadow-[0_30px_80px_rgba(0,0,0,0.08)]">
+              <div className="overflow-hidden rounded-[1.1rem] border border-foreground/10 bg-[#f4f1ec]">
+                <Image
+                  src="/family-beneficiary-scene.jpg"
+                  alt="Two Personal Centurions on a private desk — one yours, one earned for someone you love"
+                  width={1600}
+                  height={900}
+                  className="h-auto w-full"
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  priority
+                />
+              </div>
+            </div>
+            <p className="mt-4 text-center font-mono text-xs tracking-widest text-muted-foreground uppercase">
+              Earn a Centurion · for family
+            </p>
+          </div>
+        </div>
+
+        <div className="mx-auto max-w-3xl space-y-10 text-muted-foreground">
           <section className="space-y-4">
             <h2 className="font-display text-2xl tracking-tight text-foreground">How it works</h2>
             <ol className="list-decimal space-y-4 pl-5 leading-relaxed">
               <li>
-                <span className="text-foreground font-medium">Nominate a family beneficiary</span> —
+                <span className="font-medium text-foreground">Nominate a family beneficiary</span> —
                 first name only. Often a spouse or family member who wants a Centurion after
                 seeing yours thrive.
               </li>
               <li>
-                <span className="text-foreground font-medium">Refer colleagues</span> — people who
+                <span className="font-medium text-foreground">Refer colleagues</span> — people who
                 will buy their own Personal Centurion. Family members are who you are earning{" "}
                 <em>for</em>; they cannot be counted as referrals.
               </li>
               <li>
-                <span className="text-foreground font-medium">Four successful purchases</span> —
+                <span className="font-medium text-foreground">Four successful purchases</span> —
                 when four referred colleagues complete their buy, you earn one complimentary
                 Centurion for your nominated family beneficiary.
               </li>
               <li>
-                <span className="text-foreground font-medium">Start again</span> — cycles reset
+                <span className="font-medium text-foreground">Start again</span> — cycles reset
                 without limit. Nominate a new family beneficiary and keep going.
               </li>
             </ol>
