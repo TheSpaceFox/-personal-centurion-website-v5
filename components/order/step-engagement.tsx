@@ -84,7 +84,9 @@ export function StepEngagement() {
           <p className="text-sm text-muted-foreground pb-3">
             {state.engagement === 'board'
               ? 'Board editions typically start at three units. Final pricing is confirmed privately.'
-              : 'One unit is a single Personal Centurion for one principal.'}
+              : state.engagement === 'pilot'
+                ? 'The Pilot path is fixed at three Centurions plus the guided programme.'
+                : 'One unit is a single Personal Centurion for one principal.'}
           </p>
         </div>
       )}

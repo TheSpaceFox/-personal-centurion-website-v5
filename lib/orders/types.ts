@@ -1,6 +1,6 @@
 /** v5 catalogue — aligned with marketing pricing on the homepage. */
 
-export type EngagementTier = 'interest' | 'personal' | 'board'
+export type EngagementTier = 'interest' | 'personal' | 'pilot' | 'board'
 
 export type OrderStatus =
   | 'quote'
@@ -123,12 +123,28 @@ export const ENGAGEMENT_TIERS: Record<EngagementTier, EngagementConfig> = {
     minQuantity: 1,
     maxQuantity: 12,
   },
+  pilot: {
+    id: 'pilot',
+    name: 'Start a Pilot Program',
+    shortLabel: 'Pilot',
+    description: 'Three Personal Centurions plus a guided proof of concept — white-glove programme lead through final readout.',
+    unitPrice: 1_500_000, // £15,000
+    enquireOnly: false,
+    includes: [
+      'Three Personal Centurions',
+      'Guided Proof of Concept / Pilot',
+      'Dedicated programme lead',
+      'Documented outcome and next-step brief',
+    ],
+    minQuantity: 3,
+    maxQuantity: 3,
+  },
   board: {
     id: 'board',
     name: 'Centurion Board',
     shortLabel: 'Board',
-    description: 'A Personal Centurion for every board member — from £25,000+ depending on board size.',
-    unitPrice: 2_500_000, // £25,000 floor display; final quote by enquiry
+    description: 'A Personal Centurion for every board member — from £45,000+ depending on board size.',
+    unitPrice: 4_500_000, // £45,000 floor display; final quote by enquiry
     enquireOnly: true,
     includes: [
       'One Personal Centurion per board member',

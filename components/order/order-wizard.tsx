@@ -46,7 +46,7 @@ function OrderWizardInner() {
   const raw = searchParams.get('engagement')
   const resume = searchParams.get('resume') === '1'
   const initialEngagement =
-    raw === 'interest' || raw === 'personal' || raw === 'board'
+    raw === 'interest' || raw === 'personal' || raw === 'pilot' || raw === 'board'
       ? (raw as EngagementTier)
       : undefined
 
