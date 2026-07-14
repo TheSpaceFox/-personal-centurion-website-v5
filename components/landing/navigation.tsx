@@ -66,18 +66,14 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="/account"
-              className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}
-            >
-              Account
+            <a href="#" className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}>
+              View Whitepaper
             </a>
             <Button
               size="sm"
-              asChild
               className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
             >
-              <a href="/order?engagement=interest">Register Interest</a>
+              Register Interest
             </Button>
           </div>
 
@@ -136,20 +132,16 @@ export function Navigation() {
           >
             <Button 
               variant="outline" 
-              asChild
               className="flex-1 rounded-full h-14 text-base"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              <a href="/account" onClick={() => setIsMobileMenuOpen(false)}>
-                Account
-              </a>
+              Whitepaper
             </Button>
             <Button 
-              asChild
               className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              <a href="/order?engagement=interest" onClick={() => setIsMobileMenuOpen(false)}>
-                Register Interest
-              </a>
+              Register Interest
             </Button>
           </div>
         </div>
