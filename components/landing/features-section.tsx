@@ -12,9 +12,9 @@ const features = [
   },
   {
     number: "02",
-    title: "Works fully offline when you need it",
+    title: "Crypto Chat — private by design",
     description:
-      "When your world must stay sealed from the outside, Centurion can run without any link to the public internet. Your private life stays in the room.",
+      "Talk to your Centurion through Crypto Chat: end-to-end encrypted on your network. Public AIs have no equivalent. When your world must stay sealed, Centurion can also run without any link to the public internet.",
     visual: "security",
   },
   {

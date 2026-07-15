@@ -14,8 +14,9 @@ import {
 const capabilities = [
   {
     icon: MessageSquare,
-    title: "Chat",
-    description: "Talk with your Centurion from anywhere — counsel, clarity, and next steps in your pocket.",
+    title: "Crypto Chat",
+    description:
+      "Private encrypted conversation with your Centurion on your network — something public AIs simply do not offer.",
   },
   {
     icon: FileText,
@@ -281,11 +282,11 @@ export function RemoteAppSection() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Talk to your Centurion on your desk from your iPhone — over your home
-              Wi‑Fi, locked so only your Centurion and your phone can read it.
-              CenturionAI Remote is your companion: chat, guide your mission, watch
-              work happen, and decide when you are needed — not another public AI
-              chat on the internet.
+              Talk to your Centurion on your desk through <strong className="font-medium text-foreground">Crypto Chat</strong> —
+              a private encrypted conversation on your home Wi‑Fi that only your Centurion and your phone can
+              read. Public AIs have nothing like it. CenturionAI Remote is your companion: Crypto Chat, guide
+              your mission, watch work happen, and decide when you are needed — not another public chat
+              box on the internet.
             </p>
         </div>
 

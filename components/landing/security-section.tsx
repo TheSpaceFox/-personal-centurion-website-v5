@@ -6,6 +6,12 @@ import { Shield, Lock, Eye, FileCheck } from "lucide-react";
 
 const securityFeatures = [
   {
+    icon: Lock,
+    title: "Crypto Chat",
+    description:
+      "End-to-end encrypted talk with your Centurion on your network — a private channel public AIs do not offer at all.",
+  },
+  {
     icon: Shield,
     title: "Fully offline option",
     description:
@@ -19,12 +25,6 @@ const securityFeatures = [
   },
   {
     icon: FileCheck,
-    title: "A clear history of decisions",
-    description:
-      "You can see what your Centurion did and why — records that stay with you.",
-  },
-  {
-    icon: Lock,
     title: "You own it",
     description:
       "Hardware in your home. Control in your hands. Your private life does not leave with a vendor.",
@@ -32,10 +32,10 @@ const securityFeatures = [
 ];
 
 const trustSignals = [
+  "Crypto Chat",
   "Made for private lives",
   "Nothing leaves without you",
   "Built for serious work",
-  "Loyal by design",
 ];
 
 function PrivacyDiagram() {
@@ -346,9 +346,10 @@ export function SecuritySection() {
             }`}
           >
             Built for people who cannot put their life&apos;s work in a public chat box.
-            Your Centurion holds what you share. Personal Centurion the company does not —
-            that private world never leaves your hardware. Privacy is not an add-on; it is
-            the starting point.
+            Crypto Chat keeps your conversation with your Centurion private and encrypted on
+            your network — something public AIs do not have. Your Centurion holds what you
+            share. Personal Centurion the company does not — that private world never leaves
+            your hardware. Privacy is not an add-on; it is the starting point.
           </p>
 
           <div className="flex flex-wrap gap-3">

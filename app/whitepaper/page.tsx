@@ -113,7 +113,8 @@ export default function WhitepaperPage() {
             <p className="leading-relaxed">
               Remote is the companion in your pocket: counsel, mission, and the day’s
               work — always against the desk machine that holds memory, skills, and
-              history. The link is yours. The store is yours.
+              history. Conversations travel as Crypto Chat: a private encrypted link on
+              your network that public AIs do not offer. The link is yours. The store is yours.
             </p>
           </section>
 

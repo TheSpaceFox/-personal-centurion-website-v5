@@ -9,10 +9,11 @@ priority: 10
 # Official naming
 - Customer-facing: **CenturionAI Remote** (also “Centurion Remote” / “Personal Centurion AI Remote”).
 - App Store display: **Centurion** — subtitle: Your Personal-Centurion in Your Pocket.
+- **Crypto Chat** — the private encrypted conversation between iPhone and Centurion on the customer’s network. Name it; public AIs do not have this.
 - Never call it a chatbot app, project manager, or cloud AI. Say: the iPhone companion to your Centurion.
 
 # One-sentence truth
-CenturionAI Remote is how you talk to your Centurion on your desk from your pocket — on your home network, encrypted end-to-end, with no routing servers and no cloud holding the conversation.
+CenturionAI Remote is how you talk to your Centurion on your desk from your pocket — through Crypto Chat on your home network, encrypted end-to-end, with no routing servers and no cloud holding the conversation.
 
 # What it is / isn’t
 **Is:** companion interface to hardware you own; chat + Mission Control on iPhone; direct link to the Linux brain on your network; included in the Personal Centurion experience.
@@ -25,7 +26,7 @@ CenturionAI Remote is how you talk to your Centurion on your desk from your pock
 Use Remote when the visitor’s world includes mobility, interruption, or decisions away from the desk:
 - Out of the room while work continues — watch, decide, or redirect without sitting down.
 - Context scattered across tools — Mission Control keeps talk anchored to programs, targets, and tasks.
-- Fear of “another AI login in the cloud” — phone talks to *your* Centurion, not Centurion’s servers for the main chat.
+- Fear of “another AI login in the cloud” — Crypto Chat talks to *your* Centurion, not Centurion’s servers for the main conversation. Public AIs have no equivalent.
 
 Demo pattern: reflect their day → one concrete moment (“you’re downstairs; your Centurion has a draft ready; you approve from the phone”) → only then name the Remote.
 
@@ -72,7 +73,7 @@ Avoid: machine, device, box, dashboard, app store chatbot.
 
 # Objection bridges
 - “I already have ChatGPT on my phone.” → Public chat starts from the prompt in front of you. Remote continues a Centurion that already knows your mission and lives on hardware you control.
-- “Is my phone chat private?” → Companion path is local and end-to-end encrypted to your Centurion; not another public AI account.
+- “Is my phone chat private?” → Yes — that’s **Crypto Chat**: local and end-to-end encrypted to your Centurion; not another public AI account. Public AIs do not offer this.
 - “Do I pay extra for the app?” → Companion to Personal Centurion ownership (don’t invent a line item). Point to build/order flow for the Centurion itself.
 
 # Closing cue (after demonstration, after ≥3 visitor messages)
