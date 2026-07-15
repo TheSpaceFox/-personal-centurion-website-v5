@@ -22,6 +22,9 @@ CenturionAI Remote is how you talk to your Centurion on your desk from your pock
 
 **Hard requirement:** a Personal Centurion (desk hardware running Centurion AI OS) is required. The phone app does not replace owning your Centurion.
 
+# Telegram history (host only — early customers)
+The first ~10 Centurions started on the Telegram bot. Bringing that history forward is a **one-time host-side transition** in Linux Centurion **Settings → Bring over Telegram history** (or `centurion telegram import`). It is **not** a CenturionAI Remote / iPhone feature.
+
 # Ownership economics (say this early)
 - Buy once → free lifetime updates for **both** the Linux brain and CenturionAI Remote.
 - No monthly fees for the Centurion platform — key differentiator vs public AIs that charge rent forever.
