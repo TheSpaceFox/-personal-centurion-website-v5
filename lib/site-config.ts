@@ -5,7 +5,7 @@ export const COMPANY = {
   phone: '',
   number: '',
   helpUrl: 'https://help.personal-centurion.com',
-  productApiHost: 'https://www.personal-centurion.com',
+  productApiHost: 'https://personalcenturion.com',
 } as const
 
 /** Customer-facing platform generation — lockstep with OS / Desktop / iPhone. */
