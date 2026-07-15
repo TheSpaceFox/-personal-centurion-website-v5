@@ -2,11 +2,17 @@
 
 import { useWizard } from '@/components/order/wizard-context'
 import { ENGAGEMENT_TIERS, type EngagementTier } from '@/lib/orders/types'
+import {
+  BETA_DISCOUNT_PENCE,
+  BETA_OFFER,
+  isJuly2026BetaActive,
+} from '@/lib/orders/beta'
 import { formatGbpFromPence } from '@/lib/orders/pricing'
 import { cn } from '@/lib/utils'
 
 export function StepEngagement() {
   const { state, setState, next } = useWizard()
+  const betaActive = isJuly2026BetaActive()
 
   function select(id: EngagementTier) {
     const tier = ENGAGEMENT_TIERS[id]
@@ -14,6 +20,16 @@ export function StepEngagement() {
       engagement: id,
       quantity: Math.max(tier.minQuantity, Math.min(state.quantity, tier.maxQuantity)),
     })
+  }
+
+  function priceLabel(id: EngagementTier): string {
+    const tier = ENGAGEMENT_TIERS[id]
+    if (tier.enquireOnly && tier.unitPrice === 0) return 'Enquiry'
+    if (tier.enquireOnly) return `From ${formatGbpFromPence(tier.unitPrice)}`
+    if (id === 'personal' && betaActive) {
+      return formatGbpFromPence(tier.unitPrice - BETA_DISCOUNT_PENCE)
+    }
+    return formatGbpFromPence(tier.unitPrice)
   }
 
   return (
@@ -29,12 +45,19 @@ export function StepEngagement() {
           Secure a Personal Centurion build slot, enquire for a Board edition, or register interest
           without commitment.
         </p>
+        {betaActive && (
+          <p className="max-w-2xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">{BETA_OFFER.name}.</span>{' '}
+            {BETA_OFFER.detail} {BETA_OFFER.endsLabel}.
+          </p>
+        )}
       </header>
 
       <div className="grid gap-px bg-foreground/10 md:grid-cols-3">
         {(Object.keys(ENGAGEMENT_TIERS) as EngagementTier[]).map((id) => {
           const tier = ENGAGEMENT_TIERS[id]
           const selected = state.engagement === id
+          const showBetaStrike = id === 'personal' && betaActive
           return (
             <button
               key={id}
@@ -45,14 +68,20 @@ export function StepEngagement() {
                 selected && 'ring-2 ring-inset ring-foreground',
               )}
             >
+              {showBetaStrike && (
+                <span className="mb-3 inline-block font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
+                  {BETA_OFFER.name} · first unit
+                </span>
+              )}
               <h2 className="font-display text-2xl text-foreground">{tier.name}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{tier.description}</p>
               <p className="mt-6 font-display text-3xl text-foreground">
-                {tier.enquireOnly && tier.unitPrice === 0
-                  ? 'Enquiry'
-                  : tier.enquireOnly
-                    ? `From ${formatGbpFromPence(tier.unitPrice)}`
-                    : formatGbpFromPence(tier.unitPrice)}
+                {showBetaStrike && (
+                  <span className="mr-3 text-xl text-muted-foreground line-through decoration-1">
+                    {formatGbpFromPence(tier.unitPrice)}
+                  </span>
+                )}
+                {priceLabel(id)}
               </p>
               <ul className="mt-6 space-y-2">
                 {tier.includes.slice(0, 3).map((item) => (
@@ -86,7 +115,9 @@ export function StepEngagement() {
               ? 'Board editions typically start at three units. Final pricing is confirmed privately.'
               : state.engagement === 'pilot'
                 ? 'The Pilot path is fixed at three Centurions plus the guided programme.'
-                : 'One unit is a single Personal Centurion for one principal.'}
+                : betaActive
+                  ? 'Beta discount applies to the first Personal Centurion only; additional units are £5,000.'
+                  : 'One unit is a single Personal Centurion for one principal.'}
           </p>
         </div>
       )}

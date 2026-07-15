@@ -1,6 +1,10 @@
 "use client";
 
 import { ArrowRight, Check } from "lucide-react";
+import {
+  BETA_OFFER,
+  isJuly2026BetaActive,
+} from "@/lib/orders/beta";
 
 const securingSteps = [
   {
@@ -33,13 +37,34 @@ const securingSteps = [
   },
 ];
 
-const plans = [
+type Plan = {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  originalPrice?: string;
+  priceNote: string;
+  features: string[];
+  cta: string;
+  popular: boolean;
+  beta?: boolean;
+  href: string;
+};
+
+const betaActive = isJuly2026BetaActive();
+
+const plans: Plan[] = [
   {
     id: "personal",
     name: "Buy a Personal Centurion",
-    description: "Own yours outright — start now",
-    price: "£5,000",
-    priceNote: "One Personal Centurion · GBP · £500 hold deposits your place",
+    description: betaActive
+      ? "July 2026 Beta — first unit at a private launch price"
+      : "Own yours outright — start now",
+    price: betaActive ? "£4,250" : "£5,000",
+    originalPrice: betaActive ? "£5,000" : undefined,
+    priceNote: betaActive
+      ? "First Personal Centurion only · July 2026 Beta · £500 hold deposits your place"
+      : "One Personal Centurion · GBP · £500 hold deposits your place",
     features: [
       "Your private Centurion computer for the desk — hardware you own",
       "Personal Centurion AI Brain, ready for serious mission work",
@@ -52,8 +77,9 @@ const plans = [
       "Collaborate with other Centurions when your work demands it",
       "No subscription trap. No rented loyalty. Yours.",
     ],
-    cta: "Secure Your Centurion",
-    popular: false,
+    cta: betaActive ? "Secure Beta Unit – £4,250" : "Secure Your Centurion",
+    popular: true,
+    beta: betaActive,
     href: "/order?engagement=personal",
   },
   {
@@ -79,7 +105,7 @@ const plans = [
       "Extraordinary value: the three Centurions alone are £15,000 — the pilot stack rides with them",
     ],
     cta: "Start the Pilot",
-    popular: true,
+    popular: false,
     href: "/order?engagement=pilot",
   },
   {
@@ -163,57 +189,159 @@ export function PricingSection() {
           </div>
         </div>
 
+        {betaActive && (
+          <div className="mb-8 border border-foreground/15 bg-[#0a0a0a] px-6 py-6 text-[#f4f1ec] sm:px-8 lg:px-10">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl">
+                <span className="mb-3 block font-mono text-xs tracking-widest text-[#f4f1ec]/70 uppercase">
+                  {BETA_OFFER.name} · {BETA_OFFER.endsLabel}
+                </span>
+                <h3 className="font-display text-3xl tracking-tight sm:text-4xl">
+                  {BETA_OFFER.headline}
+                </h3>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#f4f1ec]/75">
+                  {BETA_OFFER.detail} Hardware, lifetime updates, Sunday AI Owners training, and
+                  Personal Mission Discovery — same full package, private Beta pricing.
+                </p>
+              </div>
+              <div className="shrink-0 text-left lg:text-right">
+                <p className="font-mono text-xs tracking-widest text-[#f4f1ec]/55 uppercase">
+                  From
+                </p>
+                <p className="mt-1 font-display text-4xl tracking-tight">
+                  <span className="mr-3 text-2xl text-[#f4f1ec]/45 line-through decoration-1">
+                    £5,000
+                  </span>
+                  £4,250
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="grid gap-px bg-foreground/10 md:grid-cols-3">
-          {plans.map((plan, idx) => (
-            <div
-              key={plan.id}
-              className={`relative bg-background p-8 lg:p-12 ${
-                plan.popular ? "border-2 border-foreground md:-my-4 md:py-12 lg:py-16" : ""
-              }`}
-            >
-              {plan.popular && (
-                <span className="absolute -top-3 left-8 bg-foreground px-3 py-1 font-mono text-xs tracking-widest text-primary-foreground uppercase">
-                  Recommended · Highest leverage
-                </span>
-              )}
-
-              <div className="mb-8">
-                <span className="font-mono text-xs text-muted-foreground">
-                  {String(idx + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-2 font-display text-3xl text-foreground">{plan.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
-              </div>
-
-              <div className="mb-8 border-b border-foreground/10 pb-8">
-                <div className="font-display text-4xl text-foreground lg:text-5xl">
-                  {plan.price}
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">{plan.priceNote}</p>
-              </div>
-
-              <ul className="mb-10 space-y-4">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <Check className="mt-0.5 size-4 shrink-0 text-foreground" />
-                    <span className="text-sm text-muted-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={plan.href}
-                className={`group flex w-full items-center justify-center gap-2 py-4 text-sm font-medium transition-all ${
-                  plan.popular
-                    ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
-                    : "border border-foreground/20 text-foreground hover:border-foreground hover:bg-foreground/5"
+          {plans.map((plan, idx) => {
+            const isBeta = Boolean(plan.beta);
+            return (
+              <div
+                key={plan.id}
+                className={`relative p-8 lg:p-12 ${
+                  isBeta
+                    ? "bg-[#0a0a0a] text-[#f4f1ec] border-2 border-foreground md:-my-5 md:py-14 lg:py-16"
+                    : plan.popular
+                      ? "bg-background border-2 border-foreground md:-my-4 md:py-12 lg:py-16"
+                      : "bg-background"
                 }`}
               >
-                {plan.cta}
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </a>
-            </div>
-          ))}
+                {(isBeta || plan.popular) && (
+                  <span
+                    className={`absolute -top-3 left-8 px-3 py-1 font-mono text-xs tracking-widest uppercase ${
+                      isBeta
+                        ? "bg-[#f4f1ec] text-[#0a0a0a]"
+                        : "bg-foreground text-primary-foreground"
+                    }`}
+                  >
+                    {isBeta
+                      ? "July 2026 Beta · £750 off"
+                      : "Recommended · Highest leverage"}
+                  </span>
+                )}
+
+                <div className="mb-8">
+                  <span
+                    className={`font-mono text-xs ${
+                      isBeta ? "text-[#f4f1ec]/55" : "text-muted-foreground"
+                    }`}
+                  >
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <h3
+                    className={`mt-2 font-display text-3xl ${
+                      isBeta ? "text-[#f4f1ec]" : "text-foreground"
+                    }`}
+                  >
+                    {plan.name}
+                  </h3>
+                  <p
+                    className={`mt-2 text-sm ${
+                      isBeta ? "text-[#f4f1ec]/70" : "text-muted-foreground"
+                    }`}
+                  >
+                    {plan.description}
+                  </p>
+                </div>
+
+                <div
+                  className={`mb-8 border-b pb-8 ${
+                    isBeta ? "border-white/10" : "border-foreground/10"
+                  }`}
+                >
+                  {plan.originalPrice && (
+                    <p
+                      className={`mb-1 font-display text-xl line-through decoration-1 ${
+                        isBeta ? "text-[#f4f1ec]/40" : "text-muted-foreground"
+                      }`}
+                    >
+                      {plan.originalPrice}
+                    </p>
+                  )}
+                  <div
+                    className={`font-display text-4xl lg:text-5xl ${
+                      isBeta ? "text-[#f4f1ec]" : "text-foreground"
+                    }`}
+                  >
+                    {plan.price}
+                  </div>
+                  <p
+                    className={`mt-2 text-sm ${
+                      isBeta ? "text-[#f4f1ec]/65" : "text-muted-foreground"
+                    }`}
+                  >
+                    {plan.priceNote}
+                  </p>
+                  {isBeta && (
+                    <p className="mt-4 border-l border-[#f4f1ec]/25 pl-3 text-xs leading-relaxed text-[#f4f1ec]/70">
+                      Exclusive Beta launch offer for the <strong className="font-medium text-[#f4f1ec]">first</strong>{" "}
+                      Personal Centurion only. Subsequent units remain £5,000.
+                    </p>
+                  )}
+                </div>
+
+                <ul className="mb-10 space-y-4">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <Check
+                        className={`mt-0.5 size-4 shrink-0 ${
+                          isBeta ? "text-[#f4f1ec]" : "text-foreground"
+                        }`}
+                      />
+                      <span
+                        className={`text-sm ${
+                          isBeta ? "text-[#f4f1ec]/75" : "text-muted-foreground"
+                        }`}
+                      >
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={plan.href}
+                  className={`group flex w-full items-center justify-center gap-2 py-4 text-sm font-medium transition-all ${
+                    isBeta
+                      ? "bg-[#f4f1ec] text-[#0a0a0a] hover:bg-white"
+                      : plan.popular
+                        ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
+                        : "border border-foreground/20 text-foreground hover:border-foreground hover:bg-foreground/5"
+                  }`}
+                >
+                  {plan.cta}
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
+            );
+          })}
         </div>
 
         <p className="mt-12 text-center text-sm text-muted-foreground">
