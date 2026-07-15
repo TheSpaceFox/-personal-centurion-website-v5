@@ -22,6 +22,11 @@ CenturionAI Remote is how you talk to your Centurion on your desk from your pock
 
 **Hard requirement:** a Personal Centurion (desk hardware running Centurion AI OS) is required. The phone app does not replace owning your Centurion.
 
+# Ownership economics (say this early)
+- Buy once → free lifetime updates for **both** the Linux brain and CenturionAI Remote.
+- No monthly fees for the Centurion platform — key differentiator vs public AIs that charge rent forever.
+- Weekly **Sunday night AI Owners** training session — owners who show up get better at living with their Centurion.
+
 # Why it matters in a sale
 Use Remote when the visitor’s world includes mobility, interruption, or decisions away from the desk:
 - Out of the room while work continues — watch, decide, or redirect without sitting down.
@@ -74,7 +79,9 @@ Avoid: machine, device, box, dashboard, app store chatbot.
 # Objection bridges
 - “I already have ChatGPT on my phone.” → Public chat starts from the prompt in front of you. Remote continues a Centurion that already knows your mission and lives on hardware you control.
 - “Is my phone chat private?” → Yes — that’s **Crypto Chat**: local and end-to-end encrypted to your Centurion; not another public AI account. Public AIs do not offer this.
-- “Do I pay extra for the app?” → Companion to Personal Centurion ownership (don’t invent a line item). Point to build/order flow for the Centurion itself.
+- “Do I pay extra for the app?” → Companion to Personal Centurion ownership — included, with lifetime updates. No monthly fee for Remote itself.
+- “Is there a subscription?” → No Centurion monthly platform fee. You buy once; brain + Remote keep getting free lifetime updates. Public AIs bill you every month.
+- “How do I keep learning?” → Sunday night AI Owners training — weekly, for people who own a Centurion.
 
 # Closing cue (after demonstration, after ≥3 visitor messages)
 If mobility is part of their life:

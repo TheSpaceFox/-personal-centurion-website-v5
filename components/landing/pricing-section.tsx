@@ -44,6 +44,9 @@ const plans = [
       "Your private Centurion computer for the desk — hardware you own",
       "Personal Centurion AI Brain, ready for serious mission work",
       "CenturionAI Remote on iPhone — yours immediately after the hold",
+      "Buy once → free lifetime updates for the Linux brain and iPhone Remote",
+      "No monthly fees — unlike public AI subscriptions",
+      "Weekly Sunday night AI Owners training session",
       "Soul Document Process included",
       "Personal Mission Discovery included",
       "Collaborate with other Centurions when your work demands it",
@@ -66,6 +69,8 @@ const plans = [
       "Mission & use-case design tailored to your organisation",
       "Fully documented outcome: findings, ROI narrative, next-step brief",
       "Executive-ready deck and written report you can take to the board",
+      "Lifetime product updates for every unit — no per-seat monthly software fees",
+      "Sunday night AI Owners training for the programme cohort",
       "Support upgrade applied to all future Personal Centurion purchases",
       "Priority build scheduling and pioneer allocation",
       "Pilot playbook you keep — expand with confidence after the programme",
@@ -89,6 +94,9 @@ const plans = [
       "The Chairman receives the most senior Centurion",
       "Special Chairman of the Board remote for iPhone",
       "Soul Document & Mission Discovery for each member",
+      "Lifetime updates for every board Centurion and Remote — buy once, keep growing",
+      "No monthly SaaS fees for the Centurion platform itself",
+      "Sunday night AI Owners training for directors who want the craft",
       "Built for companies that refuse public chat with their strategy",
     ],
     cta: "Enquire for Board Edition",
@@ -114,6 +122,11 @@ export function PricingSection() {
             Choose a path. Hold your build position for £500. Receive CenturionAI Remote
             immediately, then clarify your Mission and hone your Centurion&apos;s Soul while
             your hardware is built — private work that stays with you, not with the company.
+          </p>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+            Buy once. Free lifetime updates for both the Linux Fedora brain and iPhone Remote.
+            No monthly fees — the differentiator public AIs cannot match. Join the weekly
+            Sunday night AI Owners training to get more from what you own.
           </p>
         </div>
 

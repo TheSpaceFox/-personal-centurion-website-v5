@@ -59,7 +59,8 @@ export function CtaSection() {
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
                   For people who have built remarkable lives and need an AI worthy
-                  of that care. Begin with a private, quiet conversation.
+                  of that care. Buy once — free lifetime updates, no monthly fees —
+                  and learn with other owners every Sunday night.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
