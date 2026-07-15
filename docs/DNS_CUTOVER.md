@@ -1,5 +1,7 @@
 # DNS & API continuity — Centurion website v5 cutover
 
+> Ownership map: [REPO_OWNERSHIP.md](./REPO_OWNERSHIP.md). Design tokens: [`../design-tokens/`](../design-tokens/).
+
 ## Goal
 
 Point marketing/commerce traffic at **personal-centurion-website-v5** without breaking Linux Brain
