@@ -293,6 +293,8 @@ export function CounselChamber() {
   }, []);
 
   useEffect(() => {
+    // Only follow the conversation — never scroll the page on empty load.
+    if (messages.length === 0) return;
     bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages, status]);
 

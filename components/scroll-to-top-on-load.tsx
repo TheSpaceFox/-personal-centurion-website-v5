@@ -3,8 +3,8 @@
 import { useEffect } from "react";
 
 /**
- * Always land at the true top of the homepage on load/reload.
- * Browsers otherwise restore prior scroll and clip the fixed header.
+ * Land at the true top of the homepage on load/reload.
+ * Empty `#` is treated as no target (same as bare `/`).
  */
 export function ScrollToTopOnLoad() {
   useEffect(() => {
@@ -12,10 +12,16 @@ export function ScrollToTopOnLoad() {
       history.scrollRestoration = "manual";
     }
 
-    // Only force top when there is no in-page hash target.
-    if (window.location.hash) return;
+    const hash = window.location.hash;
+    // `#adrian` etc. keep their target; bare `#` or no hash → top.
+    if (hash.length > 1) return;
 
-    window.scrollTo(0, 0);
+    const toTop = () => window.scrollTo(0, 0);
+    toTop();
+    // Beat late layout / scrollRestoration races after paint.
+    requestAnimationFrame(toTop);
+    const t = window.setTimeout(toTop, 0);
+    return () => window.clearTimeout(t);
   }, []);
 
   return null;
