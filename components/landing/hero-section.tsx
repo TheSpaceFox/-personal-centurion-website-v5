@@ -73,9 +73,9 @@ export function HeroSection() {
                   isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                 }`}
               >
-                <span className="block">One Human.</span>
+                <span className="block">1 Human</span>
                 <span className="block">
-                  One AI.{" "}
+                  1 AI.{" "}
                   <span className="relative inline-block">
                     <span key={wordIndex} className="inline-flex">
                       {words[wordIndex].split("").map((char, i) => (

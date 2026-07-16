@@ -12,7 +12,7 @@ import {
 } from "@/components/whitepaper";
 
 export const metadata: Metadata = {
-  title: "Whitepaper — Sovereign",
+  title: "Whitepaper — Centurion",
   description:
     "A private AI for a private life. Ownership under your roof, loyalty by design, and a sealed study for your life's mission.",
 };

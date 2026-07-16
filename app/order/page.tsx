@@ -3,9 +3,9 @@ import { OrderWizard } from '@/components/order/order-wizard'
 import { SITE_VERSION } from '@/lib/site-config'
 
 export const metadata = {
-  title: 'Build your Sovereign — Sovereign',
+  title: 'Build your Sovereign — Centurion',
   description:
-    'Configure your Sovereign engagement — secure a build slot, enquire for Board, or register interest.',
+    'Configure your Sovereign, Prime Pilot, or Prime engagement — secure a build slot or enquire.',
 }
 
 export default function OrderPage() {

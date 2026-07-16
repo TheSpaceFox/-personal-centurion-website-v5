@@ -125,13 +125,13 @@ export const ENGAGEMENT_TIERS: Record<EngagementTier, EngagementConfig> = {
   },
   pilot: {
     id: 'pilot',
-    name: 'Start a Pilot Program',
+    name: 'Prime Pilot',
     shortLabel: 'Pilot',
-    description: 'Three Prime Pilot units plus a guided proof of concept — white-glove programme lead through final readout.',
+    description: 'Three Sovereign units plus a guided proof of concept — white-glove programme lead through final readout.',
     unitPrice: 1_500_000, // £15,000
     enquireOnly: false,
     includes: [
-      'Three Prime Pilot units',
+      'Three Sovereign units',
       'Guided Proof of Concept / Pilot',
       'Dedicated programme lead',
       'Documented outcome and next-step brief',
@@ -143,7 +143,7 @@ export const ENGAGEMENT_TIERS: Record<EngagementTier, EngagementConfig> = {
     id: 'board',
     name: 'Prime',
     shortLabel: 'Board',
-    description: 'A Prime for every board member — from £45,000+ depending on board size.',
+    description: 'Full board-room team setup — custom fitted from £45,000+ depending on board size.',
     unitPrice: 4_500_000, // £45,000 floor display; final quote by enquiry
     enquireOnly: true,
     includes: [

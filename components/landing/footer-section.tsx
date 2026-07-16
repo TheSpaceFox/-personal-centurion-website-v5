@@ -2,7 +2,7 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { CenturionLogo } from "@/components/centurion-logo";
-import { COMPANY, SITE_VERSION } from "@/lib/site-config";
+import { COMPANY } from "@/lib/site-config";
 import { AnimatedWave } from "./animated-wave";
 
 const footerLinks = {
@@ -59,7 +59,7 @@ export function FooterSection() {
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                One Human. One AI. Loyal, and entirely yours.
+                1 Human 1 AI. Loyal, and entirely yours.
                 For those who know that real privacy cannot be borrowed, rented, or shared.
               </p>
 
@@ -107,7 +107,7 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            {new Date().getFullYear()} {COMPANY.legalName}. All rights reserved. · v{SITE_VERSION}
+            {new Date().getFullYear()} © {COMPANY.legalName}
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">

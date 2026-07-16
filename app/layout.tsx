@@ -21,8 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Sovereign — One Human. One AI.',
-  description: 'A private AI that answers only to you. For those who have built empires and guard their legacy with care. One Human. One AI.',
+  title: 'Centurion — 1 Human 1 AI',
+  description: 'A private AI that answers only to you. For those who have built empires and guard their legacy with care. 1 Human 1 AI.',
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },

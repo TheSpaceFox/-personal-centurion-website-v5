@@ -30,7 +30,7 @@ export function CenturionLogo({
         aria-hidden
       />
       <span className={cn("font-display tracking-[0.08em]", word)}>
-        Sovereign
+        Centurion
       </span>
     </span>
   );

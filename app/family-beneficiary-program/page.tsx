@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { FamilyBeneficiaryDiagram } from "@/components/landing/family-beneficiary-diagram";
 
 export const metadata: Metadata = {
-  title: "Family Beneficiary Program — Sovereign",
+  title: "Family Beneficiary Program — Centurion",
   description:
     "Introduce four colleagues who buy Centurion — earn one complimentary Centurion for someone you love.",
 };
