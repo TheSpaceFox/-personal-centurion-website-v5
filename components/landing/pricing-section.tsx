@@ -171,11 +171,13 @@ export function PricingSection() {
                   {BETA_OFFER.name} · {BETA_OFFER.endsLabel}
                 </span>
                 <h3 className="font-display text-3xl tracking-tight sm:text-4xl">
-                  {BETA_OFFER.headline}
+                  {discount} off your first Sovereign
                 </h3>
                 <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#f4f1ec]/75">
-                  {BETA_OFFER.detail} Hardware, lifetime updates, Sunday AI Owners training, and
-                  Personal Mission Discovery — same full package, private Beta pricing.
+                  Limited to the first Sovereign purchased during the July 2026 Beta. Additional
+                  units are at the full {personalList}. Hardware, lifetime updates, Sunday AI
+                  Owners training, and Personal Mission Discovery — same full package, private
+                  Beta pricing.
                 </p>
               </div>
               <div className="shrink-0 text-left lg:text-right">
