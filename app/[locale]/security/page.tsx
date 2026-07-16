@@ -1,7 +1,12 @@
+import type { ReactNode } from 'react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/routing'
 import { CenturionLogo } from '@/components/centurion-logo'
-import { TrustBoundaryDiagram } from '@/components/whitepaper'
+import {
+  AnimatedTrustBoundaryDiagram,
+  CloudVsSovereignDiagram,
+  IdPMailFlowDiagram,
+} from '@/components/landing/security-diagrams'
 import { COMPANY, SITE_VERSION } from '@/lib/site-config'
 import { isAppLocale, type AppLocale } from '@/i18n/locales'
 
@@ -21,6 +26,23 @@ export async function generateMetadata({
 
 function splitList(raw: string): string[] {
   return raw.split('|').map((s) => s.trim()).filter(Boolean)
+}
+
+function DiagramFrame({
+  children,
+  caption,
+}: {
+  children: ReactNode
+  caption: string
+}) {
+  return (
+    <figure className="border border-foreground/10 bg-card p-4 sm:p-8">
+      {children}
+      <figcaption className="mt-4 text-center font-mono text-[10px] tracking-widest text-muted-foreground uppercase sm:text-xs">
+        {caption}
+      </figcaption>
+    </figure>
+  )
 }
 
 export default async function SecurityPage({
@@ -68,11 +90,16 @@ export default async function SecurityPage({
         </div>
 
         <article className="mx-auto mt-16 max-w-3xl space-y-14 text-muted-foreground">
-          <section className="space-y-4">
-            <h2 className="font-display text-2xl tracking-tight text-foreground">
-              {t('thesisTitle')}
-            </h2>
-            <p className="leading-relaxed">{t('thesisBody')}</p>
+          <section className="space-y-6">
+            <div className="space-y-4">
+              <h2 className="font-display text-2xl tracking-tight text-foreground">
+                {t('thesisTitle')}
+              </h2>
+              <p className="leading-relaxed">{t('thesisBody')}</p>
+            </div>
+            <DiagramFrame caption={t('diagramCompareCaption')}>
+              <CloudVsSovereignDiagram />
+            </DiagramFrame>
           </section>
 
           <section className="space-y-6">
@@ -93,12 +120,9 @@ export default async function SecurityPage({
             <h2 className="font-display text-2xl tracking-tight text-foreground">
               {t('boundaryTitle')}
             </h2>
-            <figure className="border border-foreground/10 bg-card p-4 sm:p-8">
-              <TrustBoundaryDiagram />
-              <figcaption className="mt-4 text-center font-mono text-[10px] tracking-widest text-muted-foreground uppercase sm:text-xs">
-                {t('boundaryCaption')}
-              </figcaption>
-            </figure>
+            <DiagramFrame caption={t('boundaryCaption')}>
+              <AnimatedTrustBoundaryDiagram />
+            </DiagramFrame>
           </section>
 
           <section className="space-y-8">
@@ -108,6 +132,10 @@ export default async function SecurityPage({
               </h2>
               <p className="leading-relaxed">{t('emailLead')}</p>
             </div>
+
+            <DiagramFrame caption={t('diagramMailCaption')}>
+              <IdPMailFlowDiagram />
+            </DiagramFrame>
 
             <div className="space-y-4 border border-foreground/10 p-6 sm:p-8">
               <h3 className="font-display text-xl text-foreground">{t('m365Title')}</h3>

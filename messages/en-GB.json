@@ -139,6 +139,8 @@
     "benefitNoTrainBody": "Centurion Limited does not receive private Sovereign inference data to train shared models. Your mail and documents are not our product fuel.",
     "boundaryTitle": "Trust boundary",
     "boundaryCaption": "Figure · Private world stays home; company and public chat stay outside",
+    "diagramCompareCaption": "Figure · Public AI pulls mail into a vendor cloud; Sovereign keeps work under your roof",
+    "diagramMailCaption": "Figure · Your IdP grants OAuth to the Sovereign; Centurion Limited never relays mail",
     "emailTitle": "Connecting company email — best practice",
     "emailLead": "When a principal needs mail assistance, IT should approve the same patterns used for any trusted desktop client: OAuth under your tenant, least privilege, revocable consent, and no third-party mail relay.",
     "m365Title": "Microsoft 365 / Exchange Online",
@@ -163,6 +165,7 @@
     "title": "Built so security teams can say yes.",
     "lead": "Private work stays on hardware you own. Crypto Chat stays on your network. Company mail connects only under your identity provider — never through a Centurion cloud.",
     "bullets": "Owned Sovereign — data sovereignty under your roof|Crypto Chat — phone to Sovereign, encrypted on your network|Offline capable when policy forbids public internet|Microsoft 365 & Google Workspace — OAuth, least privilege, IT revoke",
-    "cta": "Read the Security brief for IT"
+    "cta": "Read the Security brief for IT",
+    "diagramCaption": "Security model · four pillars"
   }
 }
