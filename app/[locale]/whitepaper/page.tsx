@@ -1,4 +1,4 @@
-import Link from '@/i18n/routing';
+import { Link } from '@/i18n/routing';
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { COMPANY, SITE_VERSION } from "@/lib/site-config";

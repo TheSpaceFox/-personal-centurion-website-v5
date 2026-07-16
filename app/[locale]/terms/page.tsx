@@ -1,4 +1,4 @@
-import Link from '@/i18n/routing'
+import { Link } from '@/i18n/routing'
 import { COMPANY, SITE_VERSION } from '@/lib/site-config'
 
 export const metadata = {

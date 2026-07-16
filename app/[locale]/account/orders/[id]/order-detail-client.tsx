@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from '@/i18n/routing'
+import { Link } from '@/i18n/routing'
 import { useParams, useSearchParams } from 'next/navigation'
 import { fetchQuoteAction } from '@/lib/orders/actions'
 import { formatGbpFromPence } from '@/lib/orders/pricing'

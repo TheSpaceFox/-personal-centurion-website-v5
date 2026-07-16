@@ -1,7 +1,7 @@
 'use client'
 
 import { FormEvent, useEffect, useState } from 'react'
-import Link from '@/i18n/routing'
+import { Link } from '@/i18n/routing'
 import { useRouter } from 'next/navigation'
 import { BUYER_SESSION_KEY } from '@/lib/orders/types'
 import {

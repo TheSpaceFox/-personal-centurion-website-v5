@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from '@/i18n/routing'
+import { Link } from '@/i18n/routing'
 import type { QuoteRecord } from '@/lib/orders/types'
 import { formatGbpFromPence } from '@/lib/orders/pricing'
 
