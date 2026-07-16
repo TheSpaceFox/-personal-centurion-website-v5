@@ -49,7 +49,11 @@ export async function POST(req: Request) {
     });
   }
 
-  let body: { messages?: UIMessage[] };
+  let body: {
+    messages?: UIMessage[];
+    locale?: string;
+    displayCurrency?: string;
+  };
   try {
     body = await req.json();
   } catch {
@@ -85,6 +89,8 @@ export async function POST(req: Request) {
   const system = buildCounselSystemPrompt({
     catalog,
     referenceArticles: contextBlock,
+    locale: body.locale,
+    displayCurrency: body.displayCurrency,
   });
 
   const modelId = process.env.XAI_MODEL || "grok-3";

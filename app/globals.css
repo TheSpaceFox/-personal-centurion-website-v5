@@ -91,6 +91,15 @@
   html {
     scroll-behavior: smooth;
   }
+  html[lang='zh-HK'] body {
+    font-family: var(--font-noto-tc), var(--font-instrument), system-ui, sans-serif;
+  }
+  html[lang='ja-JP'] body {
+    font-family: var(--font-noto-jp), var(--font-instrument), system-ui, sans-serif;
+  }
+  html[lang='ko-KR'] body {
+    font-family: var(--font-noto-kr), var(--font-instrument), system-ui, sans-serif;
+  }
 }
 
 @layer utilities {

@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin'
+
+const withNextIntl = createNextIntlPlugin('./i18n/request.ts')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
@@ -7,8 +11,8 @@ const nextConfig = {
     unoptimized: true,
   },
   outputFileTracingIncludes: {
-    "/api/counsel": ["./content/counsel/**/*"],
+    '/api/counsel': ['./content/counsel/**/*'],
   },
 }
 
-export default nextConfig
+export default withNextIntl(nextConfig)

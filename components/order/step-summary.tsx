@@ -1,19 +1,20 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/i18n/routing'
 import { useWizard, clearWizardDraft } from '@/components/order/wizard-context'
 import { ENGAGEMENT_TIERS, BUYER_SESSION_KEY } from '@/lib/orders/types'
-import { calculatePricing, formatGbpFromPence } from '@/lib/orders/pricing'
+import { calculatePricing } from '@/lib/orders/pricing'
 import { submitQuoteAction } from '@/lib/orders/actions'
 import { emptyProfile, saveBuyerProfile } from '@/lib/auth/buyer-profile'
+import { useDisplayMoney } from '@/hooks/use-display-money'
 
 export function StepSummary() {
   const { state, back, counselHandoff, clearCounselHandoff } = useWizard()
   const pricing = calculatePricing(state)
   const tier = ENGAGEMENT_TIERS[state.engagement]
   const router = useRouter()
+  const { format } = useDisplayMoney()
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -61,7 +62,8 @@ export function StepSummary() {
         </h1>
         <p className="text-muted-foreground max-w-2xl">
           Submitting creates a quote with our team. Deposit invoices are arranged privately —
-          this site does not take card payment.
+          this site does not take card payment. Amounts shown are converted from UK GBP for
+          display; settlement is in GBP unless otherwise agreed.
         </p>
       </header>
 
@@ -89,7 +91,7 @@ export function StepSummary() {
                 <span>
                   {pricing.enquireOnly && item.totalPriceGbp === 0
                     ? 'Enquiry'
-                    : formatGbpFromPence(item.totalPriceGbp)}
+                    : format(item.totalPriceGbp)}
                 </span>
               </li>
             ))}
@@ -98,11 +100,11 @@ export function StepSummary() {
             <div className="space-y-1 border-t border-foreground/10 pt-4 text-sm">
               <div className="flex justify-between">
                 <span>Total</span>
-                <span className="font-medium">{formatGbpFromPence(pricing.total)}</span>
+                <span className="font-medium">{format(pricing.total)}</span>
               </div>
               <div className="flex justify-between text-muted-foreground">
                 <span>Indicative deposit (50%)</span>
-                <span>{formatGbpFromPence(pricing.deposit)}</span>
+                <span>{format(pricing.deposit)}</span>
               </div>
             </div>
           )}
@@ -149,12 +151,12 @@ export function StepSummary() {
 
       <p className="text-sm text-muted-foreground">
         Prefer a saved buyer session?{' '}
-        <Link
+        <a
           href="/auth?returnUrl=/order?resume=1"
           className="underline underline-offset-4 hover:text-foreground"
         >
           Sign in and return here
-        </Link>
+        </a>
         .
       </p>
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "@/i18n/routing";
 import { AnimatedTetrahedron } from "./animated-tetrahedron";
 
 export function CtaSection() {
@@ -69,10 +70,10 @@ export function CtaSection() {
                     asChild
                     className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
                   >
-                    <a href="/order?engagement=interest">
+                    <Link href="/order?engagement=interest">
                       Register Interest
                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                    </a>
+                    </Link>
                   </Button>
                   <Button
                     size="lg"
@@ -80,7 +81,7 @@ export function CtaSection() {
                     asChild
                     className="h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
                   >
-                    <a href="/order?engagement=personal">Secure a Build Slot</a>
+                    <Link href="/order?engagement=personal">Secure a Build Slot</Link>
                   </Button>
                 </div>
 

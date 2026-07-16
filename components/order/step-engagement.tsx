@@ -7,11 +7,14 @@ import {
   BETA_OFFER,
   isJuly2026BetaActive,
 } from '@/lib/orders/beta'
-import { formatGbpFromPence } from '@/lib/orders/pricing'
+import { useDisplayMoney } from '@/hooks/use-display-money'
+import { useTranslations } from 'next-intl'
 import { cn } from '@/lib/utils'
 
 export function StepEngagement() {
+  const t = useTranslations('order')
   const { state, setState, next } = useWizard()
+  const { format } = useDisplayMoney()
   const betaActive = isJuly2026BetaActive()
 
   function select(id: EngagementTier) {
@@ -24,27 +27,24 @@ export function StepEngagement() {
 
   function priceLabel(id: EngagementTier): string {
     const tier = ENGAGEMENT_TIERS[id]
-    if (tier.enquireOnly && tier.unitPrice === 0) return 'Enquiry'
-    if (tier.enquireOnly) return `From ${formatGbpFromPence(tier.unitPrice)}`
+    if (tier.enquireOnly && tier.unitPrice === 0) return t('enquiry')
+    if (tier.enquireOnly) return t('fromPrice', { price: format(tier.unitPrice) })
     if (id === 'personal' && betaActive) {
-      return formatGbpFromPence(tier.unitPrice - BETA_DISCOUNT_PENCE)
+      return format(tier.unitPrice - BETA_DISCOUNT_PENCE)
     }
-    return formatGbpFromPence(tier.unitPrice)
+    return format(tier.unitPrice)
   }
 
   return (
     <div className="space-y-10">
       <header className="space-y-3">
         <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
-          Step 01 — Engagement
+          {t('stepEngagement')}
         </span>
         <h1 className="font-display text-4xl md:text-5xl tracking-tight text-foreground">
-          Choose how you begin.
+          {t('chooseHow')}
         </h1>
-        <p className="text-muted-foreground max-w-2xl">
-          Secure a Sovereign build slot, enquire for a Board edition, or register interest
-          without commitment.
-        </p>
+        <p className="text-muted-foreground max-w-2xl">{t('chooseLead')}</p>
         {betaActive && (
           <p className="max-w-2xl border border-foreground/10 bg-foreground/[0.03] px-4 py-3 text-sm text-muted-foreground">
             <span className="font-medium text-foreground">{BETA_OFFER.name}.</span>{' '}
@@ -78,7 +78,7 @@ export function StepEngagement() {
               <p className="mt-6 font-display text-3xl text-foreground">
                 {showBetaStrike && (
                   <span className="mr-3 text-xl text-muted-foreground line-through decoration-1">
-                    {formatGbpFromPence(tier.unitPrice)}
+                    {format(tier.unitPrice)}
                   </span>
                 )}
                 {priceLabel(id)}
@@ -99,7 +99,7 @@ export function StepEngagement() {
         <div className="flex flex-wrap items-end gap-6 border-t border-foreground/10 pt-8">
           <label className="space-y-2">
             <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              Quantity
+              {t('quantity')}
             </span>
             <input
               type="number"
@@ -112,12 +112,12 @@ export function StepEngagement() {
           </label>
           <p className="text-sm text-muted-foreground pb-3">
             {state.engagement === 'board'
-              ? 'Board editions typically start at three units. Final pricing is confirmed privately.'
+              ? t('qtyBoard')
               : state.engagement === 'pilot'
-                ? 'The Pilot path is fixed at three Centurions plus the guided programme.'
+                ? t('qtyPilot')
                 : betaActive
-                  ? 'Beta discount applies to the first Sovereign only; additional units are £5,000.'
-                  : 'One unit is a single Sovereign for one principal.'}
+                  ? t('qtyBeta', { price: format(ENGAGEMENT_TIERS.personal.unitPrice) })
+                  : t('qtyPersonal')}
           </p>
         </div>
       )}
@@ -128,7 +128,7 @@ export function StepEngagement() {
           onClick={next}
           className="bg-foreground px-8 py-4 text-sm font-medium text-primary-foreground hover:bg-foreground/90"
         >
-          Continue
+          {t('continue')}
         </button>
       </div>
     </div>

@@ -1,69 +1,68 @@
-"use client";
+'use client'
 
-import { ArrowUpRight } from "lucide-react";
-import { CenturionLogo } from "@/components/centurion-logo";
-import { COMPANY } from "@/lib/site-config";
-import { AnimatedWave } from "./animated-wave";
-
-const footerLinks = {
-  Capabilities: [
-    { name: "Sovereign Intelligence", href: "#features" },
-    { name: "How it works", href: "#how-it-works" },
-    { name: "Sovereign Remote", href: "#remote" },
-    { name: "Who it serves", href: "#integrations" },
-    { name: "Skills Library", href: "#developers" },
-    { name: "Talk plainly", href: "#plain-talk" },
-  ],
-  Engagement: [
-    { name: "Limited Edition", href: "#limited-edition" },
-    { name: "Register Interest", href: "/order?engagement=interest" },
-    { name: "Secure a Build Slot", href: "/order?engagement=personal" },
-    { name: "Prime", href: "/order?engagement=board" },
-    { name: "Buyer account", href: "/account" },
-  ],
-  Company: [
-    { name: "Who it serves", href: "#integrations" },
-    { name: "Family Beneficiary Program", href: "/family-beneficiary-program" },
-    { name: "Support", href: "https://help.1human1ai.com/" },
-    { name: "Enquiries", href: "mailto:hello@1human1ai.com" },
-  ],
-  Legal: [
-    { name: "Whitepaper", href: "/whitepaper" },
-    { name: "Privacy", href: "/privacy" },
-    { name: "Terms", href: "/terms" },
-    { name: "Security", href: "#security" },
-  ],
-};
-
-const socialLinks = [
-  { name: "Enquiries", href: "mailto:hello@1human1ai.com" },
-  { name: "Support", href: "https://help.1human1ai.com/" },
-];
+import { useTranslations } from 'next-intl'
+import { ArrowUpRight } from 'lucide-react'
+import { CenturionLogo } from '@/components/centurion-logo'
+import { Link } from '@/i18n/routing'
+import { AnimatedWave } from './animated-wave'
 
 export function FooterSection() {
+  const t = useTranslations('footer')
+  const year = new Date().getFullYear()
+
+  const footerLinks = {
+    [t('capabilities')]: [
+      { name: t('sovereignIntelligence'), href: '#features' },
+      { name: t('howItWorks'), href: '#how-it-works' },
+      { name: t('sovereignRemote'), href: '#remote' },
+      { name: t('whoItServes'), href: '#integrations' },
+      { name: t('skillsLibrary'), href: '#developers' },
+      { name: t('talkPlainly'), href: '#plain-talk' },
+    ],
+    [t('engagement')]: [
+      { name: t('limitedEdition'), href: '#limited-edition' },
+      { name: t('registerInterest'), href: '/order?engagement=interest' },
+      { name: t('secureBuildSlot'), href: '/order?engagement=personal' },
+      { name: t('prime'), href: '/order?engagement=board' },
+      { name: t('buyerAccount'), href: '/account' },
+    ],
+    [t('company')]: [
+      { name: t('whoItServes'), href: '#integrations' },
+      { name: t('familyProgram'), href: '/family-beneficiary-program' },
+      { name: t('support'), href: 'https://help.1human1ai.com/' },
+      { name: t('enquiries'), href: 'mailto:hello@1human1ai.com' },
+    ],
+    [t('legal')]: [
+      { name: t('whitepaper'), href: '/whitepaper' },
+      { name: t('privacy'), href: '/privacy' },
+      { name: t('terms'), href: '/terms' },
+      { name: t('security'), href: '#security' },
+    ],
+  }
+
+  const socialLinks = [
+    { name: t('enquiries'), href: 'mailto:hello@1human1ai.com' },
+    { name: t('support'), href: 'https://help.1human1ai.com/' },
+  ]
+
   return (
     <footer className="relative border-t border-foreground/10">
-      {/* Animated wave background */}
       <div className="absolute inset-0 h-64 opacity-20 pointer-events-none overflow-hidden">
         <AnimatedWave />
       </div>
-      
+
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Main Footer */}
         <div className="py-16 lg:py-24">
           <div className="grid grid-cols-2 md:grid-cols-6 gap-12 lg:gap-8">
-            {/* Brand Column */}
             <div className="col-span-2">
               <a href="#" className="mb-6 inline-flex items-center gap-2 transition-opacity hover:opacity-80">
                 <CenturionLogo size="lg" variant="full" />
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                1 Human 1 AI. Loyal, and entirely yours.
-                For those who know that real privacy cannot be borrowed, rented, or shared.
+                {t('tagline')}
               </p>
 
-              {/* Social Links */}
               <div className="flex gap-6">
                 {socialLinks.map((link) => (
                   <a
@@ -78,24 +77,27 @@ export function FooterSection() {
               </div>
             </div>
 
-            {/* Link Columns */}
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title}>
                 <h3 className="text-sm font-medium mb-6">{title}</h3>
                 <ul className="space-y-4">
                   {links.map((link) => (
-                    <li key={link.name}>
-                      <a
-                        href={link.href}
-                        className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2"
-                      >
-                        {link.name}
-                        {"badge" in link && link.badge && (
-                          <span className="text-xs px-2 py-0.5 bg-foreground text-background rounded-full">
-                            {link.badge}
-                          </span>
-                        )}
-                      </a>
+                    <li key={`${title}-${link.name}`}>
+                      {link.href.startsWith('/') ? (
+                        <Link
+                          href={link.href}
+                          className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2"
+                        >
+                          {link.name}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2"
+                        >
+                          {link.name}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -104,20 +106,17 @@ export function FooterSection() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            {new Date().getFullYear()} © {COMPANY.legalName}
-          </p>
+          <p className="text-sm text-muted-foreground">{t('copyright', { year })}</p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500" />
-              Private &amp; ready
+              {t('status')}
             </span>
           </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }

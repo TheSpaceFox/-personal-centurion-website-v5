@@ -4,10 +4,12 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, type UIMessage } from "ai";
+import { useLocale } from "next-intl";
 import { ArrowRight, Loader2, Minimize2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { localeMeta, type AppLocale } from "@/i18n/locales";
 
 const CHIPS = [
   "I'm clarifying my life's mission",
@@ -274,9 +276,15 @@ export function CounselChamber() {
   const [minimized, setMinimized] = useState(false);
   const [mounted, setMounted] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const locale = useLocale() as AppLocale;
+  const displayCurrency = localeMeta[locale]?.currency ?? "GBP";
   const transport = useMemo(
-    () => new DefaultChatTransport({ api: "/api/counsel" }),
-    []
+    () =>
+      new DefaultChatTransport({
+        api: "/api/counsel",
+        body: { locale, displayCurrency },
+      }),
+    [locale, displayCurrency]
   );
 
   const { messages, sendMessage, status, error, clearError, setMessages } = useChat({
