@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Shield, Lock, Eye, FileCheck } from "lucide-react";
+import { Link } from "@/i18n/routing";
 
 const securityFeatures = [
   {
@@ -415,6 +416,16 @@ export function SecuritySection() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/security"
+            className="inline-flex items-center gap-2 text-sm font-medium text-foreground underline-offset-4 hover:underline"
+          >
+            Full security brief for IT
+            <span aria-hidden>→</span>
+          </Link>
         </div>
       </div>
     </section>

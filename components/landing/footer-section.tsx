@@ -36,7 +36,7 @@ export function FooterSection() {
       { name: t('whitepaper'), href: '/whitepaper' },
       { name: t('privacy'), href: '/privacy' },
       { name: t('terms'), href: '/terms' },
-      { name: t('security'), href: '#security' },
+      { name: t('security'), href: '/security' },
     ],
   }
 

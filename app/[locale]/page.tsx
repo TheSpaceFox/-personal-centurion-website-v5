@@ -14,6 +14,7 @@ import { TestimonialsSection } from "@/components/landing/testimonials-section";
 import { LimitedEditionSection } from "@/components/landing/limited-edition-section";
 import { PricingSection } from "@/components/landing/pricing-section";
 import { CtaSection } from "@/components/landing/cta-section";
+import { SecuritySummarySection } from "@/components/landing/security-summary-section";
 import { FooterSection } from "@/components/landing/footer-section";
 import { ScrollToTopOnLoad } from "@/components/scroll-to-top-on-load";
 import { isAppLocale, type AppLocale } from "@/i18n/locales";
@@ -45,6 +46,7 @@ export default async function Home({
       <LimitedEditionSection />
       <PricingSection />
       <CtaSection />
+      <SecuritySummarySection />
       <FooterSection />
     </main>
   );
