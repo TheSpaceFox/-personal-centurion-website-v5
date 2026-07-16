@@ -1,11 +1,11 @@
 export const COMPANY = {
-  name: 'Personal Centurion',
-  legalName: 'Personal Centurion Ltd',
-  email: 'hello@personal-centurion.com',
+  name: 'Sovereign',
+  legalName: 'Centurion Limited',
+  email: 'hello@1human1ai.com',
   phone: '',
   number: '',
-  helpUrl: 'https://help.personal-centurion.com',
-  productApiHost: 'https://personalcenturion.com',
+  helpUrl: 'https://help.1human1ai.com',
+  productApiHost: 'https://www.1human1ai.com',
 } as const
 
 /** Customer-facing platform generation — lockstep with OS / Desktop / iPhone. */

@@ -51,7 +51,7 @@ function DeskToRemoteDiagram() {
       viewBox="0 0 520 320"
       className="w-full h-auto text-foreground"
       role="img"
-      aria-label="Diagram of a Personal Centurion on a desk linked wirelessly to the Personal Centurion AI Remote on iPhone"
+      aria-label="Diagram of a Sovereign on a desk linked wirelessly to the Sovereign Remote on iPhone"
     >
       <defs>
         <marker
@@ -266,7 +266,7 @@ export function RemoteAppSection() {
         <div className="mb-16 lg:mb-20 max-w-3xl">
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              CenturionAI Remote
+              Sovereign Remote
             </span>
             <h2
               className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
@@ -284,7 +284,7 @@ export function RemoteAppSection() {
             >
               Talk to your Centurion on your desk through <strong className="font-medium text-foreground">Crypto Chat</strong> —
               a private encrypted conversation on your home Wi‑Fi that only your Centurion and your phone can
-              read. Public AIs have nothing like it. CenturionAI Remote is your companion: Crypto Chat, guide
+              read. Public AIs have nothing like it. Sovereign Remote is your companion: Crypto Chat, guide
               your mission, watch work happen, and decide when you are needed — not another public chat
               box on the internet.
             </p>
@@ -308,7 +308,7 @@ export function RemoteAppSection() {
               <div className="overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-[#f4f1ec]">
                 <Image
                   src="/personal-centurion-ai-remote.png"
-                  alt="Personal Centurion AI Remote on iPhone — Home view with mission work in progress"
+                  alt="Sovereign Remote on iPhone — Home view with mission work in progress"
                   width={470}
                   height={1024}
                   className="w-full h-auto"
@@ -317,7 +317,7 @@ export function RemoteAppSection() {
               </div>
             </div>
             <p className="mt-4 text-center font-mono text-xs tracking-widest uppercase text-muted-foreground">
-              iPhone · CenturionAI Remote
+              iPhone · Sovereign Remote
             </p>
           </div>
         </div>

@@ -16,7 +16,7 @@ const securingSteps = [
     detail: "Reserves your place in the build queue.",
   },
   {
-    title: "Receive CenturionAI Remote immediately",
+    title: "Receive Sovereign Remote immediately",
     detail: "Your iPhone companion while your Centurion is built.",
   },
   {
@@ -56,19 +56,19 @@ const betaActive = isJuly2026BetaActive();
 const plans: Plan[] = [
   {
     id: "personal",
-    name: "Buy a Personal Centurion",
+    name: "Buy a Sovereign",
     description: betaActive
       ? "July 2026 Beta — first unit at a private launch price"
       : "Own yours outright — start now",
     price: betaActive ? "£4,250" : "£5,000",
     originalPrice: betaActive ? "£5,000" : undefined,
     priceNote: betaActive
-      ? "First Personal Centurion only · July 2026 Beta · £500 hold deposits your place"
-      : "One Personal Centurion · GBP · £500 hold deposits your place",
+      ? "First Sovereign only · July 2026 Beta · £500 hold deposits your place"
+      : "One Sovereign · GBP · £500 hold deposits your place",
     features: [
       "Your private Centurion computer for the desk — hardware you own",
-      "Personal Centurion AI Brain, ready for serious mission work",
-      "CenturionAI Remote on iPhone — yours immediately after the hold",
+      "Sovereign AI Brain, ready for serious mission work",
+      "Sovereign Remote on iPhone — yours immediately after the hold",
       "Buy once → free lifetime updates for the Linux brain and iPhone Remote",
       "No monthly fees — unlike public AI subscriptions",
       "Weekly Sunday night AI Owners training session",
@@ -87,9 +87,9 @@ const plans: Plan[] = [
     name: "Start a Pilot Program",
     description: "Three Centurions + a white-glove proof of concept",
     price: "£15,000",
-    priceNote: "Three Personal Centurions · GBP · £500 hold deposits your place",
+    priceNote: "Three Prime Pilot units · GBP · £500 hold deposits your place",
     features: [
-      "Three Personal Centurions — ready for desk, boardroom, or home office",
+      "Three Prime Pilot units — ready for desk, boardroom, or home office",
       "Guided Proof of Concept / Pilot delivered with white-glove precision",
       "Dedicated programme lead from first kickoff to final readout",
       "Mission & use-case design tailored to your organisation",
@@ -97,7 +97,7 @@ const plans: Plan[] = [
       "Executive-ready deck and written report you can take to the board",
       "Lifetime product updates for every unit — no per-seat monthly software fees",
       "Sunday night AI Owners training for the programme cohort",
-      "Support upgrade applied to all future Personal Centurion purchases",
+      "Support upgrade applied to all future Sovereign purchases",
       "Priority build scheduling and pioneer allocation",
       "Pilot playbook you keep — expand with confidence after the programme",
       "Hands-on onboarding for every unit so adoption is not optional",
@@ -110,15 +110,15 @@ const plans: Plan[] = [
   },
   {
     id: "board",
-    name: "Centurion Board",
+    name: "Prime",
     description: "Equip the whole board — or lose ground to those who do",
     price: "£45,000+",
     priceNote: "Board edition · GBP · £500 hold deposits your place · priced for the full board",
     features: [
-      "A Personal Centurion for every director — not one shared toy",
+      "A Prime for every director — not one shared toy",
       "Board units that work together across the table when stakes are high",
-      "The Chairman receives the most senior Centurion",
-      "Special Chairman of the Board remote for iPhone",
+      "The Chairman receives the most senior Prime",
+      "Special Prime Remote for iPhone",
       "Soul Document & Mission Discovery for each member",
       "Lifetime updates for every board Centurion and Remote — buy once, keep growing",
       "No monthly SaaS fees for the Centurion platform itself",
@@ -145,7 +145,7 @@ export function PricingSection() {
             <span className="text-stroke">yours.</span>
           </h2>
           <p className="max-w-xl text-lg text-muted-foreground">
-            Choose a path. Hold your build position for £500. Receive CenturionAI Remote
+            Choose a path. Hold your build position for £500. Receive Sovereign Remote
             immediately, then clarify your Mission and hone your Centurion&apos;s Soul while
             your hardware is built — private work that stays with you, not with the company.
           </p>
@@ -302,7 +302,7 @@ export function PricingSection() {
                   {isBeta && (
                     <p className="mt-4 border-l border-[#f4f1ec]/25 pl-3 text-xs leading-relaxed text-[#f4f1ec]/70">
                       Exclusive Beta launch offer for the <strong className="font-medium text-[#f4f1ec]">first</strong>{" "}
-                      Personal Centurion only. Subsequent units remain £5,000.
+                      Sovereign only. Subsequent units remain £5,000.
                     </p>
                   )}
                 </div>
@@ -347,7 +347,7 @@ export function PricingSection() {
         <p className="mt-12 text-center text-sm text-muted-foreground">
           Serious programmes only. By invitation and referral when demand requires it.{" "}
           <a
-            href="mailto:hello@personal-centurion.com?subject=Secure%20a%20Personal%20Centurion"
+            href="mailto:hello@1human1ai.com?subject=Secure%20a%20Personal%20Centurion"
             className="underline underline-offset-4 transition-colors hover:text-foreground"
           >
             Talk to the team now

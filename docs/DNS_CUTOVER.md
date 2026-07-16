@@ -5,7 +5,7 @@
 ## Goal
 
 Point marketing/commerce traffic at **personal-centurion-website-v5** without breaking Linux Brain
-or CLI integrations that call product APIs on `www.personal-centurion.com`.
+or CLI integrations that call product APIs on `www.1human1ai.com`.
 
 ## Keep on product host (do not replace with v5)
 
@@ -15,8 +15,8 @@ or CLI integrations that call product APIs on `www.personal-centurion.com`.
 | `GET /api/v1/centurions/[id]/config` | Brain | Platform config |
 | `POST /api/v1/keys/validate` | CLI | Subscription key validate |
 | `/api/v1/swarm/**` | Gateway / Swarm MC | Mission Control sync |
-| `portal.personal-centurion.com` OAuth | CLI | Device auth |
-| `help.personal-centurion.com` | iPhone / Desktop / Help UI | Adrian + docs |
+| `portal.1human1ai.com` OAuth | CLI | Device auth |
+| `help.1human1ai.com` | iPhone / Desktop / Help UI | Adrian + docs |
 
 ## Safe on v5 marketing host
 
@@ -35,11 +35,11 @@ or CLI integrations that call product APIs on `www.personal-centurion.com`.
 1. Deploy v5 to a preview host (e.g. Vercel project for website-v5).
 2. Keep Centurion-website-v3 (or a dedicated API deployment) serving `/api/v1/*` on the
    production API origin.
-3. If `www.personal-centurion.com` DNS moves to v5, configure **edge rewrites / reverse proxy**:
+3. If `www.1human1ai.com` DNS moves to v5, configure **edge rewrites / reverse proxy**:
    - `/api/v1/:path*` → existing product API origin
    - Optionally `/account/billing`, `/manage-subscription` → product portal if Brain deep-links remain
 4. Point marketing CTAs and Counsel soft-close to v5 `/order`.
-5. Leave Help at `help.personal-centurion.com` unchanged.
+5. Leave Help at `help.1human1ai.com` unchanged.
 
 ## Env vars for v5 commerce
 

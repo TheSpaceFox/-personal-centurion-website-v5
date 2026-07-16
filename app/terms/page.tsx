@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { COMPANY, SITE_VERSION } from '@/lib/site-config'
 
 export const metadata = {
-  title: 'Terms of Service — Personal Centurion',
-  description: 'Terms governing use of Personal Centurion website, ordering, and related services.',
+  title: 'Terms of Service — Sovereign',
+  description: 'Terms governing use of Sovereign website, ordering, and related services.',
 }
 
 export default function TermsPage() {
@@ -34,7 +34,7 @@ export default function TermsPage() {
         </p>
         <h2 className="font-display text-2xl text-foreground">Your data</h2>
         <p>
-          Your Centurion runs on infrastructure you control. We do not access your private inference
+          Your Sovereign runs on infrastructure you control. We do not access your private inference
           data except as required for agreed support, security updates, or legal obligation.
         </p>
         <p>

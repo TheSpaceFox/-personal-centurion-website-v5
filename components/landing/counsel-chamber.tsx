@@ -82,7 +82,7 @@ function ChamberBody({
         <div className="flex shrink-0 items-center justify-between gap-4 border-b border-foreground/10 bg-background/95 px-4 py-3 backdrop-blur-md sm:px-8">
           <div className="min-w-0">
             <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
-              Personal Centurion
+              Sovereign
             </p>
             <h2 className="font-display text-xl tracking-tight text-foreground sm:text-2xl">
               Speak with Adrian
@@ -117,7 +117,7 @@ function ChamberBody({
               Speak with Adrian
             </h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              I help people see whether a Personal Centurion belongs with them. Share what you are
+              I help people see whether a Sovereign belongs with them. Share what you are
               building toward.
             </p>
           </div>
@@ -149,7 +149,7 @@ function ChamberBody({
 
       {expanded ? (
         <p className="shrink-0 border-b border-foreground/10 px-4 py-3 text-sm text-muted-foreground sm:px-8">
-          Take your time. Your Centurion lives with you — this conversation helps you see if one
+          Take your time. Your Sovereign lives with you — this conversation helps you see if one
           belongs beside you.
         </p>
       ) : null}

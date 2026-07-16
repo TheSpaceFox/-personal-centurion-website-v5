@@ -9,7 +9,7 @@ const securityFeatures = [
     icon: Lock,
     title: "Crypto Chat",
     description:
-      "End-to-end encrypted talk with your Centurion on your network — a private channel public AIs do not offer at all.",
+      "End-to-end encrypted talk with your Sovereign on your network — a private channel public AIs do not offer at all.",
   },
   {
     icon: Shield,
@@ -346,9 +346,9 @@ export function SecuritySection() {
             }`}
           >
             Built for people who cannot put their life&apos;s work in a public chat box.
-            Crypto Chat keeps your conversation with your Centurion private and encrypted on
-            your network — something public AIs do not have. Your Centurion holds what you
-            share. Personal Centurion the company does not — that private world never leaves
+            Crypto Chat keeps your conversation with your Sovereign private and encrypted on
+            your network — something public AIs do not have. Your Sovereign holds what you
+            share. Sovereign the company does not — that private world never leaves
             your hardware. Privacy is not an add-on; it is the starting point.
           </p>
 
@@ -385,7 +385,7 @@ export function SecuritySection() {
               <div className="overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-[#f4f1ec]">
                 <Image
                   src="/privacy-sealed-home.jpg"
-                  alt="Sealed private study — a Personal Centurion stays under your roof"
+                  alt="Sealed private study — a Sovereign stays under your roof"
                   width={940}
                   height={1410}
                   className="h-auto w-full"

@@ -12,7 +12,7 @@ import {
 } from "@/components/whitepaper";
 
 export const metadata: Metadata = {
-  title: "Whitepaper — Personal Centurion",
+  title: "Whitepaper — Sovereign",
   description:
     "A private AI for a private life. Ownership under your roof, loyalty by design, and a sealed study for your life's mission.",
 };
@@ -51,7 +51,7 @@ export default function WhitepaperPage() {
           </p>
 
           <h1 className="mt-4 font-display text-4xl tracking-tight lg:text-5xl">
-            Personal Centurion: A private AI for a private life
+            Sovereign: A private AI for a private life
           </h1>
 
           <p className="mt-6 text-xl leading-relaxed text-muted-foreground">
@@ -65,7 +65,7 @@ export default function WhitepaperPage() {
             <h2 className="font-display text-2xl text-foreground tracking-tight">Abstract</h2>
             <p className="leading-relaxed">
               Public AI systems are built for scale: many people, one platform, one
-              pool of attention. Personal Centurion is built for the opposite shape —
+              pool of attention. Sovereign is built for the opposite shape —
               a single principal, a machine that lives with them, and a relationship
               that deepens without leaking into someone else’s product.
             </p>
@@ -104,8 +104,8 @@ export default function WhitepaperPage() {
               What Centurion is
             </h2>
             <p className="leading-relaxed">
-              A Personal Centurion is an owned appliance — a private brain on your
-              network — paired with CenturionAI Remote on iPhone. You talk to{" "}
+              A Sovereign is an owned appliance — a private brain on your
+              network — paired with Sovereign Remote on iPhone. You talk to{" "}
               <em className="text-foreground not-italic">your</em> Centurion, not to
               a crowd’s chatbot. Hardware stays with you. Control stays with you. The
               company that builds Centurion does not receive your private life as fuel.
@@ -132,7 +132,7 @@ export default function WhitepaperPage() {
             <ul className="list-disc space-y-2 pl-5 leading-relaxed">
               <li>
                 <span className="text-foreground">Device link</span> — your iPhone
-                talks to your Centurion over your network. That path is the relationship.
+                talks to your Sovereign over your network. That path is the relationship.
               </li>
               <li>
                 <span className="text-foreground">Private store</span> — conversations,
@@ -195,7 +195,7 @@ export default function WhitepaperPage() {
             </p>
             <p className="leading-relaxed">
               The wall is the point. Conversations, mission documents, forged skills,
-              and the trail of what your Centurion did — those stay on your side. The
+              and the trail of what your Sovereign did — those stay on your side. The
               company and public chat sit outside the ellipse. When you need silence,
               Centurion can work without the public internet.
             </p>
@@ -216,7 +216,7 @@ export default function WhitepaperPage() {
               change how an AI behaves.
             </p>
             <p className="leading-relaxed">
-              When work opens a gap, your Centurion forges the skill it needs and keeps
+              When work opens a gap, your Sovereign forges the skill it needs and keeps
               it with you. Skills serve your mission. They do not arrive from a shelf
               designed for everyone.
             </p>
@@ -228,8 +228,8 @@ export default function WhitepaperPage() {
             </h2>
             <p className="leading-relaxed">
               A life’s mission is the organizing purpose — not a feature checkbox.
-              CenturionAI Remote is the daily surface: talk, clarify, watch progress,
-              return to the work that matters. The desk Centurion holds the depth;
+              Sovereign Remote is the daily surface: talk, clarify, watch progress,
+              return to the work that matters. The desk Sovereign holds the depth;
               the phone carries the thread.
             </p>
             <p className="leading-relaxed">
@@ -244,7 +244,7 @@ export default function WhitepaperPage() {
               Closing
             </h2>
             <p className="leading-relaxed">
-              Personal Centurion is a bet on form: owned hardware, a pocket companion,
+              Sovereign is a bet on form: owned hardware, a pocket companion,
               skills made at home, and a trust boundary that does not depend on a
               vendor’s mood. Real privacy cannot be borrowed, rented, or shared.
             </p>

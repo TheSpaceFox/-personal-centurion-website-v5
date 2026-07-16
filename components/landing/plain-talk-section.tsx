@@ -40,7 +40,7 @@ export function PlainTalkSection() {
               <span className="text-muted-foreground">to be a prompt expert.</span>
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
-              Just talk plainly. Ask for what you want. Personal Centurion answers as it
+              Just talk plainly. Ask for what you want. Sovereign answers as it
               should — without making you learn a special language first.
             </p>
           </div>
@@ -65,7 +65,7 @@ export function PlainTalkSection() {
 
             <div className="border border-foreground p-8 lg:p-10 bg-foreground text-background">
               <p className="font-mono text-xs tracking-widest uppercase text-background/50 mb-4">
-                Personal Centurion
+                Sovereign
               </p>
               <p className="text-lg text-background/80 leading-relaxed">
                 This one is different. Ask whatever you want, in ordinary words, and it

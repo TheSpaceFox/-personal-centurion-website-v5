@@ -65,7 +65,7 @@ export async function createQuote(input: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: process.env.RESEND_FROM || 'Personal Centurion <orders@personal-centurion.com>',
+          from: process.env.RESEND_FROM || 'Sovereign <orders@1human1ai.com>',
           to: [notifyTo],
           subject: `New ${quote.engagement} quote — ${quote.firstName} ${quote.lastName}`,
           text: [

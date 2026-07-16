@@ -53,7 +53,7 @@ export function calculatePricing(state: PricingInput): PricingResult {
             {
               productId: tier.id,
               name: `${tier.name} · July 2026 Beta`,
-              description: 'First Personal Centurion during July 2026 Beta — £750 off',
+              description: 'First Sovereign during July 2026 Beta — £750 off',
               quantity: 1,
               unitPriceGbp: betaUnit,
               totalPriceGbp: betaUnit,

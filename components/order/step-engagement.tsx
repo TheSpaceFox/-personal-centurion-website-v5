@@ -42,7 +42,7 @@ export function StepEngagement() {
           Choose how you begin.
         </h1>
         <p className="text-muted-foreground max-w-2xl">
-          Secure a Personal Centurion build slot, enquire for a Board edition, or register interest
+          Secure a Sovereign build slot, enquire for a Board edition, or register interest
           without commitment.
         </p>
         {betaActive && (
@@ -116,8 +116,8 @@ export function StepEngagement() {
               : state.engagement === 'pilot'
                 ? 'The Pilot path is fixed at three Centurions plus the guided programme.'
                 : betaActive
-                  ? 'Beta discount applies to the first Personal Centurion only; additional units are £5,000.'
-                  : 'One unit is a single Personal Centurion for one principal.'}
+                  ? 'Beta discount applies to the first Sovereign only; additional units are £5,000.'
+                  : 'One unit is a single Sovereign for one principal.'}
           </p>
         </div>
       )}

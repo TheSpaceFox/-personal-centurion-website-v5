@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-const ENQUIRY_EMAIL = "hello@personal-centurion.com";
+const ENQUIRY_EMAIL = "hello@1human1ai.com";
 
 const editions = [
   {
@@ -99,7 +99,7 @@ export function LimitedEditionSection() {
     );
     const body = encodeURIComponent(
       [
-        "I would like to register interest in the Limited Edition Personal Centurion range.",
+        "I would like to register interest in the Limited Edition Sovereign range.",
         "",
         `Name: ${trimmedName}`,
         `Email: ${trimmedEmail}`,
@@ -135,7 +135,7 @@ export function LimitedEditionSection() {
           >
             <Image
               src={edition.src}
-              alt={`Personal Centurion — ${edition.name}`}
+              alt={`Sovereign — ${edition.name}`}
               fill
               priority={index === 0}
               sizes="100vw"
@@ -163,7 +163,7 @@ export function LimitedEditionSection() {
               Centurion Range
             </h2>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-xl mb-8">
-              A scarce series of Personal Centurions in artisan finishes.
+              A scarce series of Sovereigns in artisan finishes.
               Register now to be considered when places open.
             </p>
             <p className="font-mono text-xs tracking-widest uppercase text-white/50">
@@ -210,7 +210,7 @@ export function LimitedEditionSection() {
         >
           <div>
             <h3 className="font-display text-3xl lg:text-4xl tracking-tight mb-4">
-              Register for a Limited Edition Personal Centurion
+              Register for a Limited Edition Sovereign
             </h3>
             <p className="text-white/60 leading-relaxed max-w-md">
               Early registration signals serious interest and helps us plan

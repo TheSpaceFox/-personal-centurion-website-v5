@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { COMPANY, SITE_VERSION } from '@/lib/site-config'
 
 export const metadata = {
-  title: 'Privacy Policy — Personal Centurion',
-  description: 'How Personal Centurion collects and protects personal data.',
+  title: 'Privacy Policy — Sovereign',
+  description: 'How Sovereign collects and protects personal data.',
 }
 
 export default function PrivacyPage() {

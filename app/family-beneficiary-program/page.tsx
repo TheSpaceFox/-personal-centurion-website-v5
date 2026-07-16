@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { FamilyBeneficiaryDiagram } from "@/components/landing/family-beneficiary-diagram";
 
 export const metadata: Metadata = {
-  title: "Family Beneficiary Program — Personal Centurion",
+  title: "Family Beneficiary Program — Sovereign",
   description:
     "Introduce four colleagues who buy Centurion — earn one complimentary Centurion for someone you love.",
 };
@@ -22,7 +22,7 @@ export default function FamilyBeneficiaryProgramPage() {
           </Link>
 
           <p className="mt-12 font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            CenturionAI Remote · You
+            Sovereign Remote · You
           </p>
 
           <h1 className="mt-4 font-display text-4xl tracking-tight lg:text-5xl">
@@ -44,7 +44,7 @@ export default function FamilyBeneficiaryProgramPage() {
               <div className="overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-[#f4f1ec]">
                 <Image
                   src="/family-beneficiary-remote.jpg"
-                  alt="CenturionAI Remote on iPhone — Family Beneficiary Program on the You tab"
+                  alt="Sovereign Remote on iPhone — Family Beneficiary Program on the You tab"
                   width={431}
                   height={940}
                   className="h-auto w-full"
@@ -64,7 +64,7 @@ export default function FamilyBeneficiaryProgramPage() {
             <div className="overflow-hidden rounded-[1.1rem] border border-foreground/10 bg-[#f4f1ec]">
               <Image
                 src="/family-beneficiary-scene.jpg"
-                alt="Two Personal Centurions on a private desk — one yours, one earned for someone you love"
+                alt="Two Sovereigns on a private desk — one yours, one earned for someone you love"
                 width={1600}
                 height={1066}
                 className="h-auto w-full"
@@ -73,7 +73,7 @@ export default function FamilyBeneficiaryProgramPage() {
             </div>
           </div>
           <p className="mt-4 text-center font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            Earn a Centurion · for family
+            Earn a Sovereign · for family
           </p>
         </div>
 
@@ -83,12 +83,12 @@ export default function FamilyBeneficiaryProgramPage() {
             <ol className="list-decimal space-y-4 pl-5 leading-relaxed">
               <li>
                 <span className="font-medium text-foreground">Nominate a family beneficiary</span> —
-                first name only. Often a spouse or family member who wants a Centurion after
+                first name only. Often a spouse or family member who wants a Sovereign after
                 seeing yours thrive.
               </li>
               <li>
                 <span className="font-medium text-foreground">Refer colleagues</span> — people who
-                will buy their own Personal Centurion. Family members are who you are earning{" "}
+                will buy their own Sovereign. Family members are who you are earning{" "}
                 <em>for</em>; they cannot be counted as referrals.
               </li>
               <li>
@@ -111,7 +111,7 @@ export default function FamilyBeneficiaryProgramPage() {
               <li>4 colleague purchases = 1 family Centurion</li>
               <li>Referrals: colleagues only (non-family)</li>
               <li>Reward: complimentary Centurion for your nominated family member</li>
-              <li>Manage it in CenturionAI Remote under You → Family Beneficiary Program</li>
+              <li>Manage it in Sovereign Remote under You → Family Beneficiary Program</li>
             </ul>
           </section>
 
@@ -120,7 +120,7 @@ export default function FamilyBeneficiaryProgramPage() {
               Where you manage it
             </h2>
             <p className="leading-relaxed">
-              Open <span className="text-foreground">CenturionAI Remote</span> on your iPhone, go
+              Open <span className="text-foreground">Sovereign Remote</span> on your iPhone, go
               to the <span className="text-foreground">You</span> tab, and use the Family Beneficiary
               Program card. There you can nominate (or change) your beneficiary, refer colleagues,
               and track pending versus purchased progress toward your family Centurion.
@@ -147,7 +147,7 @@ export default function FamilyBeneficiaryProgramPage() {
               </li>
               <li>
                 Program details may be updated; the authoritative progress always shows in your
-                Remote app when linked to your Centurion.
+                Remote app when linked to your Sovereign.
               </li>
             </ul>
           </section>
@@ -157,14 +157,14 @@ export default function FamilyBeneficiaryProgramPage() {
             <p className="leading-relaxed">
               Questions about a referral or a family Centurion you have earned? Write to{" "}
               <a
-                href="mailto:hello@personal-centurion.com?subject=Family%20Beneficiary%20Program"
+                href="mailto:hello@1human1ai.com?subject=Family%20Beneficiary%20Program"
                 className="text-foreground underline underline-offset-4"
               >
-                hello@personal-centurion.com
+                hello@1human1ai.com
               </a>{" "}
               or use{" "}
               <a
-                href="https://help.personal-centurion.com/"
+                href="https://help.1human1ai.com/"
                 className="text-foreground underline underline-offset-4"
               >
                 Ask Adrian

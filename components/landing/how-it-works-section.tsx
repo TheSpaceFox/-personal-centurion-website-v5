@@ -6,9 +6,9 @@ import { useEffect, useRef, useState } from "react";
 const steps = [
   {
     number: "I",
-    title: "Your Centurion understands your world",
+    title: "Your Sovereign understands your world",
     description:
-      "Your Centurion comes to know how you live and work from what you choose to share with it — privacy, family, business, and your life’s mission. That understanding stays on your Centurion. The company never receives it.",
+      "Your Sovereign comes to know how you live and work from what you choose to share with it — privacy, family, business, and your life’s mission. That understanding stays on your Sovereign. The company never receives it.",
     code: `yourCenturion.understand({
   mission: 'yours',
   privacy: 'absolute',
@@ -22,7 +22,7 @@ const steps = [
     number: "II",
     title: "Place it on your terms",
     description:
-      "Your Centurion lives with you — at home or in your office. You choose how connected it is to the outside world, including fully offline when that matters.",
+      "Your Sovereign lives with you — at home or in your office. You choose how connected it is to the outside world, including fully offline when that matters.",
     code: `yourCenturion.place({
   where: 'your home',
   outsideWorld: 'your choice',
@@ -35,7 +35,7 @@ const steps = [
     number: "III",
     title: "Live with it every day",
     description:
-      "Your Centurion works around the clock on your life’s mission, learns only from what you share with it, and never sells or shares your private world — including with the company that built it.",
+      "Your Sovereign works around the clock on your life’s mission, learns only from what you share with it, and never sells or shares your private world — including with the company that built it.",
     code: `yourCenturion.live({
   always: true,
   learns: 'from you only',
@@ -53,7 +53,7 @@ function HowItWorksDiagram() {
       viewBox="0 0 520 320"
       className="h-auto w-full text-background"
       role="img"
-      aria-label="Diagram of Understand, Place, and Live — the three steps of bringing a Personal Centurion home"
+      aria-label="Diagram of Understand, Place, and Live — the three steps of bringing a Sovereign home"
     >
       <defs>
         <marker id="hiwArrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -86,7 +86,7 @@ function HowItWorksDiagram() {
           I
         </text>
         <circle cx="70" cy="90" r="52" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
-        {/* Briefing card — what your Centurion understands privately */}
+        {/* Briefing card — what your Sovereign understands privately */}
         <rect
           x="42"
           y="62"
@@ -298,9 +298,9 @@ export function HowItWorksSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            Your Centurion comes to understand your world from what you choose to share
+            Your Sovereign comes to understand your world from what you choose to share
             with it — privately, on hardware you own. The company never receives that life.
-            Place your Centurion under your roof on your terms, then live with it every day:
+            Place your Sovereign under your roof on your terms, then live with it every day:
             loyal, private, and quiet about what is yours alone.
           </p>
         </div>
@@ -323,7 +323,7 @@ export function HowItWorksSection() {
               <div className="overflow-hidden rounded-[1.5rem] border border-background/10 bg-[#f4f1ec]">
                 <Image
                   src="/how-it-works-place.jpg"
-                  alt="Personal Centurion on a private desk under a home roof — placed on your terms"
+                  alt="Sovereign on a private desk under a home roof — placed on your terms"
                   width={940}
                   height={1410}
                   className="h-auto w-full"

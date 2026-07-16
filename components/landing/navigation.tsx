@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Remote", href: "#remote" },
   { name: "Limited Edition", href: "#limited-edition" },
   { name: "Secure yours", href: "#pricing" },
-  { name: "Support", href: "https://help.personal-centurion.com/" },
+  { name: "Support", href: "https://help.1human1ai.com/" },
 ];
 
 export function Navigation() {

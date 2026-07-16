@@ -9,7 +9,7 @@ const footerLinks = {
   Capabilities: [
     { name: "Sovereign Intelligence", href: "#features" },
     { name: "How it works", href: "#how-it-works" },
-    { name: "AI Remote", href: "#remote" },
+    { name: "Sovereign Remote", href: "#remote" },
     { name: "Who it serves", href: "#integrations" },
     { name: "Skills Library", href: "#developers" },
     { name: "Talk plainly", href: "#plain-talk" },
@@ -18,14 +18,14 @@ const footerLinks = {
     { name: "Limited Edition", href: "#limited-edition" },
     { name: "Register Interest", href: "/order?engagement=interest" },
     { name: "Secure a Build Slot", href: "/order?engagement=personal" },
-    { name: "Centurion Board", href: "/order?engagement=board" },
+    { name: "Prime", href: "/order?engagement=board" },
     { name: "Buyer account", href: "/account" },
   ],
   Company: [
     { name: "Who it serves", href: "#integrations" },
     { name: "Family Beneficiary Program", href: "/family-beneficiary-program" },
-    { name: "Support", href: "https://help.personal-centurion.com/" },
-    { name: "Enquiries", href: "mailto:hello@personal-centurion.com" },
+    { name: "Support", href: "https://help.1human1ai.com/" },
+    { name: "Enquiries", href: "mailto:hello@1human1ai.com" },
   ],
   Legal: [
     { name: "Whitepaper", href: "/whitepaper" },
@@ -36,8 +36,8 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: "Enquiries", href: "mailto:hello@personal-centurion.com" },
-  { name: "Support", href: "https://help.personal-centurion.com/" },
+  { name: "Enquiries", href: "mailto:hello@1human1ai.com" },
+  { name: "Support", href: "https://help.1human1ai.com/" },
 ];
 
 export function FooterSection() {
@@ -59,7 +59,7 @@ export function FooterSection() {
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                A private AI for your life&apos;s mission. Loyal, and entirely yours.
+                One Human. One AI. Loyal, and entirely yours.
                 For those who know that real privacy cannot be borrowed, rented, or shared.
               </p>
 
