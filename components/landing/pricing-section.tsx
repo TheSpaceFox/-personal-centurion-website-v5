@@ -4,7 +4,7 @@ import { ArrowRight, Check } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import { PricingHardwareArt } from '@/components/landing/pricing-hardware-art'
-import { BETA_DISCOUNT_PENCE, BETA_OFFER, isJuly2026BetaActive } from '@/lib/orders/beta'
+import { BETA_DISCOUNT_PENCE, isJuly2026BetaActive } from '@/lib/orders/beta'
 import { DISPLAY_GBP_PENCE, HOLD_GBP_PENCE } from '@/lib/money/constants'
 import { useDisplayMoney } from '@/hooks/use-display-money'
 
@@ -164,38 +164,6 @@ export function PricingSection() {
             ))}
           </div>
         </div>
-
-        {betaActive && (
-          <div className="mb-8 border border-foreground/15 bg-[#0a0a0a] px-6 py-6 text-[#f4f1ec] sm:px-8 lg:px-10">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-2xl">
-                <span className="mb-3 block font-mono text-xs tracking-widest text-[#f4f1ec]/70 uppercase">
-                  {BETA_OFFER.name} · {BETA_OFFER.endsLabel}
-                </span>
-                <h3 className="font-display text-3xl tracking-tight sm:text-4xl">
-                  {discount} off your first Sovereign
-                </h3>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#f4f1ec]/75">
-                  Limited to the first Sovereign purchased during the July 2026 Beta. Additional
-                  units are at the full {personalList}. Hardware, lifetime updates, Sunday AI
-                  Owners training, and Personal Mission Discovery — same full package, private
-                  Beta pricing.
-                </p>
-              </div>
-              <div className="shrink-0 text-left lg:text-right">
-                <p className="font-mono text-xs tracking-widest text-[#f4f1ec]/55 uppercase">
-                  {t('fromLabel')}
-                </p>
-                <p className="mt-1 font-display text-4xl tracking-tight">
-                  <span className="mr-3 text-2xl text-[#f4f1ec]/45 line-through decoration-1">
-                    {personalList}
-                  </span>
-                  {personalPrice}
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
 
         <div className="grid gap-px bg-foreground/10 md:grid-cols-3">
           {plans.map((plan, idx) => {
