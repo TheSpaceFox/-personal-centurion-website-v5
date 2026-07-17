@@ -3,6 +3,7 @@
 import { ArrowRight, Check } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
+import { PricingHardwareArt } from '@/components/landing/pricing-hardware-art'
 import { BETA_DISCOUNT_PENCE, BETA_OFFER, isJuly2026BetaActive } from '@/lib/orders/beta'
 import { DISPLAY_GBP_PENCE, HOLD_GBP_PENCE } from '@/lib/money/constants'
 import { useDisplayMoney } from '@/hooks/use-display-money'
@@ -222,6 +223,14 @@ export function PricingSection() {
                       : t('recommendedBadge')}
                   </span>
                 )}
+
+                <PricingHardwareArt
+                  planId={plan.id as 'personal' | 'pilot' | 'board'}
+                  inverted={isBeta}
+                  className={`mb-8 border-b pb-8 ${
+                    isBeta ? 'border-white/10' : 'border-foreground/10'
+                  }`}
+                />
 
                 <div className="mb-8">
                   <span
