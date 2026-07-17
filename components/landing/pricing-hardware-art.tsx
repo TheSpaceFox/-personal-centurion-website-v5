@@ -16,7 +16,7 @@ function IllustrationFrame({
 }) {
   return (
     <figure className={className}>
-      <div className="flex h-36 items-center justify-center sm:h-40">{children}</div>
+      <div className="flex h-40 items-center justify-center sm:h-44">{children}</div>
       <figcaption
         className={`mt-3 text-center font-mono text-[10px] tracking-widest uppercase sm:text-xs ${labelClassName}`}
       >
@@ -153,7 +153,8 @@ function LogoMarkRow({
   return (
     <div
       className={cn(
-        'flex w-full max-w-[280px] items-center justify-center gap-3 sm:gap-4',
+        'flex w-full items-center justify-center gap-2 sm:gap-3',
+        count >= 4 ? 'max-w-[320px]' : 'max-w-[260px]',
         inverted && 'brightness-0 invert',
       )}
       role="img"
@@ -163,18 +164,21 @@ function LogoMarkRow({
         // eslint-disable-next-line @next/next/no-img-element
         <img
           key={i}
-          src="/logo-mark.png"
+          src="/logo-full.png"
           alt=""
-          width={48}
-          height={48}
-          className="size-11 shrink-0 object-contain sm:size-12"
+          width={120}
+          height={128}
+          className={cn(
+            'shrink-0 object-contain object-center',
+            count >= 4 ? 'h-14 w-auto sm:h-16' : 'h-16 w-auto sm:h-[4.5rem]',
+          )}
           aria-hidden
         />
       ))}
       {showPlus && (
         <span
           className={cn(
-            'select-none font-display text-3xl leading-none sm:text-4xl',
+            'select-none font-display text-2xl leading-none sm:text-3xl',
             inverted ? 'text-[#f4f1ec]' : 'text-foreground',
           )}
           aria-hidden
