@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from '@/i18n/routing'
 import { useWizard, clearWizardDraft } from '@/components/order/wizard-context'
 import { ENGAGEMENT_TIERS, BUYER_SESSION_KEY } from '@/lib/orders/types'
@@ -151,12 +152,12 @@ export function StepSummary() {
 
       <p className="text-sm text-muted-foreground">
         Prefer a saved buyer session?{' '}
-        <a
+        <Link
           href="/auth?returnUrl=/order?resume=1"
           className="underline underline-offset-4 hover:text-foreground"
         >
           Sign in and return here
-        </a>
+        </Link>
         .
       </p>
 
