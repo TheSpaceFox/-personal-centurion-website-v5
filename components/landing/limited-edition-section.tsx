@@ -165,9 +165,9 @@ export function LimitedEditionSection() {
               Hardware you own
             </span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-6">
-              Limited Edition
+              Choose your
               <br />
-              Centurion Range
+              Centurion
             </h2>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-xl mb-8">
               Sovereign for the desk, Prime Pilot in walnut &amp; copper, Prime
