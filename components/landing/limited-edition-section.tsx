@@ -10,22 +10,25 @@ const ENQUIRY_EMAIL = "hello@1human1ai.com";
 
 const editions = [
   {
-    id: "walnut-copper",
-    name: "Walnut & Copper",
-    description: "Hand-carved walnut with brushed copper meridian.",
+    id: "sovereign",
+    name: "Sovereign",
+    description: "Your private desk Sovereign — MSI Cubi NUC hardware you own.",
+    src: "/limited-edition/msi-cubi-nuc.webp",
+    fit: "contain" as const,
+  },
+  {
+    id: "prime-pilot",
+    name: "Prime Pilot",
+    description: "Walnut & copper Prime units — minimum order of three.",
     src: "/limited-edition/walnut-copper.jpg",
+    fit: "cover" as const,
   },
   {
-    id: "obsidian-amethyst",
-    name: "Obsidian & Amethyst",
-    description: "Polished stone sphere on a crystalline amethyst plinth.",
-    src: "/limited-edition/obsidian-amethyst.jpg",
-  },
-  {
-    id: "carbon-marble",
-    name: "Carbon & Marble",
-    description: "Carbon weave with copper fins on verdant marble.",
+    id: "prime-board",
+    name: "Prime Board",
+    description: "Marble & brass Prime units for the boardroom — minimum order of four.",
     src: "/limited-edition/carbon-marble.jpg",
+    fit: "cover" as const,
   },
 ] as const;
 
@@ -87,7 +90,7 @@ export function LimitedEditionSection() {
         setName("");
         setEmail("");
         setNote("");
-        window.alert("Thank you — your Limited Edition interest is registered.");
+        window.alert("Thank you — your Centurion range interest is registered.");
         return;
       }
     } catch {
@@ -95,18 +98,18 @@ export function LimitedEditionSection() {
     }
 
     const subject = encodeURIComponent(
-      `Limited Edition Centurion — Registration (${active.name})`
+      `Centurion Range — Registration (${active.name})`
     );
     const body = encodeURIComponent(
       [
-        "I would like to register interest in the Limited Edition Sovereign range.",
+        "I would like to register interest in the Centurion range.",
         "",
         `Name: ${trimmedName}`,
         `Email: ${trimmedEmail}`,
-        `Preferred finish: ${active.name}`,
+        `Preferred edition: ${active.name}`,
         note.trim() ? `Note: ${note.trim()}` : null,
         "",
-        "Please keep me informed when allocation opens.",
+        "Please keep me informed on allocation and next steps.",
       ]
         .filter(Boolean)
         .join("\n")
@@ -135,11 +138,15 @@ export function LimitedEditionSection() {
           >
             <Image
               src={edition.src}
-              alt={`Sovereign — ${edition.name}`}
+              alt={`${edition.name} — ${edition.description}`}
               fill
               priority={index === 0}
               sizes="100vw"
-              className="object-cover object-center"
+              className={
+                edition.fit === "contain"
+                  ? "object-contain object-center p-8 md:p-16 lg:p-24"
+                  : "object-cover object-center"
+              }
             />
           </div>
         ))}
@@ -155,7 +162,7 @@ export function LimitedEditionSection() {
           >
             <span className="inline-flex items-center gap-3 font-mono text-xs tracking-[0.25em] uppercase text-white/60 mb-6">
               <span className="w-8 h-px bg-white/40" />
-              Coming soon
+              Hardware you own
             </span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-6">
               Limited Edition
@@ -163,8 +170,9 @@ export function LimitedEditionSection() {
               Centurion Range
             </h2>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-xl mb-8">
-              A scarce series of Sovereigns in artisan finishes.
-              Register now to be considered when places open.
+              Sovereign for the desk, Prime Pilot in walnut &amp; copper, Prime
+              Board in marble &amp; brass — the same lines offered below.
+              Register interest, or secure a build slot in pricing.
             </p>
             <p className="font-mono text-xs tracking-widest uppercase text-white/50">
               {active.name}
@@ -184,7 +192,7 @@ export function LimitedEditionSection() {
               onClick={() => selectEdition(index)}
               aria-label={`View ${edition.name}`}
               aria-pressed={index === activeIndex}
-              className={`relative aspect-[16/9] overflow-hidden transition-all duration-500 ${
+              className={`relative aspect-[16/9] overflow-hidden bg-black transition-all duration-500 ${
                 index === activeIndex
                   ? "ring-1 ring-white/80 opacity-100"
                   : "opacity-50 hover:opacity-80"
@@ -195,7 +203,11 @@ export function LimitedEditionSection() {
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 33vw, 420px"
-                className="object-cover"
+                className={
+                  edition.fit === "contain"
+                    ? "object-contain object-center p-3"
+                    : "object-cover"
+                }
               />
             </button>
           ))}
@@ -210,12 +222,12 @@ export function LimitedEditionSection() {
         >
           <div>
             <h3 className="font-display text-3xl lg:text-4xl tracking-tight mb-4">
-              Register for a Limited Edition Sovereign
+              Register interest in the Centurion range
             </h3>
             <p className="text-white/60 leading-relaxed max-w-md">
-              Early registration signals serious interest and helps us plan
-              allocation. Your details stay private. Submitting opens a
-              confidential email to our enquiries desk.
+              Tell us which edition fits — Sovereign, Prime Pilot, or Prime
+              Board. Early registration helps us plan allocation. Your details
+              stay private.
             </p>
           </div>
 
@@ -250,7 +262,7 @@ export function LimitedEditionSection() {
 
             <fieldset className="space-y-3">
               <legend className="font-mono text-xs tracking-widest uppercase text-white/50 mb-2">
-                Preferred finish
+                Preferred edition
               </legend>
               <div className="flex flex-wrap gap-2">
                 {editions.map((edition, index) => (
