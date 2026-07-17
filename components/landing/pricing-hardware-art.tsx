@@ -1,6 +1,7 @@
 /** Line-art hardware for the Secure yours pricing cards — matches homepage diagram style. */
 
 import type { ReactNode } from 'react'
+import { cn } from '@/lib/utils'
 
 function IllustrationFrame({
   children,
@@ -15,9 +16,9 @@ function IllustrationFrame({
 }) {
   return (
     <figure className={className}>
-      <div className="flex h-32 items-center justify-center sm:h-36">{children}</div>
+      <div className="flex h-36 items-center justify-center sm:h-40">{children}</div>
       <figcaption
-        className={`mt-2 text-center font-mono text-[10px] tracking-widest uppercase sm:text-xs ${labelClassName}`}
+        className={`mt-3 text-center font-mono text-[10px] tracking-widest uppercase sm:text-xs ${labelClassName}`}
       >
         {label}
       </figcaption>
@@ -25,13 +26,42 @@ function IllustrationFrame({
   )
 }
 
+function SvgShell({
+  children,
+  ariaLabel,
+  className,
+  inverted,
+}: {
+  children: ReactNode
+  ariaLabel: string
+  className?: string
+  inverted?: boolean
+}) {
+  return (
+    <svg
+      viewBox="0 0 200 120"
+      className={cn(
+        'h-full w-full',
+        inverted ? 'text-[#f4f1ec]' : 'text-foreground',
+        className,
+      )}
+      role="img"
+      aria-label={ariaLabel}
+    >
+      {children}
+    </svg>
+  )
+}
+
 /** MSI Cubi-style compact mini PC — Sovereign personal edition. */
 export function SovereignHardwareArt({
   className = '',
   labelClassName = 'text-muted-foreground',
+  inverted = false,
 }: {
   className?: string
   labelClassName?: string
+  inverted?: boolean
 }) {
   return (
     <IllustrationFrame
@@ -39,27 +69,26 @@ export function SovereignHardwareArt({
       labelClassName={labelClassName}
       label="Sovereign brain · MSI Cubi mini"
     >
-      <svg
-        viewBox="0 0 200 120"
-        className="h-full w-full max-w-[220px] text-foreground"
-        role="img"
-        aria-label="Line drawing of a compact MSI Cubi mini PC"
+      <SvgShell
+        ariaLabel="Line drawing of a compact MSI Cubi mini PC"
+        className="max-w-[240px]"
+        inverted={inverted}
       >
         {/* Top face */}
         <path
           d="M52 28 L148 28 L168 42 L72 42 Z"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.5"
-          opacity="0.35"
+          strokeWidth="1.75"
+          opacity="0.55"
         />
         {/* Side face */}
         <path
           d="M148 28 L168 42 L168 88 L148 74 Z"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.5"
-          opacity="0.45"
+          strokeWidth="1.75"
+          opacity="0.65"
         />
         {/* Front face */}
         <rect
@@ -70,8 +99,8 @@ export function SovereignHardwareArt({
           rx="3"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.75"
-          opacity="0.7"
+          strokeWidth="2"
+          opacity="0.9"
         />
         {/* Vent slots */}
         {[0, 1, 2, 3].map((i) => (
@@ -82,43 +111,41 @@ export function SovereignHardwareArt({
             x2="138"
             y2={52 + i * 8}
             stroke="currentColor"
-            strokeWidth="1"
-            opacity="0.25"
+            strokeWidth="1.25"
+            opacity="0.4"
           />
         ))}
         {/* Power / status */}
-        <circle cx="132" cy="56" r="3" fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.55" />
-        <circle cx="132" cy="56" r="1.2" fill="currentColor" opacity="0.45" />
+        <circle cx="132" cy="56" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.75" />
+        <circle cx="132" cy="56" r="1.5" fill="currentColor" opacity="0.7" />
         {/* Front ports */}
-        <rect x="64" y="78" width="14" height="5" rx="1" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-        <rect x="82" y="78" width="10" height="5" rx="1" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.35" />
-        <rect x="96" y="78" width="10" height="5" rx="1" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.35" />
-        {/* MSI wordmark area — abstract lines, not trademark */}
+        <rect x="64" y="78" width="14" height="5" rx="1" fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.55" />
+        <rect x="82" y="78" width="10" height="5" rx="1" fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.5" />
+        <rect x="96" y="78" width="10" height="5" rx="1" fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.5" />
         <text
           x="78"
           y="70"
           fontSize="9"
           fontFamily="ui-monospace, monospace"
           fill="currentColor"
-          opacity="0.35"
+          opacity="0.5"
           letterSpacing="0.12em"
         >
           MINI
         </text>
-        {/* Desk line */}
-        <line x1="40" y1="96" x2="176" y2="96" stroke="currentColor" strokeWidth="1" opacity="0.2" />
-      </svg>
+        <line x1="40" y1="96" x2="176" y2="96" stroke="currentColor" strokeWidth="1.25" opacity="0.35" />
+      </SvgShell>
     </IllustrationFrame>
   )
 }
 
-function LogoSphere({ x, y, r, opacity = 0.65 }: { x: number; y: number; r: number; opacity?: number }) {
+function LogoSphere({ x, y, r, opacity = 0.85 }: { x: number; y: number; r: number; opacity?: number }) {
   return (
     <g opacity={opacity}>
-      <circle cx={x} cy={y} r={r} fill="none" stroke="currentColor" strokeWidth="1.5" />
-      <ellipse cx={x} cy={y} rx={r} ry={r * 0.32} fill="none" stroke="currentColor" strokeWidth="1" opacity="0.55" />
-      <ellipse cx={x} cy={y} rx={r * 0.32} ry={r} fill="none" stroke="currentColor" strokeWidth="1" opacity="0.55" />
-      <circle cx={x - r * 0.22} cy={y - r * 0.18} r={r * 0.12} fill="none" stroke="currentColor" strokeWidth="0.75" opacity="0.35" />
+      <circle cx={x} cy={y} r={r} fill="none" stroke="currentColor" strokeWidth="1.75" />
+      <ellipse cx={x} cy={y} rx={r} ry={r * 0.32} fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.7" />
+      <ellipse cx={x} cy={y} rx={r * 0.32} ry={r} fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.7" />
+      <circle cx={x - r * 0.22} cy={y - r * 0.18} r={r * 0.12} fill="none" stroke="currentColor" strokeWidth="1" opacity="0.5" />
     </g>
   )
 }
@@ -129,8 +156,8 @@ function LogoPedestal({ x, y, w }: { x: number; y: number; w: number }) {
       d={`M${x - w} ${y} L${x + w} ${y} L${x + w * 0.72} ${y + 14} L${x - w * 0.72} ${y + 14} Z`}
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.25"
-      opacity="0.45"
+      strokeWidth="1.5"
+      opacity="0.65"
     />
   )
 }
@@ -139,9 +166,11 @@ function LogoPedestal({ x, y, w }: { x: number; y: number; w: number }) {
 export function PrimeHardwareArt({
   className = '',
   labelClassName = 'text-muted-foreground',
+  inverted = false,
 }: {
   className?: string
   labelClassName?: string
+  inverted?: boolean
 }) {
   return (
     <IllustrationFrame
@@ -149,16 +178,15 @@ export function PrimeHardwareArt({
       labelClassName={labelClassName}
       label="Prime · Centurion mark"
     >
-      <svg
-        viewBox="0 0 200 120"
-        className="h-full w-full max-w-[200px] text-foreground"
-        role="img"
-        aria-label="Line drawing of the Centurion logo sphere on its pedestal"
+      <SvgShell
+        ariaLabel="Line drawing of the Centurion logo sphere on its pedestal"
+        className="max-w-[220px]"
+        inverted={inverted}
       >
-        <LogoSphere x={100} y={48} r={26} />
-        <LogoPedestal x={100} y={76} w={34} />
-        <line x1="66" y1="96" x2="134" y2="96" stroke="currentColor" strokeWidth="1" opacity="0.2" />
-      </svg>
+        <LogoSphere x={100} y={48} r={28} />
+        <LogoPedestal x={100} y={78} w={36} />
+        <line x1="66" y1="98" x2="134" y2="98" stroke="currentColor" strokeWidth="1.25" opacity="0.35" />
+      </SvgShell>
     </IllustrationFrame>
   )
 }
@@ -167,9 +195,11 @@ export function PrimeHardwareArt({
 export function PrimePilotHardwareArt({
   className = '',
   labelClassName = 'text-muted-foreground',
+  inverted = false,
 }: {
   className?: string
   labelClassName?: string
+  inverted?: boolean
 }) {
   return (
     <IllustrationFrame
@@ -177,11 +207,10 @@ export function PrimePilotHardwareArt({
       labelClassName={labelClassName}
       label="Prime Pilot · three units"
     >
-      <svg
-        viewBox="0 0 200 120"
-        className="h-full w-full max-w-[240px] text-foreground"
-        role="img"
-        aria-label="Line drawing of three Centurion logo spheres for Prime Pilot"
+      <SvgShell
+        ariaLabel="Line drawing of three Centurion logo spheres for Prime Pilot"
+        className="max-w-[260px]"
+        inverted={inverted}
       >
         {[
           { x: 52, y: 50, r: 18 },
@@ -189,12 +218,12 @@ export function PrimePilotHardwareArt({
           { x: 148, y: 50, r: 18 },
         ].map((s) => (
           <g key={s.x}>
-            <LogoSphere x={s.x} y={s.y} r={s.r} opacity={0.6} />
+            <LogoSphere x={s.x} y={s.y} r={s.r} opacity={0.85} />
             <LogoPedestal x={s.x} y={s.y + s.r + 2} w={s.r * 0.9} />
           </g>
         ))}
-        <line x1="36" y1="96" x2="164" y2="96" stroke="currentColor" strokeWidth="1" opacity="0.2" />
-      </svg>
+        <line x1="36" y1="96" x2="164" y2="96" stroke="currentColor" strokeWidth="1.25" opacity="0.35" />
+      </SvgShell>
     </IllustrationFrame>
   )
 }
@@ -206,16 +235,17 @@ export function PricingHardwareArt({
 }: {
   planId: 'personal' | 'pilot' | 'board'
   className?: string
-  /** Dark beta card — lighten caption */
+  /** Dark beta card — light stroke + caption */
   inverted?: boolean
 }) {
-  const labelClass = inverted ? 'text-[#f4f1ec]/55' : 'text-muted-foreground'
+  const labelClass = inverted ? 'text-[#f4f1ec]/65' : 'text-muted-foreground'
+  const props = { className, labelClassName: labelClass, inverted }
 
   if (planId === 'personal') {
-    return <SovereignHardwareArt className={className} labelClassName={labelClass} />
+    return <SovereignHardwareArt {...props} />
   }
   if (planId === 'pilot') {
-    return <PrimePilotHardwareArt className={className} labelClassName={labelClass} />
+    return <PrimePilotHardwareArt {...props} />
   }
-  return <PrimeHardwareArt className={className} labelClassName={labelClass} />
+  return <PrimeHardwareArt {...props} />
 }

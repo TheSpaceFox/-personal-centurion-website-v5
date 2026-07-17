@@ -224,14 +224,6 @@ export function PricingSection() {
                   </span>
                 )}
 
-                <PricingHardwareArt
-                  planId={plan.id as 'personal' | 'pilot' | 'board'}
-                  inverted={isBeta}
-                  className={`mb-8 border-b pb-8 ${
-                    isBeta ? 'border-white/10' : 'border-foreground/10'
-                  }`}
-                />
-
                 <div className="mb-8">
                   <span
                     className={`font-mono text-xs ${
@@ -290,6 +282,14 @@ export function PricingSection() {
                     </p>
                   )}
                 </div>
+
+                <PricingHardwareArt
+                  planId={plan.id as 'personal' | 'pilot' | 'board'}
+                  inverted={isBeta}
+                  className={`mb-8 border-b pb-8 ${
+                    isBeta ? 'border-white/10' : 'border-foreground/10'
+                  }`}
+                />
 
                 <ul className="mb-10 space-y-4">
                   {plan.features.map((feature) => (
