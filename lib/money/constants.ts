@@ -5,6 +5,8 @@ export const HOLD_GBP_PENCE = 50_000
 export const DISPLAY_GBP_PENCE = {
   personal: 500_000,
   personalBeta: 425_000,
-  pilot: 1_500_000,
-  boardFloor: 4_500_000,
+  /** Prime Pilot — per unit (walnut & copper); minimum order three. */
+  pilot: 750_000,
+  /** Prime Board — per unit (marble & brass); minimum order four. */
+  board: 1_250_000,
 } as const

@@ -127,32 +127,36 @@ export const ENGAGEMENT_TIERS: Record<EngagementTier, EngagementConfig> = {
     id: 'pilot',
     name: 'Prime Pilot',
     shortLabel: 'Pilot',
-    description: 'Three Sovereign units plus a guided proof of concept — white-glove programme lead through final readout.',
-    unitPrice: 1_500_000, // £15,000
+    description:
+      'Walnut & copper Prime units — £7,500 each. Minimum order of three.',
+    unitPrice: 750_000, // £7,500
     enquireOnly: false,
     includes: [
-      'Three Sovereign units',
-      'Guided Proof of Concept / Pilot',
-      'Dedicated programme lead',
-      'Documented outcome and next-step brief',
+      'Walnut & copper Prime body',
+      '£7,500 per unit',
+      'Minimum order of three',
+      'Sovereign AI Brain and Prime Remote',
+      'Soul Document & Mission Discovery',
     ],
     minQuantity: 3,
-    maxQuantity: 3,
+    maxQuantity: 24,
   },
   board: {
     id: 'board',
-    name: 'Prime',
+    name: 'Prime Board',
     shortLabel: 'Board',
-    description: 'Full board-room team setup — custom fitted from £45,000+ depending on board size.',
-    unitPrice: 4_500_000, // £45,000 floor display; final quote by enquiry
-    enquireOnly: true,
+    description:
+      'Marble & brass Prime units — £12,500 each. Minimum order of four.',
+    unitPrice: 1_250_000, // £12,500
+    enquireOnly: false,
     includes: [
-      'One Prime per board member',
-      'Board Primes can work together',
-      'Chairman receives the most senior Prime',
-      'Special Prime Remote for iPhone',
+      'Marble & brass Prime body',
+      '£12,500 per unit',
+      'Minimum order of four',
+      'Board units that work together',
+      'Prime Remote for iPhone',
     ],
-    minQuantity: 3,
+    minQuantity: 4,
     maxQuantity: 24,
   },
 }

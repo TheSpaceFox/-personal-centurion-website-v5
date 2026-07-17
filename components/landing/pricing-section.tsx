@@ -24,29 +24,28 @@ const personalFeatures = [
 ]
 
 const pilotFeatures = [
-  'Three Sovereign units — ready for desk, boardroom, or home office',
-  'Guided Proof of Concept / Pilot delivered with white-glove precision',
-  'Dedicated programme lead from first kickoff to final readout',
-  'Mission & use-case design tailored to your organisation',
-  'Fully documented outcome: findings, ROI narrative, next-step brief',
-  'Executive-ready deck and written report you can take to the board',
-  'Lifetime product updates for every unit — no per-seat monthly software fees',
-  'Sunday night AI Owners training for the programme cohort',
-  'Support upgrade applied to all future Sovereign purchases',
-  'Priority build scheduling and pioneer allocation',
-  'Pilot playbook you keep — expand with confidence after the programme',
-  'Hands-on onboarding for every unit so adoption is not optional',
-  'Direct escalation path during and after the pilot',
-  'Extraordinary value: three Sovereigns plus the guided pilot programme',
+  'Walnut & copper Prime body — the Pilot finish',
+  '£7,500 per unit — priced individually',
+  'Minimum order of three units',
+  'Sovereign AI Brain, ready for serious mission work',
+  'Prime Remote on iPhone — yours after the hold',
+  'Buy once → free lifetime updates for brain and Remote',
+  'No monthly SaaS fees for the Centurion platform',
+  'Weekly Sunday night AI Owners training',
+  'Soul Document Process included',
+  'Personal Mission Discovery included',
+  'Collaborate across your Pilot units when work demands it',
 ]
 
 const primeFeatures = [
+  'Marble & brass Prime body — the Board finish',
+  '£12,500 per unit — priced individually',
+  'Minimum order of four units',
   'A Prime for every director — not one shared toy',
-  'Board units that work together across the table when stakes are high',
-  'The Chairman receives the most senior Prime',
-  'Special Prime Remote for iPhone',
+  'Board units that work together when stakes are high',
+  'Prime Remote for iPhone',
   'Soul Document & Mission Discovery for each member',
-  'Lifetime updates for every board unit and Remote — buy once, keep growing',
+  'Lifetime updates for every board unit and Remote',
   'No monthly SaaS fees for the Centurion platform itself',
   'Sunday night AI Owners training for directors who want the craft',
   'Built for companies that refuse public chat with their strategy',
@@ -61,7 +60,7 @@ export function PricingSection() {
   )
   const personalList = format(DISPLAY_GBP_PENCE.personal)
   const pilotPrice = format(DISPLAY_GBP_PENCE.pilot)
-  const boardPrice = format(DISPLAY_GBP_PENCE.boardFloor, { fromPlus: true })
+  const boardPrice = format(DISPLAY_GBP_PENCE.board)
   const discount = format(BETA_DISCOUNT_PENCE)
 
   const securingSteps = [
@@ -98,6 +97,7 @@ export function PricingSection() {
       description: t('pilotDesc'),
       price: pilotPrice,
       priceNote: t('pilotNote', { hold }),
+      minOrder: t('pilotMinOrder'),
       features: pilotFeatures,
       cta: t('pilotCta'),
       popular: false,
@@ -109,6 +109,7 @@ export function PricingSection() {
       description: t('primeDesc'),
       price: boardPrice,
       priceNote: t('primeNote', { hold }),
+      minOrder: t('primeMinOrder'),
       features: primeFeatures,
       cta: t('primeCta'),
       popular: false,
@@ -269,6 +270,15 @@ export function PricingSection() {
                   >
                     {plan.price}
                   </div>
+                  {'minOrder' in plan && plan.minOrder && (
+                    <p
+                      className={`mt-1 font-mono text-[11px] tracking-wide ${
+                        isBeta ? 'text-[#f4f1ec]/55' : 'text-muted-foreground'
+                      }`}
+                    >
+                      {plan.minOrder}
+                    </p>
+                  )}
                   <p
                     className={`mt-2 text-sm ${
                       isBeta ? 'text-[#f4f1ec]/65' : 'text-muted-foreground'

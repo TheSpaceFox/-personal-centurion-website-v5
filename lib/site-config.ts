@@ -14,7 +14,7 @@ export const COMPANY = {
 export const PRODUCTS = {
   sovereign: 'Sovereign',
   primePilot: 'Prime Pilot',
-  prime: 'Prime',
+  prime: 'Prime Board',
 } as const
 
 /** Customer-facing platform generation — lockstep with OS / Desktop / iPhone. */

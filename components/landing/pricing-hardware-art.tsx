@@ -139,30 +139,54 @@ export function SovereignHardwareArt({
   )
 }
 
-function LogoSphere({ x, y, r, opacity = 0.85 }: { x: number; y: number; r: number; opacity?: number }) {
+function LogoMarkRow({
+  count,
+  showPlus = false,
+  inverted = false,
+  ariaLabel,
+}: {
+  count: number
+  showPlus?: boolean
+  inverted?: boolean
+  ariaLabel: string
+}) {
   return (
-    <g opacity={opacity}>
-      <circle cx={x} cy={y} r={r} fill="none" stroke="currentColor" strokeWidth="1.75" />
-      <ellipse cx={x} cy={y} rx={r} ry={r * 0.32} fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.7" />
-      <ellipse cx={x} cy={y} rx={r * 0.32} ry={r} fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.7" />
-      <circle cx={x - r * 0.22} cy={y - r * 0.18} r={r * 0.12} fill="none" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-    </g>
+    <div
+      className={cn(
+        'flex w-full max-w-[280px] items-center justify-center gap-3 sm:gap-4',
+        inverted && 'brightness-0 invert',
+      )}
+      role="img"
+      aria-label={ariaLabel}
+    >
+      {Array.from({ length: count }, (_, i) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          key={i}
+          src="/logo-mark.png"
+          alt=""
+          width={48}
+          height={48}
+          className="size-11 shrink-0 object-contain sm:size-12"
+          aria-hidden
+        />
+      ))}
+      {showPlus && (
+        <span
+          className={cn(
+            'select-none font-display text-3xl leading-none sm:text-4xl',
+            inverted ? 'text-[#f4f1ec]' : 'text-foreground',
+          )}
+          aria-hidden
+        >
+          +
+        </span>
+      )}
+    </div>
   )
 }
 
-function LogoPedestal({ x, y, w }: { x: number; y: number; w: number }) {
-  return (
-    <path
-      d={`M${x - w} ${y} L${x + w} ${y} L${x + w * 0.72} ${y + 14} L${x - w * 0.72} ${y + 14} Z`}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      opacity="0.65"
-    />
-  )
-}
-
-/** Brand mark sphere on pedestal — Prime board edition. */
+/** Four logo marks + plus — Prime Board (marble & brass, min. four). */
 export function PrimeHardwareArt({
   className = '',
   labelClassName = 'text-muted-foreground',
@@ -176,22 +200,19 @@ export function PrimeHardwareArt({
     <IllustrationFrame
       className={className}
       labelClassName={labelClassName}
-      label="Prime · Centurion mark"
+      label="Prime Board · marble & brass"
     >
-      <SvgShell
-        ariaLabel="Line drawing of the Centurion logo sphere on its pedestal"
-        className="max-w-[220px]"
+      <LogoMarkRow
+        count={4}
+        showPlus
         inverted={inverted}
-      >
-        <LogoSphere x={100} y={48} r={28} />
-        <LogoPedestal x={100} y={78} w={36} />
-        <line x1="66" y1="98" x2="134" y2="98" stroke="currentColor" strokeWidth="1.25" opacity="0.35" />
-      </SvgShell>
+        ariaLabel="Four Centurion logo marks in a row with a plus, for Prime Board"
+      />
     </IllustrationFrame>
   )
 }
 
-/** Three logo marks — Prime Pilot (three Sovereign units). */
+/** Three logo marks — Prime Pilot (walnut & copper, min. three). */
 export function PrimePilotHardwareArt({
   className = '',
   labelClassName = 'text-muted-foreground',
@@ -205,25 +226,13 @@ export function PrimePilotHardwareArt({
     <IllustrationFrame
       className={className}
       labelClassName={labelClassName}
-      label="Prime Pilot · three units"
+      label="Prime Pilot · walnut & copper"
     >
-      <SvgShell
-        ariaLabel="Line drawing of three Centurion logo spheres for Prime Pilot"
-        className="max-w-[260px]"
+      <LogoMarkRow
+        count={3}
         inverted={inverted}
-      >
-        {[
-          { x: 52, y: 50, r: 18 },
-          { x: 100, y: 46, r: 20 },
-          { x: 148, y: 50, r: 18 },
-        ].map((s) => (
-          <g key={s.x}>
-            <LogoSphere x={s.x} y={s.y} r={s.r} opacity={0.85} />
-            <LogoPedestal x={s.x} y={s.y + s.r + 2} w={s.r * 0.9} />
-          </g>
-        ))}
-        <line x1="36" y1="96" x2="164" y2="96" stroke="currentColor" strokeWidth="1.25" opacity="0.35" />
-      </SvgShell>
+        ariaLabel="Three Centurion logo marks in a row for Prime Pilot"
+      />
     </IllustrationFrame>
   )
 }
