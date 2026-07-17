@@ -7,7 +7,7 @@
     "adrian": "Adrian",
     "capabilities": "Capabilities",
     "remote": "Remote",
-    "limitedEdition": "Limited Edition",
+    "limitedEdition": "Choose yours",
     "secureYours": "Secure yours",
     "support": "Support",
     "whitepaper": "View Whitepaper",
@@ -83,10 +83,10 @@
     "whoItServes": "Who it serves",
     "skillsLibrary": "Skills Library",
     "talkPlainly": "Talk plainly",
-    "limitedEdition": "Limited Edition",
+    "limitedEdition": "Choose yours",
     "registerInterest": "Register Interest",
-    "secureBuildSlot": "Secure a Build Slot",
-    "prime": "Prime",
+    "secureBuildSlot": "Buy a Sovereign",
+    "prime": "Buy a Prime Board",
     "buyerAccount": "Buyer account",
     "familyProgram": "Family Beneficiary Program",
     "support": "Support",
@@ -96,7 +96,8 @@
     "terms": "Terms",
     "security": "Security",
     "copyright": "{year} © Centurion Limited",
-    "status": "Private & ready"
+    "status": "Private & ready",
+    "primePilot": "Buy a Prime Pilot"
   },
   "localeSwitcher": {
     "label": "Language & currency",

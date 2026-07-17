@@ -23,6 +23,7 @@ export function FooterSection() {
       { name: t('limitedEdition'), href: '#limited-edition' },
       { name: t('registerInterest'), href: '/order?engagement=interest' },
       { name: t('secureBuildSlot'), href: '/order?engagement=personal' },
+      { name: t('primePilot'), href: '/order?engagement=pilot' },
       { name: t('prime'), href: '/order?engagement=board' },
       { name: t('buyerAccount'), href: '/account' },
     ],

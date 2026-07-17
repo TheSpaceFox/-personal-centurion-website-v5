@@ -7,7 +7,7 @@
     "adrian": "Adrian",
     "capabilities": "기능",
     "remote": "리모트",
-    "limitedEdition": "한정판",
+    "limitedEdition": "선택하기",
     "secureYours": "확보하기",
     "support": "지원",
     "whitepaper": "백서",
@@ -71,10 +71,10 @@
     "whoItServes": "Who it serves",
     "skillsLibrary": "Skills Library",
     "talkPlainly": "Talk plainly",
-    "limitedEdition": "Limited Edition",
+    "limitedEdition": "선택하기",
     "registerInterest": "Register Interest",
-    "secureBuildSlot": "Secure a Build Slot",
-    "prime": "Prime",
+    "secureBuildSlot": "Sovereign 구매",
+    "prime": "Prime Board 구매",
     "buyerAccount": "Buyer account",
     "familyProgram": "Family Beneficiary Program",
     "support": "지원",
@@ -84,7 +84,8 @@
     "terms": "약관",
     "security": "Security",
     "copyright": "{year} © Centurion Limited",
-    "status": "Private & ready"
+    "status": "Private & ready",
+    "primePilot": "Prime Pilot 구매"
   },
   "localeSwitcher": {
     "label": "언어 및 통화",

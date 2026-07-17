@@ -7,7 +7,7 @@
     "adrian": "Adrian",
     "capabilities": "機能",
     "remote": "リモート",
-    "limitedEdition": "限定版",
+    "limitedEdition": "選ぶ",
     "secureYours": "確保する",
     "support": "サポート",
     "whitepaper": "ホワイトペーパー",
@@ -71,10 +71,10 @@
     "whoItServes": "Who it serves",
     "skillsLibrary": "Skills Library",
     "talkPlainly": "Talk plainly",
-    "limitedEdition": "Limited Edition",
+    "limitedEdition": "選ぶ",
     "registerInterest": "Register Interest",
-    "secureBuildSlot": "Secure a Build Slot",
-    "prime": "Prime",
+    "secureBuildSlot": "Sovereign を購入",
+    "prime": "Prime Board を購入",
     "buyerAccount": "Buyer account",
     "familyProgram": "Family Beneficiary Program",
     "support": "サポート",
@@ -84,7 +84,8 @@
     "terms": "利用規約",
     "security": "Security",
     "copyright": "{year} © Centurion Limited",
-    "status": "Private & ready"
+    "status": "Private & ready",
+    "primePilot": "Prime Pilot を購入"
   },
   "localeSwitcher": {
     "label": "言語と通貨",

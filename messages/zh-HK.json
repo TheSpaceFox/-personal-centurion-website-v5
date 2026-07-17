@@ -7,7 +7,7 @@
     "adrian": "Adrian",
     "capabilities": "能力",
     "remote": "遙控",
-    "limitedEdition": "限量版",
+    "limitedEdition": "選擇你的",
     "secureYours": "鎖定你的",
     "support": "支援",
     "whitepaper": "白皮書",
@@ -71,10 +71,10 @@
     "whoItServes": "Who it serves",
     "skillsLibrary": "Skills Library",
     "talkPlainly": "Talk plainly",
-    "limitedEdition": "Limited Edition",
+    "limitedEdition": "選擇你的",
     "registerInterest": "Register Interest",
-    "secureBuildSlot": "Secure a Build Slot",
-    "prime": "Prime",
+    "secureBuildSlot": "購買 Sovereign",
+    "prime": "購買 Prime Board",
     "buyerAccount": "Buyer account",
     "familyProgram": "Family Beneficiary Program",
     "support": "支援",
@@ -84,7 +84,8 @@
     "terms": "條款",
     "security": "保安",
     "copyright": "{year} © Centurion Limited",
-    "status": "私密就緒"
+    "status": "私密就緒",
+    "primePilot": "購買 Prime Pilot"
   },
   "localeSwitcher": {
     "label": "語言與貨幣",
