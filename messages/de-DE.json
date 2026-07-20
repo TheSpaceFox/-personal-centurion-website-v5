@@ -94,5 +94,26 @@
   "order": {
     "title": "Bauen Sie Ihren Sovereign — Centurion",
     "description": "Konfigurieren Sie Sovereign, Prime Pilot oder Prime."
+  },
+  "securityPage": {
+    "rolloutTitle": "Conservative rollout — owner first",
+    "rolloutLead": "A path business owners can propose to IT when policy prefers a narrow start.",
+    "rollout1Title": "Phase 1 — Owner / CEO only",
+    "rollout1Body": "Dedicated host. Manual approvals. No YOLO. No messaging gateway.",
+    "rollout2Title": "Phase 2 — Add Remote",
+    "rollout2Body": "Pair that owner’s iPhone only. Review logs and provider traffic.",
+    "rollout3Title": "Phase 3 — Optional Vault",
+    "rollout3Body": "Init and unlock sealed long-term memory. Still owner-only.",
+    "rollout4Title": "Phase 4 — Expand carefully",
+    "rollout4Body": "Allowlists, IdP mail review, then more users. Docker isolation if required.",
+    "controlsTitle": "OS controls IT can verify",
+    "controlApprovalsTitle": "Approvals & tools",
+    "controlApprovalsBody": "Default manual approval for dangerous commands; configurable toolsets; MCP env filtering strips secrets unless explicitly allowed.",
+    "controlGatewayTitle": "Gateway auth",
+    "controlGatewayBody": "Default-deny messaging access. Empty allowlist means nobody. Pairing and allowlists gate who can talk to the agent.",
+    "controlVaultTitle": "Memory Horizon / Vault",
+    "controlVaultBody": "Hot Cache and Session Recall by default. Vault is opt-in encrypted long-term memory — deliberate propose/commit, not transcript dumps.",
+    "ctaPdf": "Download PDF",
+    "ctaBody": "Forward this page to your security team, download the one-page PDF, or ask us for a written response to your questionnaire."
   }
 }
