@@ -150,8 +150,8 @@ export function HeroSection() {
             <div key={i} className="flex gap-16">
               {[
                 { value: '100%', label: 'Your private world stays yours', company: 'PRIVATE' },
-                { value: 'Your', label: 'You decide how it works', company: 'IN YOUR HOME' },
-                { value: 'Zero', label: 'No strangers reading along', company: 'YOURS FOREVER' },
+                { value: 'Forever', label: 'Ownership is yours forever', company: 'IN YOUR HOME' },
+                { value: 'Private', label: 'No strangers reading along', company: 'YOURS FOREVER' },
                 { value: 'Offline', label: 'Can work with no outside line', company: 'WHEN NEEDED' },
               ].map((stat) => (
                 <div key={`${stat.company}-${i}`} className="flex items-baseline gap-4">
