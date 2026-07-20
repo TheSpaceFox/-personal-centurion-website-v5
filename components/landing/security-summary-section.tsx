@@ -79,6 +79,14 @@ export function SecuritySummarySection() {
               {t('cta')}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </Link>
+            <Link
+              href="/security#faq"
+              className={`mt-3 block text-sm text-muted-foreground underline-offset-4 transition-all delay-200 duration-700 hover:text-foreground hover:underline ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+              }`}
+            >
+              {t('faqLink')}
+            </Link>
           </div>
 
           <div

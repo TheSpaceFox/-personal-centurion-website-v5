@@ -18,7 +18,8 @@
     "eyebrow": "Una IA privada para la misión de tu vida",
     "line1": "1 Human",
     "line2Prefix": "1 AI.",
-    "sub": "Una IA que te ayuda a descubrir y vivir la misión de tu vida — privada, soberana y leal."
+    "sub": "An AI that helps you discover and live your life's mission — private on your Sovereign, loyal to your rules.",
+    "support": "Under your roof. Under your rules. You decide how far it may go."
   },
   "pricing": {
     "eyebrow": "Decide",
@@ -114,6 +115,27 @@
     "controlVaultTitle": "Memory Horizon / Vault",
     "controlVaultBody": "Hot Cache and Session Recall by default. Vault is opt-in encrypted long-term memory — deliberate propose/commit, not transcript dumps.",
     "ctaPdf": "Download PDF",
-    "ctaBody": "Forward this page to your security team, download the one-page PDF, or ask us for a written response to your questionnaire."
+    "ctaBody": "Forward this page to your security team, download the one-page PDF, or ask us for a written response to your questionnaire.",
+    "faqTitle": "Questions from IT & Security Teams",
+    "faqLead": "Clear answers to the objections we hear most often — data, autonomy, access, and liability.",
+    "faq1Q": "Does connecting AI to Microsoft 365 or Google Workspace send our mail to your cloud?",
+    "faq1A": "No. Mail is accessed from the Sovereign under your identity provider’s rules. Tokens stay on the owner’s machine. Centurion Limited does not host, proxy, or sit in the middle of company mail traffic.",
+    "faq2Q": "Where do conversations and API keys live?",
+    "faq2A": "On the Sovereign brain — hardware you own, typically under the Centurion home directory on that machine. Crypto Chat history stays on the brain. Centurion Limited does not host your private chat history.",
+    "faq3Q": "Can the agent run destructive commands without a human?",
+    "faq3A": "Not by default. Dangerous commands require human approval (manual mode). Timeouts fail closed (deny). A hardline blocklist cannot be turned off by “allow always” shortcuts. For stronger isolation, run tools inside Docker or another sandbox backend.",
+    "faq4Q": "Who can talk to our Sovereign?",
+    "faq4A": "Access is default-deny. Messaging gateways use allowlists or pairing; an empty allowlist admits nobody. Remote (iPhone) connections require brain-side approval. Only devices you approve can open Crypto Chat.",
+    "faq5Q": "What if policy requires air-gap or offline operation?",
+    "faq5A": "Connectivity is a choice. Leave company mail disconnected and keep thinking services off the public internet when policy requires it. The Sovereign still works as a local system under your roof.",
+    "faq6Q": "Do you train on our content or collect product telemetry?",
+    "faq6A": "Centurion Limited does not receive private Sovereign inference data to train shared models, and does not collect product telemetry or usage analytics from your private world. If you enable an external thinking service, only that provider call leaves your network under that provider’s terms.",
+    "faq7Q": "What compliance certifications do you claim?",
+    "faq7A": "We do not claim FedRAMP, SOC 2, IL ratings, or military authorisations. Our position is architectural: owner-controlled hardware, encrypted private chat on your network, optional offline operation, and IdP-governed connectors. For a private questionnaire, contact the security desk.",
+    "faq8Q": "How should we roll this out conservatively?",
+    "faq8A": "Start with the owner or CEO only on a dedicated host, manual approvals, no messaging gateway. Then add that owner’s Remote with pairing-only access. Optionally unlock Vault while still owner-only. Expand users only after allowlists, provider review, and isolation choices are agreed with IT."
+  },
+  "securitySummary": {
+    "faqLink": "Questions from IT & Security Teams"
   }
 }

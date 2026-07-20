@@ -97,6 +97,14 @@ export function HeroSection() {
             </div>
 
             <p
+              className={`mb-4 max-w-xl text-base font-medium leading-snug text-foreground transition-all delay-150 duration-700 lg:text-lg ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+              }`}
+            >
+              {t('support')}
+            </p>
+
+            <p
               className={`mb-8 max-w-xl text-lg leading-relaxed text-muted-foreground transition-all delay-200 duration-700 lg:text-xl ${
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
               }`}

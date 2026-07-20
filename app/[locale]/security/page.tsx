@@ -7,6 +7,7 @@ import {
   CloudVsSovereignDiagram,
   IdPMailFlowDiagram,
 } from '@/components/landing/security-diagrams'
+import { SecurityFaqAccordion } from '@/components/landing/security-faq-accordion'
 import { COMPANY, SITE_VERSION } from '@/lib/site-config'
 import { isAppLocale, type AppLocale } from '@/i18n/locales'
 
@@ -213,6 +214,16 @@ export default async function SecurityPage({
                 </div>
               ))}
             </div>
+          </section>
+
+          <section id="faq" className="scroll-mt-24 space-y-6">
+            <div className="space-y-4">
+              <h2 className="font-display text-2xl tracking-tight text-foreground">
+                {t('faqTitle')}
+              </h2>
+              <p className="leading-relaxed">{t('faqLead')}</p>
+            </div>
+            <SecurityFaqAccordion />
           </section>
 
           <section className="border border-foreground/15 bg-foreground/[0.03] p-6 sm:p-8">
