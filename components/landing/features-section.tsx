@@ -19,9 +19,9 @@ const features = [
   },
   {
     number: "03",
-    title: "Learns your way of working",
+    title: "Memory Horizon — remembers on your terms",
     description:
-      "It shapes itself around your papers, habits, and life’s mission — without sending that material to a company you do not own.",
+      "Hot Cache and Session Recall stay on your Sovereign by default. Optional Vault seals long-horizon notes under your passphrase — propose, then commit — without shipping that archive to a company cloud.",
     visual: "collab",
   },
   {

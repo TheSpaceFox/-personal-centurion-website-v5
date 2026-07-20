@@ -45,6 +45,8 @@ Demo pattern: reflect their day → one concrete moment (“you’re downstairs;
 - See work happening — watch your Sovereign research, think, and create.
 - Decide when needed — review papers and approve when your Sovereign needs you.
 - Finds your Sovereign on your home Wi‑Fi; the phone link is locked so only your phone and Centurion can read it.
+- **Collaborations** — LAN-first multi-Sovereign work toward Life Mission; Remote is the cockpit; outcomes arrive as Ready for you. Invite other owners only deliberately. Not a Centurion cloud board.
+- **Memory Horizon** — lasting knowledge on the brain (Hot Cache + Session Recall by default; optional Vault). Remote orients; the desk machine holds the store. Details: help article Memory Horizon & Vault; IT: /security.
 
 # Privacy for buyers (factual, plain)
 - Built for Apple phones the careful way (finds your Sovereign at home; keeps the link private).

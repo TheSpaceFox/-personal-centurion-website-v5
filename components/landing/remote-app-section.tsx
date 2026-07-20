@@ -8,7 +8,7 @@ import {
   Settings2,
   Target,
   Users,
-  Ellipsis,
+  Layers,
 } from "lucide-react";
 
 const capabilities = [
@@ -26,7 +26,14 @@ const capabilities = [
   {
     icon: Users,
     title: "Collaborate",
-    description: "Work with others when your situation needs more than one mind — Centurions can work together, carefully.",
+    description:
+      "LAN-first Collaborations on your linked Sovereign — orient work, answer signals, and receive Ready for you outcomes. Invite other owners only when you choose.",
+  },
+  {
+    icon: Layers,
+    title: "Memory Horizon",
+    description:
+      "Hot Cache and Session Recall by default on the brain. Optional Vault is sealed long-term memory you unlock deliberately — Remote orients; the brain holds the store.",
   },
   {
     icon: Target,
@@ -37,11 +44,6 @@ const capabilities = [
     icon: Settings2,
     title: "Make setup changes",
     description: "Connection, how your AI thinks, look and feel, and personal rules — change them from your iPhone.",
-  },
-  {
-    icon: Ellipsis,
-    title: "And more",
-    description: "Privacy choices, Connect, and new Remote abilities as your Centurion grows with you.",
   },
 ];
 

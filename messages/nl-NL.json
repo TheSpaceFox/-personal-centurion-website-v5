@@ -121,7 +121,7 @@
     "faq1Q": "Does connecting AI to Microsoft 365 or Google Workspace send our mail to your cloud?",
     "faq1A": "No. Mail is accessed from the Sovereign under your identity provider’s rules. Tokens stay on the owner’s machine. Centurion Limited does not host, proxy, or sit in the middle of company mail traffic.",
     "faq2Q": "Where do conversations and API keys live?",
-    "faq2A": "On the Sovereign brain — hardware you own, typically under the Centurion home directory on that machine. Crypto Chat history stays on the brain. Centurion Limited does not host your private chat history.",
+    "faq2A": "On the Sovereign brain — hardware you own, typically under the Centurion home directory on that machine. Crypto Chat history stays on the brain. Centurion Limited does not host your private chat history. Memory Horizon (Hot Cache, Session Recall, optional Vault) is explained at https://help.1human1ai.com/docs/privacy-and-security/memory-horizon-and-vault",
     "faq3Q": "Can the agent run destructive commands without a human?",
     "faq3A": "Not by default. Dangerous commands require human approval (manual mode). Timeouts fail closed (deny). A hardline blocklist cannot be turned off by “allow always” shortcuts. For stronger isolation, run tools inside Docker or another sandbox backend.",
     "faq4Q": "Who can talk to our Sovereign?",
@@ -133,7 +133,7 @@
     "faq7Q": "What compliance certifications do you claim?",
     "faq7A": "We do not claim FedRAMP, SOC 2, IL ratings, or military authorisations. Our position is architectural: owner-controlled hardware, encrypted private chat on your network, optional offline operation, and IdP-governed connectors. For a private questionnaire, contact the security desk.",
     "faq8Q": "How should we roll this out conservatively?",
-    "faq8A": "Start with the owner or CEO only on a dedicated host, manual approvals, no messaging gateway. Then add that owner’s Remote with pairing-only access. Optionally unlock Vault while still owner-only. Expand users only after allowlists, provider review, and isolation choices are agreed with IT."
+    "faq8A": "Start with the owner or CEO only on a dedicated host, manual approvals, no messaging gateway. Then add that owner’s Remote with pairing-only access. Optionally unlock Vault while still owner-only — see https://help.1human1ai.com/docs/privacy-and-security/memory-horizon-and-vault and https://help.1human1ai.com/docs/getting-started/onboarding-checklist. Expand users only after allowlists, provider review, and isolation choices are agreed with IT."
   },
   "securitySummary": {
     "faqLink": "Questions from IT & Security Teams"
