@@ -7,6 +7,7 @@ import {
   CloudVsSovereignDiagram,
   IdPMailFlowDiagram,
 } from '@/components/landing/security-diagrams'
+import { SecurityFaqAccordion } from '@/components/landing/security-faq-accordion'
 import { COMPANY, SITE_VERSION } from '@/lib/site-config'
 import { isAppLocale, type AppLocale } from '@/i18n/locales'
 
@@ -167,6 +168,64 @@ export default async function SecurityPage({
             </div>
           </section>
 
+          <section className="space-y-6">
+            <h2 className="font-display text-2xl tracking-tight text-foreground">
+              {t('controlsTitle')}
+            </h2>
+            <div className="grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-3">
+              <div className="bg-background p-6 sm:p-8">
+                <h3 className="font-display text-xl text-foreground">
+                  {t('controlApprovalsTitle')}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed">{t('controlApprovalsBody')}</p>
+              </div>
+              <div className="bg-background p-6 sm:p-8">
+                <h3 className="font-display text-xl text-foreground">
+                  {t('controlGatewayTitle')}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed">{t('controlGatewayBody')}</p>
+              </div>
+              <div className="bg-background p-6 sm:p-8">
+                <h3 className="font-display text-xl text-foreground">
+                  {t('controlVaultTitle')}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed">{t('controlVaultBody')}</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="space-y-6">
+            <div className="space-y-4">
+              <h2 className="font-display text-2xl tracking-tight text-foreground">
+                {t('rolloutTitle')}
+              </h2>
+              <p className="leading-relaxed">{t('rolloutLead')}</p>
+            </div>
+            <div className="grid gap-px border border-foreground/10 bg-foreground/10 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { title: t('rollout1Title'), body: t('rollout1Body') },
+                { title: t('rollout2Title'), body: t('rollout2Body') },
+                { title: t('rollout3Title'), body: t('rollout3Body') },
+                { title: t('rollout4Title'), body: t('rollout4Body') },
+              ].map((phase) => (
+                <div key={phase.title} className="bg-background p-6 sm:p-8">
+                  <h3 className="font-display text-lg text-foreground">{phase.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed">{phase.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="faq" className="scroll-mt-24 space-y-6">
+            <div className="space-y-4">
+              <h2 className="font-display text-2xl tracking-tight text-foreground">
+                {t('faqTitle')}
+              </h2>
+              <p className="leading-relaxed">{t('faqLead')}</p>
+            </div>
+            <SecurityFaqAccordion />
+          </section>
+
           <section className="border border-foreground/15 bg-foreground/[0.03] p-6 sm:p-8">
             <h2 className="font-display text-2xl tracking-tight text-foreground">
               {t('honestTitle')}
@@ -185,6 +244,12 @@ export default async function SecurityPage({
                 className="inline-flex h-12 items-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
               >
                 {t('ctaEmail')}
+              </a>
+              <a
+                href="/Centurion-IT-Security-One-Pager.pdf"
+                className="inline-flex h-12 items-center rounded-full border border-foreground/20 px-6 text-sm transition-colors hover:border-foreground hover:bg-foreground/5"
+              >
+                {t('ctaPdf')}
               </a>
               <Link
                 href="/whitepaper"
