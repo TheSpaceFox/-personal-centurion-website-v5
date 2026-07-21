@@ -18,7 +18,7 @@ export const PRODUCTS = {
 } as const
 
 /** Customer-facing platform generation — lockstep with OS / Desktop / iPhone. */
-export const SITE_VERSION = '5.0.0'
+export const SITE_VERSION = '5.0.1'
 
 export const SUPPORT_URL = COMPANY.helpUrl
 export const ENQUIRY_EMAIL = COMPANY.email
