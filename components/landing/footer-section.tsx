@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import { ArrowUpRight } from 'lucide-react'
 import { CenturionLogo } from '@/components/centurion-logo'
 import { Link } from '@/i18n/routing'
+import { SITE_VERSION } from '@/lib/site-config'
 import { AnimatedWave } from './animated-wave'
 
 export function FooterSection() {
@@ -108,7 +109,9 @@ export function FooterSection() {
         </div>
 
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">{t('copyright', { year })}</p>
+          <p className="text-sm text-muted-foreground">
+            {t('copyright', { year })} · Centurion v{SITE_VERSION}
+          </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
