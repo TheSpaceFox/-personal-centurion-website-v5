@@ -10,22 +10,30 @@ import type { EngagementTier } from '@/lib/orders/types'
 import { cn } from '@/lib/utils'
 
 function WizardSteps() {
-  const { step, totalSteps, goToStep } = useWizard()
+  const { step, totalSteps, goToStep, canAccessStep } = useWizard()
   const labels = ['Engagement', 'Details', 'Summary']
 
   return (
     <div className="space-y-12">
-      <nav className="flex flex-wrap gap-4 border-b border-foreground/10 pb-6">
+      <nav className="flex flex-wrap gap-4 border-b border-foreground/10 pb-6" aria-label="Order steps">
         {labels.map((label, index) => {
           const n = index + 1
+          const reachable = canAccessStep(n)
+          const isCurrent = step === n
           return (
             <button
               key={label}
               type="button"
               onClick={() => goToStep(n)}
+              disabled={!reachable && n > step}
+              aria-current={isCurrent ? 'step' : undefined}
               className={cn(
                 'font-mono text-xs uppercase tracking-widest transition-colors',
-                step === n ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
+                isCurrent
+                  ? 'text-foreground'
+                  : reachable
+                    ? 'text-muted-foreground hover:text-foreground'
+                    : 'cursor-not-allowed text-muted-foreground/40',
               )}
             >
               {String(n).padStart(2, '0')} {label}

@@ -25,6 +25,23 @@ function clampStep(n: number) {
   return Math.min(Math.max(1, n), TOTAL_STEPS)
 }
 
+function detailsComplete(state: WizardState) {
+  return Boolean(
+    state.firstName.trim() &&
+      state.lastName.trim() &&
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email),
+  )
+}
+
+/** Step access: 1 always; 2 needs engagement; 3 needs engagement + contact details. */
+export function canAccessWizardStep(target: number, state: WizardState): boolean {
+  const n = clampStep(target)
+  if (n <= 1) return true
+  if (!state.engagement) return false
+  if (n === 2) return true
+  return detailsComplete(state)
+}
+
 interface WizardContextValue {
   step: number
   state: WizardState
@@ -32,6 +49,7 @@ interface WizardContextValue {
   next: () => void
   back: () => void
   goToStep: (n: number) => void
+  canAccessStep: (n: number) => boolean
   totalSteps: number
   counselHandoff: CounselHandoff | null
   clearCounselHandoff: () => void
@@ -122,9 +140,29 @@ export function WizardProvider({
     setCounselHandoff(null)
   }, [])
 
-  const next = useCallback(() => setStep((s) => clampStep(s + 1)), [])
+  const canAccessStep = useCallback(
+    (n: number) => canAccessWizardStep(n, state),
+    [state],
+  )
+
+  const next = useCallback(() => {
+    setStep((s) => {
+      const target = clampStep(s + 1)
+      return canAccessWizardStep(target, state) ? target : s
+    })
+  }, [state])
+
   const back = useCallback(() => setStep((s) => clampStep(s - 1)), [])
-  const goToStep = useCallback((n: number) => setStep(clampStep(n)), [])
+
+  const goToStep = useCallback(
+    (n: number) => {
+      const target = clampStep(n)
+      if (target <= step || canAccessWizardStep(target, state)) {
+        setStep(target)
+      }
+    },
+    [state, step],
+  )
 
   return (
     <WizardContext.Provider
@@ -135,6 +173,7 @@ export function WizardProvider({
         next,
         back,
         goToStep,
+        canAccessStep,
         totalSteps: TOTAL_STEPS,
         counselHandoff,
         clearCounselHandoff,
