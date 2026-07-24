@@ -7,8 +7,10 @@ import { fetchQuoteAction } from '@/lib/orders/actions'
 import { formatGbpFromPence } from '@/lib/orders/pricing'
 import type { QuoteRecord } from '@/lib/orders/types'
 import { BUYER_SESSION_KEY } from '@/lib/orders/types'
+import { useTranslations } from 'next-intl'
 
 export default function OrderDetailClient() {
+  const t = useTranslations('account')
   const params = useParams<{ id: string }>()
   const searchParams = useSearchParams()
   const submitted = searchParams.get('submitted') === '1'
@@ -18,7 +20,7 @@ export default function OrderDetailClient() {
   useEffect(() => {
     fetchQuoteAction(params.id).then((result) => {
       if (!result.ok || !result.quote) {
-        setError('Quote not found.')
+        setError(t('quoteNotFound'))
         return
       }
       setQuote(result.quote)
@@ -28,7 +30,7 @@ export default function OrderDetailClient() {
         // ignore
       }
     })
-  }, [params.id])
+  }, [params.id, t])
 
   if (error) {
     return (
@@ -42,7 +44,7 @@ export default function OrderDetailClient() {
   }
 
   if (!quote) {
-    return <main className="p-12 text-muted-foreground">Loading quote…</main>
+    return <main className="p-12 text-muted-foreground">{t('loading')}</main>
   }
 
   return (
@@ -50,10 +52,10 @@ export default function OrderDetailClient() {
       <header className="border-b border-foreground/10">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-6">
           <Link href="/" className="font-display text-sm tracking-[0.12em]">
-            PERSONAL CENTURION
+            {t('brand')}
           </Link>
           <Link href="/account" className="text-sm text-muted-foreground hover:text-foreground">
-            Account
+            {t('eyebrow')}
           </Link>
         </div>
       </header>
@@ -61,10 +63,7 @@ export default function OrderDetailClient() {
       <div className="mx-auto max-w-3xl px-6 py-16">
         {submitted && (
           <div className="mb-8 border border-foreground/20 bg-foreground/[0.03] p-6">
-            <p className="font-display text-xl">Thank you — your quote is with our team.</p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              We will contact you at {quote.email} to arrange next steps. No card was charged.
-            </p>
+            <p className="font-display text-xl">{t('submittedBanner')}</p>
           </div>
         )}
 

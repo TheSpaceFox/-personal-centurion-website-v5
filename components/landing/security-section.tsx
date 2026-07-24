@@ -4,48 +4,15 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Shield, Lock, Eye, FileCheck } from "lucide-react";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
-const securityFeatures = [
-  {
-    icon: Lock,
-    title: "Crypto Chat",
-    description:
-      "End-to-end encrypted talk with your Sovereign on your network — a private channel public AIs do not offer at all.",
-  },
-  {
-    icon: Shield,
-    title: "Fully offline option",
-    description:
-      "When nothing may leave the room, Centurion can work without the public internet.",
-  },
-  {
-    icon: Eye,
-    title: "Trust nothing by default",
-    description:
-      "Access is careful and deliberate. Nothing is assumed safe without your say.",
-  },
-  {
-    icon: FileCheck,
-    title: "You own it",
-    description:
-      "Hardware in your home. Control in your hands. Your private life does not leave with a vendor.",
-  },
-];
-
-const trustSignals = [
-  "Crypto Chat",
-  "Made for private lives",
-  "Nothing leaves without you",
-  "Built for serious work",
-];
-
-function PrivacyDiagram() {
+function PrivacyDiagram({ ariaLabel }: { ariaLabel: string }) {
   return (
     <svg
       viewBox="0 0 520 320"
       className="h-auto w-full text-foreground motion-safe:[&_.privacy-motion]:opacity-100"
       role="img"
-      aria-label="Diagram of your private world inside the home, sealed from public chat and cloud systems"
+      aria-label={ariaLabel}
     >
       <style>{`
         @media (prefers-reduced-motion: reduce) {
@@ -305,6 +272,14 @@ function PrivacyDiagram() {
 }
 
 export function SecuritySection() {
+  const t = useTranslations("security");
+  const securityFeatures = [
+    { icon: Lock, title: t("feature1Title"), description: t("feature1Description") },
+    { icon: Shield, title: t("feature2Title"), description: t("feature2Description") },
+    { icon: Eye, title: t("feature3Title"), description: t("feature3Description") },
+    { icon: FileCheck, title: t("feature4Title"), description: t("feature4Description") },
+  ];
+  const trustSignals = t("trustSignals").split("|").map((signal) => signal.trim()).filter(Boolean);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -330,27 +305,23 @@ export function SecuritySection() {
         <div className="mb-16 max-w-3xl lg:mb-20">
           <span className="mb-6 inline-flex items-center gap-3 font-mono text-sm text-muted-foreground">
             <span className="h-px w-8 bg-foreground/30" />
-            Privacy
+            {t("eyebrow")}
           </span>
           <h2
             className={`mb-8 font-display text-4xl tracking-tight transition-all duration-700 lg:text-6xl ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            Yours,
+            {t("titleLine1")}
             <br />
-            <span className="text-muted-foreground">not compromised.</span>
+            <span className="text-muted-foreground">{t("titleLine2")}</span>
           </h2>
           <p
             className={`mb-8 max-w-2xl text-xl leading-relaxed text-muted-foreground transition-all delay-150 duration-700 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            Built for people who cannot put their life&apos;s work in a public chat box.
-            Crypto Chat keeps your conversation with your Sovereign private and encrypted on
-            your network — something public AIs do not have. Your Sovereign holds what you
-            share. Sovereign the company does not — that private world never leaves
-            your hardware. Privacy is not an add-on; it is the starting point.
+            {t("lead")}
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -374,7 +345,7 @@ export function SecuritySection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <PrivacyDiagram />
+            <PrivacyDiagram ariaLabel={t("diagramAria")} />
           </div>
 
           <div
@@ -386,7 +357,7 @@ export function SecuritySection() {
               <div className="overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-[#f4f1ec]">
                 <Image
                   src="/privacy-sealed-home.jpg"
-                  alt="Sealed private study — a Sovereign stays under your roof"
+                  alt={t("imageAlt")}
                   width={940}
                   height={1410}
                   className="h-auto w-full"
@@ -395,7 +366,7 @@ export function SecuritySection() {
               </div>
             </div>
             <p className="mt-4 text-center font-mono text-xs tracking-widest text-muted-foreground uppercase">
-              Privacy · starting point
+              {t("imageCaption")}
             </p>
           </div>
         </div>
@@ -423,7 +394,7 @@ export function SecuritySection() {
             href="/security"
             className="inline-flex items-center gap-2 text-sm font-medium text-foreground underline-offset-4 hover:underline"
           >
-            Full security brief for IT
+            {t("securityBriefCta")}
             <span aria-hidden>→</span>
           </Link>
         </div>

@@ -1,19 +1,15 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-
-const integrations = [
-  { name: "Founders", category: "Builders of empires" },
-  { name: "Investors", category: "Guardians of capital" },
-  { name: "Collectors", category: "Keepers of legacy" },
-  { name: "Families", category: "Multi-generational wealth" },
-  { name: "Family Offices", category: "Principals & advisors" },
-  { name: "Defense", category: "Quiet, serious work" },
-  { name: "Statesmen", category: "Discretion & trust" },
-  { name: "Institutions", category: "Finance & governance" },
-];
+import { useTranslations } from "next-intl";
 
 export function IntegrationsSection() {
+  const t = useTranslations("integrations");
+  const integrations = t("audiences")
+    .split("||")
+    .map((record) => record.split("|").map((item) => item.trim()))
+    .filter(([name, category]) => name && category)
+    .map(([name, category]) => ({ name, category }));
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -40,17 +36,16 @@ export function IntegrationsSection() {
         >
           <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
             <span className="w-8 h-px bg-foreground/30" />
-            Who it serves
+            {t("eyebrow")}
             <span className="w-8 h-px bg-foreground/30" />
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-6">
-            For those who value
+            {t("titleLine1")}
             <br />
-            true privacy.
+            {t("titleLine2")}
           </h2>
           <p className="text-xl text-muted-foreground">
-            By invitation and referral. For people who know that real privacy
-            cannot be borrowed, rented, or shared.
+            {t("lead")}
           </p>
         </div>
 

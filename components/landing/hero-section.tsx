@@ -6,10 +6,14 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, MessageSquare } from 'lucide-react'
 import { AnimatedSphere } from './animated-sphere'
 
-const words = ['private', 'sovereign', 'loyal', 'yours']
-
 export function HeroSection() {
   const t = useTranslations('hero')
+  const words = t('rotatingWords').split('|').map((s) => s.trim()).filter(Boolean)
+  const stats = [1, 2, 3, 4].map((index) => ({
+    value: t(`stat${index}Value`),
+    label: t(`stat${index}Label`),
+    company: t(`stat${index}Company`),
+  }))
   const [isVisible, setIsVisible] = useState(false)
   const [wordIndex, setWordIndex] = useState(0)
   const [showDock, setShowDock] = useState(false)
@@ -148,12 +152,7 @@ export function HeroSection() {
         <div className="marquee flex gap-16 whitespace-nowrap">
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex gap-16">
-              {[
-                { value: '100%', label: 'Your private world stays yours', company: 'PRIVATE' },
-                { value: 'Forever', label: 'Ownership is yours forever', company: 'IN YOUR HOME' },
-                { value: 'Private', label: 'No strangers reading along', company: 'YOURS FOREVER' },
-                { value: 'Offline', label: 'Can work with no outside line', company: 'WHEN NEEDED' },
-              ].map((stat) => (
+              {stats.map((stat) => (
                 <div key={`${stat.company}-${i}`} className="flex items-baseline gap-4">
                   <span className="font-display text-4xl lg:text-5xl">{stat.value}</span>
                   <span className="text-sm text-muted-foreground">

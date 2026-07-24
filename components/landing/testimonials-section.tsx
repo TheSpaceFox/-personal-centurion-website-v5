@@ -1,32 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const testimonials = [
-  {
-    quote: "My life's work, my family's legacy, my private letters — I refuse to let any of it sit in a public chat. Centurion understands what privacy truly means.",
-    author: "Private Investor",
-    role: "Family Office Principal",
-    company: "Multi-Generational Wealth",
-    metric: "100% private & secure",
-  },
-  {
-    quote: "Public AI answers questions. Centurion knows you. It is a private study, built inside your home, furnished exactly to your mind.",
-    author: "Founder",
-    role: "Technology & Capital",
-    company: "By Referral",
-    metric: "Forever yours",
-  },
-  {
-    quote: "For those who cannot afford to trust third parties with their intelligence. It answers only to me, and it always will.",
-    author: "Collector",
-    role: "Keeper of Legacy",
-    company: "By Invitation",
-    metric: "No strangers reading along",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export function TestimonialsSection() {
+  const t = useTranslations("testimonials");
+  const testimonials = [1, 2, 3].map((index) => ({
+    quote: t(`testimonial${index}Quote`),
+    author: t(`testimonial${index}Name`),
+    role: t(`testimonial${index}Role`),
+    company: t(`testimonial${index}Company`),
+    metric: t(`testimonial${index}Result`),
+  }));
+  const marqueeAudiences = t("marqueeAudiences").split("|").map((item) => item.trim()).filter(Boolean);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -49,7 +35,7 @@ export function TestimonialsSection() {
         {/* Section Label */}
         <div className="flex items-center gap-4 mb-16">
           <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            Client Perspectives
+            {t("eyebrow")}
           </span>
           <div className="flex-1 h-px bg-foreground/10" />
           <span className="font-mono text-xs text-muted-foreground">
@@ -98,7 +84,7 @@ export function TestimonialsSection() {
               }`}
             >
               <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-4">
-                Key Result
+                {t("keyResult")}
               </span>
               <p className="font-display text-3xl md:text-4xl text-foreground">
                 {activeTestimonial.metric}
@@ -131,7 +117,7 @@ export function TestimonialsSection() {
         {/* Company Logos Marquee Label */}
         <div className="mt-24 pt-12 border-t border-foreground/10">
           <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-8 text-center">
-            Trusted by those who value discretion
+            {t("trustedBy")}
           </p>
         </div>
       </div>
@@ -141,7 +127,7 @@ export function TestimonialsSection() {
         <div className="flex gap-16 items-center marquee">
           {[...Array(2)].map((_, setIdx) => (
             <div key={setIdx} className="flex gap-16 items-center shrink-0">
-              {["Founders", "Investors", "Collectors", "Families", "Family Offices", "Defense", "Statesmen", "Institutions"].map(
+              {marqueeAudiences.map(
                 (company) => (
                   <span
                     key={`${setIdx}-${company}`}

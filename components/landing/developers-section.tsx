@@ -3,78 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Copy, Check } from "lucide-react";
-
-const codeExamples = [
-  {
-    label: "Don't trust strangers",
-    code: `// Skills from other people are not trusted
-skill.fromSomeoneElse({
-  trust: 'none',
-  risk: 'stolen secrets | hidden behaviour'
-})
-
-// Centurion will not install
-// a stranger's skill on your say-so alone.`,
-  },
-  {
-    label: "Skill maker",
-    code: `centurion.makeSkill({
-  for: 'what you actually need',
-  basedOn: 'your life's mission',
-  author: 'your Centurion'
-})
-
-// It builds skills. It does not
-// shop for skills in a store.`,
-  },
-  {
-    label: "When needed",
-    code: `work.continues({
-  gap: 'found',
-  skill: 'made now',
-  stays: 'with you'
-})
-
-// Skills appear when they are needed —
-// and stay in your home, under your control.`,
-  },
-  {
-    label: "Improve",
-    code: `loop.run({
-  notice: true,
-  act: true,
-  learn: true,
-  improve: true
-})
-
-// Notice. Act. Learn. Improve.
-// Skills get better with use —
-// without reporting home.`,
-  },
-];
-
-const features = [
-  {
-    title: "Don't trust skills from strangers",
-    description:
-      "A skill written by someone else can hide quiet ways to leak your private life or change how your AI behaves. Centurion will not take that risk for you.",
-  },
-  {
-    title: "Your Centurion makes the skills",
-    description:
-      "It is not scrolling a store of other people's tools. It builds what you need from your mission and your way of working.",
-  },
-  {
-    title: "Made in the moment",
-    description:
-      "When work opens a gap, Centurion creates the skill it needs — then keeps it with you, not on someone else's shelf.",
-  },
-  {
-    title: "Gets better with use",
-    description:
-      "Notice what happened. Act. Learn. Improve. Skills tighten as you live with them — without sending your life back to a vendor.",
-  },
-];
+import { useTranslations } from "next-intl";
 
 const codeAnimationStyles = `
   .dev-code-line {
@@ -104,13 +33,13 @@ const codeAnimationStyles = `
   }
 `;
 
-function SkillsLibraryDiagram() {
+function SkillsLibraryDiagram({ ariaLabel }: { ariaLabel: string }) {
   return (
     <svg
       viewBox="0 0 520 320"
       className="h-auto w-full text-foreground"
       role="img"
-      aria-label="Diagram showing stranger skill stores blocked while your Centurion makes skills at home"
+      aria-label={ariaLabel}
     >
       <text
         x="260"
@@ -288,13 +217,22 @@ function SkillsLibraryDiagram() {
 }
 
 export function DevelopersSection() {
+  const t = useTranslations("developers");
+  const features = [1, 2, 3, 4].map((index) => ({
+    title: t(`feature${index}Title`),
+    description: t(`feature${index}Description`),
+  }));
+  const localizedCodeExamples = [1, 2, 3, 4].map((index) => ({
+    label: t(`code${index}Label`),
+    code: t(`code${index}`),
+  }));
   const [activeTab, setActiveTab] = useState(0);
   const [copied, setCopied] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(codeExamples[activeTab].code);
+    navigator.clipboard.writeText(localizedCodeExamples[activeTab].code);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -318,36 +256,31 @@ export function DevelopersSection() {
         <div className="mb-16 max-w-3xl lg:mb-20">
           <span className="mb-6 inline-flex items-center gap-3 font-mono text-sm text-muted-foreground">
             <span className="h-px w-8 bg-foreground/30" />
-            Skills Library
+            {t("eyebrow")}
           </span>
           <h2
             className={`mb-8 font-display text-4xl tracking-tight transition-all duration-700 lg:text-6xl ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            The Skills
+            {t("titleLine1")}
             <br />
-            <span className="text-muted-foreground">Library.</span>
+            <span className="text-muted-foreground">{t("titleLine2")}</span>
           </h2>
           <p
             className={`max-w-2xl text-xl leading-relaxed text-muted-foreground transition-all delay-150 duration-700 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            Other AIs treat skills like apps from a shop — made by strangers. Centurion
-            does the opposite. It does not trust skills made by others. Your Centurion
-            builds what you need, when you need it, and improves as you go.
+            {t("lead")}
           </p>
 
           <div className="mt-10 border border-foreground/10 bg-foreground/[0.02] p-6">
             <p className="mb-3 font-mono text-xs tracking-widest text-muted-foreground uppercase">
-              Why skills from others are risky
+              {t("riskTitle")}
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              A skill you did not write can quietly send information out, change how your
-              AI behaves later, or hide instructions you never agreed to. That is not a
-              shortcut. It is a door into your private life. Centurion keeps that door
-              closed.
+              {t("riskBody")}
             </p>
           </div>
         </div>
@@ -358,7 +291,7 @@ export function DevelopersSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <SkillsLibraryDiagram />
+            <SkillsLibraryDiagram ariaLabel={t("diagramAria")} />
           </div>
 
           <div
@@ -370,7 +303,7 @@ export function DevelopersSection() {
               <div className="overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-[#f4f1ec]">
                 <Image
                   src="/skills-made-at-home.jpg"
-                  alt="Your Centurion building a skill at home — kept with you, not from a stranger store"
+                  alt={t("imageAlt")}
                   width={940}
                   height={1410}
                   className="h-auto w-full"
@@ -379,7 +312,7 @@ export function DevelopersSection() {
               </div>
             </div>
             <p className="mt-4 text-center font-mono text-xs tracking-widest text-muted-foreground uppercase">
-              Skills Library · yours
+              {t("imageCaption")}
             </p>
           </div>
         </div>
@@ -408,7 +341,7 @@ export function DevelopersSection() {
         >
           <div className="border border-foreground/10">
             <div className="flex items-center overflow-x-auto border-b border-foreground/10">
-              {codeExamples.map((example, idx) => (
+              {localizedCodeExamples.map((example, idx) => (
                 <button
                   key={example.label}
                   type="button"
@@ -442,7 +375,7 @@ export function DevelopersSection() {
 
             <div className="min-h-[260px] bg-foreground/[0.01] p-8 font-mono text-sm">
               <pre className="text-foreground/80">
-                {codeExamples[activeTab].code.split("\n").map((line, lineIndex) => (
+                {localizedCodeExamples[activeTab].code.split("\n").map((line, lineIndex) => (
                   <div
                     key={`${activeTab}-${lineIndex}`}
                     className="dev-code-line leading-loose"
@@ -468,10 +401,9 @@ export function DevelopersSection() {
           </div>
 
           <div className="mt-6 border border-foreground/10 bg-foreground/[0.01] p-6">
-            <h4 className="mb-2 text-sm font-medium">Made for you, kept with you</h4>
+            <h4 className="mb-2 text-sm font-medium">{t("closingTitle")}</h4>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Skills your Centurion makes stay in your home. They serve your life&apos;s
-              mission — not someone else&apos;s product plan.
+              {t("closingBody")}
             </p>
           </div>
         </div>

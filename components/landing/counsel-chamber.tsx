@@ -4,19 +4,12 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, type UIMessage } from "ai";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, Loader2, Minimize2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { localeMeta, type AppLocale } from "@/i18n/locales";
-
-const CHIPS = [
-  "I'm clarifying my life's mission",
-  "I'm on a board",
-  "Privacy is non-negotiable",
-  "Cloud AI isn't loyal enough",
-];
 
 function getMessageText(message: UIMessage): string {
   return message.parts
@@ -78,6 +71,8 @@ function ChamberBody({
   onEnd,
   onFocusInput,
 }: ChamberBodyProps) {
+  const t = useTranslations("counsel");
+  const chips = t("chips").split("|").map((chip) => chip.trim()).filter(Boolean);
   return (
     <>
       {expanded ? (
@@ -87,7 +82,7 @@ function ChamberBody({
               Sovereign
             </p>
             <h2 className="font-display text-xl tracking-tight text-foreground sm:text-2xl">
-              Speak with Adrian
+              {t("title")}
             </h2>
           </div>
           <div className="flex shrink-0 items-center gap-2">
@@ -96,19 +91,19 @@ function ChamberBody({
               variant="outline"
               onClick={onMinimize}
               className="h-11 rounded-full border-foreground/20 px-4"
-              aria-label="Minimize conversation"
+              aria-label={t("minimizeAria")}
             >
               <Minimize2 className="size-4" />
-              <span className="ml-2">Minimize</span>
+              <span className="ml-2">{t("minimize")}</span>
             </Button>
             <Button
               type="button"
               onClick={onEnd}
               className="h-11 rounded-full bg-foreground px-4 text-background hover:bg-foreground/90"
-              aria-label="End conversation"
+              aria-label={t("endAria")}
             >
               <X className="size-4" />
-              <span className="ml-2">End</span>
+              <span className="ml-2">{t("end")}</span>
             </Button>
           </div>
         </div>
@@ -116,11 +111,10 @@ function ChamberBody({
         <div className="flex items-start justify-between gap-4 border-b border-foreground/10 px-6 py-5 sm:px-8">
           <div className="min-w-0">
             <h2 className="font-display text-2xl tracking-tight text-foreground sm:text-3xl">
-              Speak with Adrian
+              {t("title")}
             </h2>
             <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              I help people see whether a Sovereign belongs with them. Share what you are
-              building toward.
+              {t("lead")}
             </p>
           </div>
           {inUse ? (
@@ -131,7 +125,7 @@ function ChamberBody({
                 onClick={onExpand}
                 className="rounded-full bg-foreground text-background hover:bg-foreground/90"
               >
-                Expand
+                {t("expand")}
               </Button>
               <Button
                 type="button"
@@ -139,10 +133,10 @@ function ChamberBody({
                 size="sm"
                 onClick={onEnd}
                 className="rounded-full border-foreground/20"
-                aria-label="End conversation"
+                aria-label={t("endAria")}
               >
                 <X className="size-4" />
-                <span className="ml-1.5 hidden sm:inline">End</span>
+                <span className="ml-1.5 hidden sm:inline">{t("end")}</span>
               </Button>
             </div>
           ) : null}
@@ -151,8 +145,7 @@ function ChamberBody({
 
       {expanded ? (
         <p className="shrink-0 border-b border-foreground/10 px-4 py-3 text-sm text-muted-foreground sm:px-8">
-          Take your time. Your Sovereign lives with you — this conversation helps you see if one
-          belongs beside you.
+          {t("expandedLead")}
         </p>
       ) : null}
 
@@ -164,7 +157,7 @@ function ChamberBody({
       >
         {messages.length === 0 && (
           <div className="flex flex-wrap gap-2">
-            {CHIPS.map((chip) => (
+            {chips.map((chip) => (
               <button
                 key={chip}
                 type="button"
@@ -210,13 +203,13 @@ function ChamberBody({
           {busy && (
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <Loader2 className="size-3.5 animate-spin" />
-              Thinking
+              {t("thinking")}
             </div>
           )}
 
           {error && (
             <p className="rounded-xl border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive">
-              {error.message || "Adrian is temporarily unavailable."}
+              {error.message || t("unavailable")}
             </p>
           )}
 
@@ -236,7 +229,7 @@ function ChamberBody({
             onClick={onMinimize}
             className="inline-flex items-center gap-2 text-sm font-medium text-foreground underline-offset-4 hover:underline"
           >
-            Continue to engagement options
+            {t("continueCta")}
             <ArrowRight className="size-4" />
           </a>
         </div>
@@ -254,7 +247,7 @@ function ChamberBody({
             value={input}
             onChange={(e) => onInput(e.target.value)}
             onFocus={onFocusInput}
-            placeholder="What are you building your life toward?"
+            placeholder={t("inputPlaceholder")}
             disabled={busy}
             className="h-12 rounded-full border-foreground/15 bg-background px-5 text-foreground placeholder:text-muted-foreground focus-visible:border-foreground/40 focus-visible:ring-foreground/10"
           />
@@ -272,6 +265,7 @@ function ChamberBody({
 }
 
 export function CounselChamber() {
+  const t = useTranslations("counsel");
   const [input, setInput] = useState("");
   const [minimized, setMinimized] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -381,7 +375,7 @@ export function CounselChamber() {
             className="fixed inset-0 z-[100] flex flex-col bg-background text-foreground"
             role="dialog"
             aria-modal="true"
-            aria-label="Speak with Adrian"
+            aria-label={t("title")}
           >
             <ChamberBody {...bodyProps} expanded />
           </div>,
@@ -394,8 +388,8 @@ export function CounselChamber() {
       {expanded ? (
         <div id="adrian" className="min-h-[420px]" aria-hidden>
           <div className="flex h-full min-h-[420px] flex-col items-center justify-center rounded-2xl border border-foreground/10 bg-card/50 px-6 text-center">
-            <p className="font-display text-xl tracking-tight">Speaking with Adrian</p>
-            <p className="mt-2 text-sm text-muted-foreground">Conversation is open full screen.</p>
+            <p className="font-display text-xl tracking-tight">{t("activeTitle")}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{t("activeLead")}</p>
           </div>
         </div>
       ) : (

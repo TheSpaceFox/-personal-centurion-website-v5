@@ -10,49 +10,11 @@ import { useDisplayMoney } from '@/hooks/use-display-money'
 
 const betaActive = isJuly2026BetaActive()
 
-const personalFeatures = [
-  'Your private Sovereign computer for the desk — hardware you own',
-  'Sovereign AI Brain, ready for serious mission work',
-  'Sovereign Remote on iPhone — yours immediately after the hold',
-  'Buy once → free lifetime updates for the Linux brain and iPhone Remote',
-  'No monthly fees — unlike public AI subscriptions',
-  'Weekly Sunday night AI Owners training session',
-  'Soul Document Process included',
-  'Personal Mission Discovery included',
-  'Collaborate with other Sovereigns when your work demands it',
-  'No subscription trap. No rented loyalty. Yours.',
-]
-
-const pilotFeatures = [
-  'Walnut & copper Prime body — the Pilot finish',
-  '£7,500 per unit — priced individually',
-  'Minimum order of three units',
-  'Sovereign AI Brain, ready for serious mission work',
-  'Prime Remote on iPhone — yours after the hold',
-  'Buy once → free lifetime updates for brain and Remote',
-  'No monthly SaaS fees for the Centurion platform',
-  'Weekly Sunday night AI Owners training',
-  'Soul Document Process included',
-  'Personal Mission Discovery included',
-  'Collaborate across your Pilot units when work demands it',
-]
-
-const primeFeatures = [
-  'Marble & brass Prime body — the Board finish',
-  '£12,500 per unit — priced individually',
-  'Minimum order of four units',
-  'A Prime for every director — not one shared toy',
-  'Board units that work together when stakes are high',
-  'Prime Remote for iPhone',
-  'Soul Document & Mission Discovery for each member',
-  'Lifetime updates for every board unit and Remote',
-  'No monthly SaaS fees for the Centurion platform itself',
-  'Sunday night AI Owners training for directors who want the craft',
-  'Built for companies that refuse public chat with their strategy',
-]
-
 export function PricingSection() {
   const t = useTranslations('pricing')
+  const personalFeatures = t('sovereignFeatures').split('|').map((s) => s.trim()).filter(Boolean)
+  const pilotFeatures = t('pilotFeatures').split('|').map((s) => s.trim()).filter(Boolean)
+  const primeFeatures = t('primeFeatures').split('|').map((s) => s.trim()).filter(Boolean)
   const { format } = useDisplayMoney()
   const hold = format(HOLD_GBP_PENCE)
   const personalPrice = format(

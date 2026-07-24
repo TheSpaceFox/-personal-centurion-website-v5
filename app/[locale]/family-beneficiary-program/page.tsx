@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Link } from '@/i18n/routing';
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { FamilyBeneficiaryDiagram } from "@/components/landing/family-beneficiary-diagram";
 
 export const metadata: Metadata = {
@@ -9,7 +10,11 @@ export const metadata: Metadata = {
     "Introduce four colleagues who buy Centurion — earn one complimentary Centurion for someone you love.",
 };
 
-export default function FamilyBeneficiaryProgramPage() {
+export default async function FamilyBeneficiaryProgramPage() {
+  const t = await getTranslations("familyBeneficiary");
+  const steps = t("steps").split("|").map((step) => step.trim()).filter(Boolean);
+  const summaryItems = t("summaryItems").split("|").map((item) => item.trim()).filter(Boolean);
+  const rules = t("rules").split("|").map((rule) => rule.trim()).filter(Boolean);
   return (
     <main className="noise-overlay relative min-h-dvh bg-background text-foreground">
       <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-12 lg:py-24">
@@ -18,19 +23,19 @@ export default function FamilyBeneficiaryProgramPage() {
             href="/"
             className="font-display text-sm tracking-[0.12em] transition-opacity hover:opacity-80"
           >
-            PERSONAL CENTURION
+            {t("brand")}
           </Link>
 
           <p className="mt-12 font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            Sovereign Remote · You
+            {t("eyebrow")}
           </p>
 
           <h1 className="mt-4 font-display text-4xl tracking-tight lg:text-5xl">
-            Family Beneficiary Program
+            {t("title")}
           </h1>
 
           <p className="mt-6 text-xl leading-relaxed text-muted-foreground">
-            Introduce four colleagues who buy Centurion — earn one for someone you love.
+            {t("lead")}
           </p>
         </div>
 
@@ -44,7 +49,7 @@ export default function FamilyBeneficiaryProgramPage() {
               <div className="overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-[#f4f1ec]">
                 <Image
                   src="/family-beneficiary-remote.jpg"
-                  alt="Sovereign Remote on iPhone — Family Beneficiary Program on the You tab"
+                  alt={t("remoteImageAlt")}
                   width={431}
                   height={940}
                   className="h-auto w-full"
@@ -54,7 +59,7 @@ export default function FamilyBeneficiaryProgramPage() {
               </div>
             </div>
             <p className="mt-4 text-center font-mono text-xs tracking-widest text-muted-foreground uppercase">
-              iPhone · You · Family Beneficiary
+              {t("remoteCaption")}
             </p>
           </div>
         </div>
@@ -64,7 +69,7 @@ export default function FamilyBeneficiaryProgramPage() {
             <div className="overflow-hidden rounded-[1.1rem] border border-foreground/10 bg-[#f4f1ec]">
               <Image
                 src="/family-beneficiary-scene.jpg"
-                alt="Two Sovereigns on a private desk — one yours, one earned for someone you love"
+                alt={t("sceneImageAlt")}
                 width={1600}
                 height={1066}
                 className="h-auto w-full"
@@ -73,116 +78,61 @@ export default function FamilyBeneficiaryProgramPage() {
             </div>
           </div>
           <p className="mt-4 text-center font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            Earn a Sovereign · for family
+            {t("sceneCaption")}
           </p>
         </div>
 
         <div className="mx-auto max-w-3xl space-y-10 text-muted-foreground">
           <section className="space-y-4">
-            <h2 className="font-display text-2xl tracking-tight text-foreground">How it works</h2>
+            <h2 className="font-display text-2xl tracking-tight text-foreground">{t("howTitle")}</h2>
             <ol className="list-decimal space-y-4 pl-5 leading-relaxed">
-              <li>
-                <span className="font-medium text-foreground">Nominate a family beneficiary</span> —
-                first name only. Often a spouse or family member who wants a Sovereign after
-                seeing yours thrive.
-              </li>
-              <li>
-                <span className="font-medium text-foreground">Refer colleagues</span> — people who
-                will buy their own Sovereign. Family members are who you are earning{" "}
-                <em>for</em>; they cannot be counted as referrals.
-              </li>
-              <li>
-                <span className="font-medium text-foreground">Four successful purchases</span> —
-                when four referred colleagues complete their buy, you earn one complimentary
-                Centurion for your nominated family beneficiary.
-              </li>
-              <li>
-                <span className="font-medium text-foreground">Start again</span> — cycles reset
-                without limit. Nominate a new family beneficiary and keep going.
-              </li>
+              {steps.map((step) => <li key={step}>{step}</li>)}
             </ol>
           </section>
 
           <section className="border border-foreground/10 bg-card p-6 lg:p-8">
             <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
-              At a glance
+              {t("atAGlance")}
             </p>
             <ul className="mt-4 space-y-3 leading-relaxed">
-              <li>4 colleague purchases = 1 family Centurion</li>
-              <li>Referrals: colleagues only (non-family)</li>
-              <li>Reward: complimentary Centurion for your nominated family member</li>
-              <li>Manage it in Sovereign Remote under You → Family Beneficiary Program</li>
+              {summaryItems.map((item) => <li key={item}>{item}</li>)}
             </ul>
           </section>
 
           <section className="space-y-4">
             <h2 className="font-display text-2xl tracking-tight text-foreground">
-              Where you manage it
+              {t("manageTitle")}
             </h2>
             <p className="leading-relaxed">
-              Open <span className="text-foreground">Sovereign Remote</span> on your iPhone, go
-              to the <span className="text-foreground">You</span> tab, and use the Family Beneficiary
-              Program card. There you can nominate (or change) your beneficiary, refer colleagues,
-              and track pending versus purchased progress toward your family Centurion.
+              {t("manageBody")}
             </p>
             <p className="leading-relaxed">
-              A referral counts when Centurion operations confirms the colleague&apos;s purchase —
-              not the moment you add their name in the app.
+              {t("confirmation")}
             </p>
           </section>
 
           <section className="space-y-4">
-            <h2 className="font-display text-2xl tracking-tight text-foreground">Important rules</h2>
+            <h2 className="font-display text-2xl tracking-tight text-foreground">{t("rulesTitle")}</h2>
             <ul className="list-disc space-y-3 pl-5 leading-relaxed">
-              <li>
-                Family members are beneficiaries, not referral targets — listing family as a
-                colleague referral is not allowed.
-              </li>
-              <li>
-                You must attest that each referred colleague is not a family member when you add
-                them.
-              </li>
-              <li>
-                The complimentary unit is for the family beneficiary you nominated for that cycle.
-              </li>
-              <li>
-                Program details may be updated; the authoritative progress always shows in your
-                Remote app when linked to your Sovereign.
-              </li>
+              {rules.map((rule) => <li key={rule}>{rule}</li>)}
             </ul>
           </section>
 
           <section className="space-y-4 border-t border-foreground/10 pt-10">
-            <h2 className="font-display text-2xl tracking-tight text-foreground">Talk to us</h2>
-            <p className="leading-relaxed">
-              Questions about a referral or a family Centurion you have earned? Write to{" "}
-              <a
-                href="mailto:hello@1human1ai.com?subject=Family%20Beneficiary%20Program"
-                className="text-foreground underline underline-offset-4"
-              >
-                hello@1human1ai.com
-              </a>{" "}
-              or use{" "}
-              <a
-                href="https://help.1human1ai.com/"
-                className="text-foreground underline underline-offset-4"
-              >
-                Ask Adrian
-              </a>{" "}
-              in the help center.
-            </p>
+            <h2 className="font-display text-2xl tracking-tight text-foreground">{t("contactTitle")}</h2>
+            <p className="leading-relaxed">{t("contactBody", { email: "hello@1human1ai.com" })}</p>
             <div className="flex flex-wrap gap-4 pt-2">
               <Link
                 href="/#pricing"
                 className="inline-flex h-12 items-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
               >
-                See engagement options
+                {t("pricingCta")}
               </Link>
               <Link
                 href="/"
                 className="inline-flex h-12 items-center rounded-full border border-foreground/20 px-6 text-sm transition-colors hover:bg-foreground/5"
               >
-                Back to home
+                {t("homeCta")}
               </Link>
             </div>
           </section>

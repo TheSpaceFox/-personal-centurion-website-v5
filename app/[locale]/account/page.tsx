@@ -7,8 +7,10 @@ import { BUYER_SESSION_KEY, type QuoteRecord } from '@/lib/orders/types'
 import { fetchMyQuotesAction } from '@/lib/orders/actions'
 import { formatGbpFromPence } from '@/lib/orders/pricing'
 import { SITE_VERSION } from '@/lib/site-config'
+import { useTranslations } from 'next-intl'
 
 export default function AccountPage() {
+  const t = useTranslations('account')
   const router = useRouter()
   const [email, setEmail] = useState<string | null>(null)
   const [quotes, setQuotes] = useState<QuoteRecord[]>([])
@@ -33,7 +35,7 @@ export default function AccountPage() {
   }
 
   if (!email) {
-    return <main className="min-h-screen p-12 text-muted-foreground">Loading…</main>
+    return <main className="min-h-screen p-12 text-muted-foreground">{t('loading')}</main>
   }
 
   return (
@@ -41,17 +43,17 @@ export default function AccountPage() {
       <header className="border-b border-foreground/10">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-6">
           <Link href="/" className="font-display text-sm tracking-[0.12em]">
-            PERSONAL CENTURION
+            {t('brand')}
           </Link>
           <div className="flex items-center gap-6 text-sm">
             <Link href="/account/profile" className="text-muted-foreground hover:text-foreground">
-              Profile
+              {t('profileNav')}
             </Link>
             <Link href="/order" className="text-muted-foreground hover:text-foreground">
-              New order
+              {t('newOrder')}
             </Link>
             <button type="button" onClick={signOut} className="text-muted-foreground hover:text-foreground">
-              Sign out
+              {t('signOut')}
             </button>
             <span className="font-mono text-xs text-muted-foreground">v{SITE_VERSION}</span>
           </div>
@@ -60,23 +62,23 @@ export default function AccountPage() {
 
       <div className="mx-auto max-w-4xl px-6 py-16">
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          Account
+          {t('eyebrow')}
         </span>
-        <h1 className="mt-3 font-display text-4xl tracking-tight">Your orders</h1>
+        <h1 className="mt-3 font-display text-4xl tracking-tight">{t('ordersTitle')}</h1>
         <p className="mt-3 text-muted-foreground">
-          Signed in as <span className="text-foreground">{email}</span>
+          {t('signedInAs', { email })}
         </p>
 
         <div className="mt-12 space-y-4">
-          {loading && <p className="text-muted-foreground">Loading quotes…</p>}
+          {loading && <p className="text-muted-foreground">{t('loadingQuotes')}</p>}
           {!loading && quotes.length === 0 && (
             <div className="border border-foreground/10 p-8">
-              <p className="text-muted-foreground">No quotes yet for this email.</p>
+              <p className="text-muted-foreground">{t('noQuotes')}</p>
               <Link
                 href="/order"
                 className="mt-6 inline-block bg-foreground px-6 py-3 text-sm text-primary-foreground"
               >
-                Secure a build slot
+                {t('secureSlot')}
               </Link>
             </div>
           )}
@@ -93,11 +95,14 @@ export default function AccountPage() {
                   </p>
                   <h2 className="mt-2 font-display text-2xl capitalize">{quote.engagement}</h2>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Qty {quote.quantity} · {new Date(quote.createdAt).toLocaleDateString('en-GB')}
+                    {t('qtyDate', {
+                      quantity: quote.quantity,
+                      date: new Date(quote.createdAt).toLocaleDateString('en-GB'),
+                    })}
                   </p>
                 </div>
                 <p className="font-display text-2xl">
-                  {quote.totalGbp === 0 ? 'Enquiry' : formatGbpFromPence(quote.totalGbp)}
+                  {quote.totalGbp === 0 ? t('enquiry') : formatGbpFromPence(quote.totalGbp)}
                 </p>
               </div>
             </Link>

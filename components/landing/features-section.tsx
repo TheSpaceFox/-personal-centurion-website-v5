@@ -1,37 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
-const features = [
-  {
-    number: "01",
-    title: "The Centurion",
-    description:
-      "Made to live in your home — crafted materials, beautiful to look at, ready for a desk you care about. Talk through your phone, or use the screen and keys on the Centurion itself.",
-    visual: "ai",
-  },
-  {
-    number: "02",
-    title: "Crypto Chat — private by design",
-    description:
-      "Talk to your Centurion through Crypto Chat: end-to-end encrypted on your network. Public AIs have no equivalent. When your world must stay sealed, Centurion can also run without any link to the public internet.",
-    visual: "security",
-  },
-  {
-    number: "03",
-    title: "Memory Horizon — remembers on your terms",
-    description:
-      "Hot Cache and Session Recall stay on your Sovereign by default. Optional Vault seals long-horizon notes under your passphrase — propose, then commit — without shipping that archive to a company cloud.",
-    visual: "collab",
-  },
-  {
-    number: "04",
-    title: "Luxury Case",
-    description:
-      "Held in a heavy, impact-resistant case fit for a desk of consequence. Leather and alloys for a look that matches the work inside.",
-    visual: "deploy",
-  },
-];
+type Feature = { number: string; title: string; description: string; visual: string };
 
 function DeployVisual() {
   return (
@@ -247,7 +219,7 @@ function AnimatedVisual({ type }: { type: string }) {
   }
 }
 
-function FeatureCard({ feature, index }: { feature: typeof features[0]; index: number }) {
+function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -301,6 +273,13 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
 }
 
 export function FeaturesSection() {
+  const t = useTranslations("features");
+  const features: Feature[] = [
+    { number: "01", title: t("item1Title"), description: t("item1Description"), visual: "ai" },
+    { number: "02", title: t("item2Title"), description: t("item2Description"), visual: "security" },
+    { number: "03", title: t("item3Title"), description: t("item3Description"), visual: "collab" },
+    { number: "04", title: t("item4Title"), description: t("item4Description"), visual: "deploy" },
+  ];
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -327,20 +306,19 @@ export function FeaturesSection() {
         <div className="mb-16 lg:mb-24">
           <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
             <span className="w-8 h-px bg-foreground/30" />
-            Capabilities
+            {t("eyebrow")}
           </span>
           <h2
             className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Private
+            {t("titleLine1")}
             <br />
-            <span className="text-muted-foreground">intelligence.</span>
+            <span className="text-muted-foreground">{t("titleLine2")}</span>
           </h2>
           <p className="mt-8 text-xl text-muted-foreground leading-relaxed max-w-2xl">
-            An AI you own completely. No company in the middle. No quiet copies of
-            your life leaving home.
+            {t("lead")}
           </p>
         </div>
 

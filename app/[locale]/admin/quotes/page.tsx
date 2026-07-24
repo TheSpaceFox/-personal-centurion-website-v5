@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react'
 import { Link } from '@/i18n/routing'
 import type { QuoteRecord } from '@/lib/orders/types'
 import { formatGbpFromPence } from '@/lib/orders/pricing'
+import { useTranslations } from 'next-intl'
 
 export default function AdminQuotesPage() {
+  const t = useTranslations('admin')
   const [quotes, setQuotes] = useState<QuoteRecord[]>([])
   const [error, setError] = useState<string | null>(null)
   const [token, setToken] = useState('')
@@ -23,14 +25,14 @@ export default function AdminQuotesPage() {
         headers: { Authorization: `Bearer ${adminToken}` },
       })
       if (!res.ok) {
-        setError('Invalid staff token or empty store.')
+        setError(t('invalidToken'))
         setQuotes([])
         return
       }
       const data = (await res.json()) as { quotes: QuoteRecord[] }
       setQuotes(data.quotes)
     } catch {
-      setError('Could not load quotes.')
+      setError(t('loadError'))
     }
   }
 
@@ -39,7 +41,7 @@ export default function AdminQuotesPage() {
       <Link href="/" className="font-display text-sm tracking-[0.12em]">
         PERSONAL CENTURION
       </Link>
-      <h1 className="mt-8 font-display text-4xl">Quote inbox</h1>
+      <h1 className="mt-8 font-display text-4xl">{t('title')}</h1>
       <p className="mt-2 text-sm text-muted-foreground">
         Staff triage for v5 quotes. Set <code className="font-mono">ADMIN_STAFF_TOKEN</code> in
         the environment.
@@ -56,11 +58,11 @@ export default function AdminQuotesPage() {
           type="password"
           value={token}
           onChange={(e) => setToken(e.target.value)}
-          placeholder="Staff token"
+          placeholder={t('tokenLabel')}
           className="h-11 min-w-[240px] flex-1 border border-foreground/20 px-3"
         />
         <button type="submit" className="bg-foreground px-6 py-3 text-sm text-primary-foreground">
-          Load quotes
+          {t('load')}
         </button>
       </form>
 

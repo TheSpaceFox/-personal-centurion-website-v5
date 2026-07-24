@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { AnimatedTetrahedron } from "./animated-tetrahedron";
 
 export function CtaSection() {
+  const t = useTranslations("cta");
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -53,15 +55,13 @@ export function CtaSection() {
               {/* Left content */}
               <div className="flex-1">
                 <h2 className="text-4xl lg:text-7xl font-display tracking-tight mb-8 leading-[0.95]">
-                  Ready for an AI
+                  {t("titleLine1")}
                   <br />
-                  that is truly yours?
+                  {t("titleLine2")}
                 </h2>
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
-                  For people who have built remarkable lives and need an AI worthy
-                  of that care. Buy once — free lifetime updates, no monthly fees —
-                  and learn with other owners every Sunday night.
+                  {t("lead")}
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -71,7 +71,7 @@ export function CtaSection() {
                     className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
                   >
                     <Link href="/order?engagement=interest">
-                      Register Interest
+                      {t("registerCta")}
                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>
@@ -81,12 +81,12 @@ export function CtaSection() {
                     asChild
                     className="h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
                   >
-                    <Link href="/order?engagement=personal">Secure a Build Slot</Link>
+                    <Link href="/order?engagement=personal">{t("buildSlotCta")}</Link>
                   </Button>
                 </div>
 
                 <p className="text-sm text-muted-foreground mt-8 font-mono">
-                  Complete discretion. By invitation and referral.
+                  {t("footnote")}
                 </p>
               </div>
 

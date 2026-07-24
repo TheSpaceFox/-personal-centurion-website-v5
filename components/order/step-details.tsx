@@ -1,8 +1,10 @@
 'use client'
 
 import { useWizard } from '@/components/order/wizard-context'
+import { useTranslations } from 'next-intl'
 
 export function StepDetails() {
+  const t = useTranslations('order')
   const { state, setState, next, back } = useWizard()
 
   const canContinue =
@@ -14,27 +16,26 @@ export function StepDetails() {
     <div className="space-y-10">
       <header className="space-y-3">
         <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
-          Step 02 — Details
+          {t('stepDetails')}
         </span>
         <h1 className="font-display text-4xl md:text-5xl tracking-tight text-foreground">
-          Who should we speak with?
+          {t('detailsTitle')}
         </h1>
         <p className="text-muted-foreground max-w-2xl">
-          We use this only for your build enquiry. Payment is arranged privately after quote —
-          no card is taken on this page.
+          {t('detailsLead')}
         </p>
       </header>
 
       <div className="grid gap-6 md:grid-cols-2">
         {(
           [
-            ['firstName', 'First name', 'text'],
-            ['lastName', 'Last name', 'text'],
-            ['email', 'Email', 'email'],
-            ['phone', 'Phone (optional)', 'tel'],
-            ['company', 'Company (optional)', 'text'],
-            ['city', 'City', 'text'],
-            ['region', 'Region / country', 'text'],
+            ['firstName', t('firstName'), 'text'],
+            ['lastName', t('lastName'), 'text'],
+            ['email', t('email'), 'email'],
+            ['phone', t('phone'), 'tel'],
+            ['company', t('company'), 'text'],
+            ['city', t('city'), 'text'],
+            ['region', t('region'), 'text'],
           ] as const
         ).map(([key, label, type]) => (
           <label key={key} className="space-y-2">
@@ -51,14 +52,14 @@ export function StepDetails() {
         ))}
         <label className="space-y-2 md:col-span-2">
           <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            Notes (optional)
+            {t('notes')}
           </span>
           <textarea
             value={state.notes}
             onChange={(e) => setState({ notes: e.target.value })}
             rows={4}
             className="w-full border border-foreground/20 bg-background px-4 py-3 text-foreground outline-none focus:border-foreground"
-            placeholder="Anything we should know about your mission or timeline…"
+            placeholder={t('notesPlaceholder')}
           />
         </label>
       </div>
@@ -69,7 +70,7 @@ export function StepDetails() {
           onClick={back}
           className="border border-foreground/20 px-8 py-4 text-sm text-foreground hover:bg-foreground/5"
         >
-          Back
+          {t('back')}
         </button>
         <button
           type="button"
@@ -77,7 +78,7 @@ export function StepDetails() {
           onClick={next}
           className="bg-foreground px-8 py-4 text-sm font-medium text-primary-foreground hover:bg-foreground/90 disabled:opacity-40"
         >
-          Review
+          {t('review')}
         </button>
       </div>
     </div>

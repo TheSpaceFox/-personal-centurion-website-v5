@@ -87,7 +87,7 @@ export function Navigation() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2"
-              aria-label="Toggle menu"
+              aria-label={t('toggleMenu')}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

@@ -10,50 +10,15 @@ import {
   Users,
   Layers,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const capabilities = [
-  {
-    icon: MessageSquare,
-    title: "Crypto Chat",
-    description:
-      "Private encrypted conversation with your Centurion on your network — something public AIs simply do not offer.",
-  },
-  {
-    icon: FileText,
-    title: "View documents",
-    description: "Open Soul Documents, briefings, and mission notes your Centurion keeps on your side of the wall.",
-  },
-  {
-    icon: Users,
-    title: "Collaborate",
-    description:
-      "LAN-first Collaborations on your linked Sovereign — orient work, answer signals, and receive Ready for you outcomes. Invite other owners only when you choose.",
-  },
-  {
-    icon: Layers,
-    title: "Memory Horizon",
-    description:
-      "Hot Cache and Session Recall by default on the brain. Optional Vault is sealed long-term memory you unlock deliberately — Remote orients; the brain holds the store.",
-  },
-  {
-    icon: Target,
-    title: "Track your Life's Mission",
-    description: "See whether your days are lining up with the life you mean to live.",
-  },
-  {
-    icon: Settings2,
-    title: "Make setup changes",
-    description: "Connection, how your AI thinks, look and feel, and personal rules — change them from your iPhone.",
-  },
-];
-
-function DeskToRemoteDiagram() {
+function DeskToRemoteDiagram({ ariaLabel }: { ariaLabel: string }) {
   return (
     <svg
       viewBox="0 0 520 320"
       className="w-full h-auto text-foreground"
       role="img"
-      aria-label="Diagram of a Sovereign on a desk linked wirelessly to the Sovereign Remote on iPhone"
+      aria-label={ariaLabel}
     >
       <defs>
         <marker
@@ -244,6 +209,15 @@ function DeskToRemoteDiagram() {
 }
 
 export function RemoteAppSection() {
+  const t = useTranslations("remote");
+  const capabilities = [
+    { icon: MessageSquare, title: t("capability1Title"), description: t("capability1Description") },
+    { icon: FileText, title: t("capability2Title"), description: t("capability2Description") },
+    { icon: Users, title: t("capability3Title"), description: t("capability3Description") },
+    { icon: Layers, title: t("capability4Title"), description: t("capability4Description") },
+    { icon: Target, title: t("capability5Title"), description: t("capability5Description") },
+    { icon: Settings2, title: t("capability6Title"), description: t("capability6Description") },
+  ];
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -268,27 +242,23 @@ export function RemoteAppSection() {
         <div className="mb-16 lg:mb-20 max-w-3xl">
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Sovereign Remote
+              {t("eyebrow")}
             </span>
             <h2
               className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Your Centurion
+              {t("titleLine1")}
               <br />
-              <span className="text-muted-foreground">in your pocket.</span>
+              <span className="text-muted-foreground">{t("titleLine2")}</span>
             </h2>
             <p
               className={`mt-8 text-xl text-muted-foreground leading-relaxed max-w-2xl transition-all duration-700 delay-150 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Talk to your Centurion on your desk through <strong className="font-medium text-foreground">Crypto Chat</strong> —
-              a private encrypted conversation on your home Wi‑Fi that only your Centurion and your phone can
-              read. Public AIs have nothing like it. Sovereign Remote is your companion: Crypto Chat, guide
-              your mission, watch work happen, and decide when you are needed — not another public chat
-              box on the internet.
+              {t("lead")}
             </p>
         </div>
 
@@ -298,7 +268,7 @@ export function RemoteAppSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <DeskToRemoteDiagram />
+            <DeskToRemoteDiagram ariaLabel={t("diagramAria")} />
           </div>
 
           <div
@@ -310,7 +280,7 @@ export function RemoteAppSection() {
               <div className="overflow-hidden rounded-[1.5rem] border border-foreground/10 bg-[#f4f1ec]">
                 <Image
                   src="/personal-centurion-ai-remote.png"
-                  alt="Sovereign Remote on iPhone — Home view with mission work in progress"
+                  alt={t("imageAlt")}
                   width={470}
                   height={1024}
                   className="w-full h-auto"
@@ -319,7 +289,7 @@ export function RemoteAppSection() {
               </div>
             </div>
             <p className="mt-4 text-center font-mono text-xs tracking-widest uppercase text-muted-foreground">
-              iPhone · Sovereign Remote
+              {t("phoneCaption")}
             </p>
           </div>
         </div>

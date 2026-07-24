@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { useTranslations } from "next-intl";
 
 function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffix?: string; prefix?: string }) {
   const [count, setCount] = useState(0);
@@ -43,34 +44,14 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
   );
 }
 
-const metrics = [
-  { 
-    value: 0, 
-    suffix: "", 
-    prefix: "",
-    label: "Quiet leaks of your private life",
-  },
-  { 
-    value: 100, 
-    suffix: "%", 
-    prefix: "",
-    label: "You own your Centurion and your story",
-  },
-  { 
-    value: 30, 
-    suffix: " days", 
-    prefix: "<",
-    label: "From first talk to placement in your home",
-  },
-  { 
-    value: 24, 
-    suffix: "/7", 
-    prefix: "",
-    label: "Careful human support when you need it",
-  },
-];
-
 export function MetricsSection() {
+  const t = useTranslations("metrics");
+  const metrics = [
+    { value: 0, suffix: "", prefix: "", label: t("metric1Label") },
+    { value: 100, suffix: "%", prefix: "", label: t("metric2Label") },
+    { value: 30, suffix: t("metric3Suffix"), prefix: "<", label: t("metric3Label") },
+    { value: 24, suffix: "/7", prefix: "", label: t("metric4Label") },
+  ];
   const [time, setTime] = useState(new Date());
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -100,22 +81,22 @@ export function MetricsSection() {
           <div>
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
                 <span className="w-8 h-px bg-foreground/30" />
-                In numbers
+                {t("eyebrow")}
               </span>
               <h2
                 className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
               >
-                Privacy you
+                {t("titleLine1")}
                 <br />
-                can count on.
+                {t("titleLine2")}
               </h2>
           </div>
           <div className="flex items-center gap-4 font-mono text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Live
+              {t("live")}
             </span>
             <span className="text-foreground/30">|</span>
             <span>{time.toLocaleTimeString()}</span>

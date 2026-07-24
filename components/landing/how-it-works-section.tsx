@@ -2,58 +2,35 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
-const steps = [
+const codeSteps = [
   {
     number: "I",
-    title: "Your Sovereign understands your world",
-    description:
-      "Your Sovereign comes to know how you live and work from what you choose to share with it — privacy, family, business, and your life’s mission. That understanding stays on your Sovereign. The company never receives it.",
-    code: `yourCenturion.understand({
-  mission: 'yours',
-  privacy: 'absolute',
-  home: 'defined',
-  leavesHome: false
-})
-
-// Understood — and it stays with you.`,
   },
   {
     number: "II",
-    title: "Place it on your terms",
-    description:
-      "Your Sovereign lives with you — at home or in your office. You choose how connected it is to the outside world, including fully offline when that matters.",
-    code: `yourCenturion.place({
-  where: 'your home',
-  outsideWorld: 'your choice',
-  leaves: false
-})
-
-// Settled. Nothing wanders out.`,
   },
   {
     number: "III",
-    title: "Live with it every day",
-    description:
-      "Your Sovereign works around the clock on your life’s mission, learns only from what you share with it, and never sells or shares your private world — including with the company that built it.",
-    code: `yourCenturion.live({
-  always: true,
-  learns: 'from you only',
-  shares: 'nothing',
-  companySees: 'nothing'
-})
-
-// Private. Loyal. Yours.`,
   },
 ];
 
-function HowItWorksDiagram() {
+function HowItWorksDiagram({
+  ariaLabel,
+  title,
+  caption,
+}: {
+  ariaLabel: string
+  title: string
+  caption: string
+}) {
   return (
     <svg
       viewBox="0 0 520 320"
       className="h-auto w-full text-background"
       role="img"
-      aria-label="Diagram of Understand, Place, and Live — the three steps of bringing a Sovereign home"
+      aria-label={ariaLabel}
     >
       <defs>
         <marker id="hiwArrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -69,7 +46,7 @@ function HowItWorksDiagram() {
         fontFamily="ui-monospace, monospace"
         opacity="0.4"
       >
-        UNDERSTAND  →  PLACE  →  LIVE
+        {title}
       </text>
 
       {/* Stage I — Understand (brief / conversation, not audio listening) */}
@@ -229,13 +206,20 @@ function HowItWorksDiagram() {
         fontFamily="ui-monospace, monospace"
         opacity="0.35"
       >
-        UNDER YOUR ROOF · ON YOUR TERMS
+        {caption}
       </text>
     </svg>
   );
 }
 
 export function HowItWorksSection() {
+  const t = useTranslations("howItWorks");
+  const steps = codeSteps.map((step, index) => ({
+    ...step,
+    title: t(`step${index + 1}Title`),
+    description: t(`step${index + 1}Description`),
+    code: t(`step${index + 1}Code`),
+  }));
   const [activeStep, setActiveStep] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -257,7 +241,7 @@ export function HowItWorksSection() {
       setActiveStep((prev) => (prev + 1) % steps.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [steps.length]);
 
   return (
     <section
@@ -282,26 +266,23 @@ export function HowItWorksSection() {
         <div className="mb-16 max-w-3xl lg:mb-20">
           <span className="mb-6 inline-flex items-center gap-3 font-mono text-sm text-background/50">
             <span className="h-px w-8 bg-background/30" />
-            How it works
+            {t("eyebrow")}
           </span>
           <h2
             className={`font-display text-4xl tracking-tight transition-all duration-700 lg:text-6xl ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            Understand. Place.
+            {t("titleLine1")}
             <br />
-            <span className="text-background/50">Live.</span>
+            <span className="text-background/50">{t("titleLine2")}</span>
           </h2>
           <p
             className={`mt-8 max-w-2xl text-xl leading-relaxed text-background/60 transition-all delay-150 duration-700 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            Your Sovereign comes to understand your world from what you choose to share
-            with it — privately, on hardware you own. The company never receives that life.
-            Place your Sovereign under your roof on your terms, then live with it every day:
-            loyal, private, and quiet about what is yours alone.
+            {t("lead")}
           </p>
         </div>
 
@@ -311,7 +292,11 @@ export function HowItWorksSection() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <HowItWorksDiagram />
+            <HowItWorksDiagram
+              ariaLabel={t("diagramAria")}
+              title={t("diagramTitle")}
+              caption={t("diagramCaption")}
+            />
           </div>
 
           <div
@@ -323,7 +308,7 @@ export function HowItWorksSection() {
               <div className="overflow-hidden rounded-[1.5rem] border border-background/10 bg-[#f4f1ec]">
                 <Image
                   src="/how-it-works-place.jpg"
-                  alt="Sovereign on a private desk under a home roof — placed on your terms"
+                  alt={t("imageAlt")}
                   width={940}
                   height={1410}
                   className="h-auto w-full"
@@ -332,7 +317,7 @@ export function HowItWorksSection() {
               </div>
             </div>
             <p className="mt-4 text-center font-mono text-xs tracking-widest text-background/45 uppercase">
-              Understand · Place · Live
+              {t("imageCaption")}
             </p>
           </div>
         </div>
@@ -411,7 +396,7 @@ export function HowItWorksSection() {
 
               <div className="flex items-center gap-3 border-t border-background/10 px-6 py-4">
                 <span className="size-2 animate-pulse rounded-full bg-green-400" />
-                <span className="font-mono text-xs text-background/40">Ready</span>
+                <span className="font-mono text-xs text-background/40">{t("terminalStatus")}</span>
               </div>
             </div>
           </div>

@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-
-const locations = [
-  { city: "In your home", region: "On your desk, under your roof", latency: "Yours" },
-  { city: "In your office", region: "With the work that must stay private", latency: "Close" },
-  { city: "Fully offline", region: "No link to the public internet", latency: "Sealed" },
-  { city: "Your choice of mix", region: "As open or closed as life requires", latency: "Flexible" },
-];
+import { useTranslations } from "next-intl";
 
 export function InfrastructureSection() {
+  const t = useTranslations("infrastructure");
+  const locations = t("locations")
+    .split("||")
+    .map((record) => record.split("|").map((item) => item.trim()))
+    .filter(([city, region, latency]) => city && region && latency)
+    .map(([city, region, latency]) => ({ city, region, latency }));
   const [isVisible, setIsVisible] = useState(false);
   const [activeLocation, setActiveLocation] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
@@ -44,31 +44,29 @@ export function InfrastructureSection() {
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Where it lives
+              {t("eyebrow")}
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Your terms.
+              {t("titleLine1")}
               <br />
-              Your home.
+              {t("titleLine2")}
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Your Centurion is set up the way your life needs — in your house, in
-              your office, fully offline, or a mix. You choose how much of the
-              outside world it may ever touch.
+              {t("lead")}
             </p>
 
             <div className="grid grid-cols-3 gap-8">
               <div>
                 <div className="text-4xl lg:text-5xl font-display mb-2">100%</div>
-                <div className="text-sm text-muted-foreground">Your private world</div>
+                <div className="text-sm text-muted-foreground">{t("stat1Label")}</div>
               </div>
               <div>
-                <div className="text-4xl lg:text-5xl font-display mb-2">Zero</div>
-                <div className="text-sm text-muted-foreground">Quiet sharing</div>
+                <div className="text-4xl lg:text-5xl font-display mb-2">{t("stat2Value")}</div>
+                <div className="text-sm text-muted-foreground">{t("stat2Label")}</div>
               </div>
               <div>
                 <div className="text-4xl lg:text-5xl font-display mb-2">24/7</div>
-                <div className="text-sm text-muted-foreground">Human support</div>
+                <div className="text-sm text-muted-foreground">{t("stat3Label")}</div>
               </div>
             </div>
           </div>
@@ -80,10 +78,10 @@ export function InfrastructureSection() {
           >
             <div className="border border-foreground/10">
               <div className="px-6 py-4 border-b border-foreground/10 flex items-center justify-between">
-                <span className="text-sm font-mono text-muted-foreground">Ways it can live</span>
+                <span className="text-sm font-mono text-muted-foreground">{t("panelTitle")}</span>
                 <span className="flex items-center gap-2 text-xs font-mono text-green-600">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  Under your roof
+                  {t("panelStatus")}
                 </span>
               </div>
 

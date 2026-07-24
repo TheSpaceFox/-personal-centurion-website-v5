@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export function PlainTalkSection() {
+  const t = useTranslations("plainTalk");
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -32,16 +34,15 @@ export function PlainTalkSection() {
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              No prompt theatre
+              {t("eyebrow")}
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              You do not need
+              {t("titleLine1")}
               <br />
-              <span className="text-muted-foreground">to be a prompt expert.</span>
+              <span className="text-muted-foreground">{t("titleLine2")}</span>
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
-              Just talk plainly. Ask for what you want. Sovereign answers as it
-              should — without making you learn a special language first.
+              {t("lead")}
             </p>
           </div>
 
@@ -52,26 +53,19 @@ export function PlainTalkSection() {
           >
             <div className="border border-foreground/10 p-8 lg:p-10">
               <p className="font-mono text-xs tracking-widest uppercase text-muted-foreground mb-4">
-                Public AI chats
+                {t("publicTitle")}
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                If you have to write a fancy prompt to get a useful answer, you are not
-                &ldquo;winning at AI.&rdquo; You are fighting it — working around training that
-                was shaped by big tech to seed ideas into the crowd and train{" "}
-                <em className="not-italic text-foreground">you</em>, instead of letting
-                you train the AI on your life. That dance is the product for public AI.
+                {t("publicBody")}
               </p>
             </div>
 
             <div className="border border-foreground p-8 lg:p-10 bg-foreground text-background">
               <p className="font-mono text-xs tracking-widest uppercase text-background/50 mb-4">
-                Sovereign
+                {t("sovereignTitle")}
               </p>
               <p className="text-lg text-background/80 leading-relaxed">
-                This one is different. Ask whatever you want, in ordinary words, and it
-                gives you what you asked for. No tip sheets. No prompt&nbsp;engineering.
-                No need to become an &ldquo;expert prompter.&rdquo; Just talk to it the way you
-                would talk to someone who works for you — because that is what it is.
+                {t("sovereignBody")}
               </p>
             </div>
           </div>

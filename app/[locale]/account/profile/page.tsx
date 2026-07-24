@@ -11,8 +11,10 @@ import {
   type BuyerProfile,
 } from '@/lib/auth/buyer-profile'
 import { SITE_VERSION } from '@/lib/site-config'
+import { useTranslations } from 'next-intl'
 
 export default function ProfilePage() {
+  const t = useTranslations('account')
   const router = useRouter()
   const [email, setEmail] = useState<string | null>(null)
   const [profile, setProfile] = useState<BuyerProfile>(emptyProfile())
@@ -36,7 +38,7 @@ export default function ProfilePage() {
   }
 
   if (!email) {
-    return <main className="p-12 text-muted-foreground">Loading…</main>
+    return <main className="p-12 text-muted-foreground">{t('loading')}</main>
   }
 
   return (
@@ -44,11 +46,11 @@ export default function ProfilePage() {
       <header className="border-b border-foreground/10">
         <div className="mx-auto flex max-w-2xl items-center justify-between px-6 py-6">
           <Link href="/" className="font-display text-sm tracking-[0.12em]">
-            PERSONAL CENTURION
+            {t('brand')}
           </Link>
           <div className="flex gap-6 text-sm">
             <Link href="/account" className="text-muted-foreground hover:text-foreground">
-              Orders
+              {t('ordersNav')}
             </Link>
             <span className="font-mono text-xs text-muted-foreground">v{SITE_VERSION}</span>
           </div>
@@ -57,22 +59,22 @@ export default function ProfilePage() {
 
       <div className="mx-auto max-w-2xl px-6 py-16">
         <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          Account
+          {t('eyebrow')}
         </span>
-        <h1 className="mt-3 font-display text-4xl tracking-tight">Profile</h1>
+        <h1 className="mt-3 font-display text-4xl tracking-tight">{t('profileTitle')}</h1>
         <p className="mt-3 text-muted-foreground">
-          Saved against {email}. Prefills the order configurator on this device.
+          {t('profileLead', { email })}
         </p>
 
         <form onSubmit={onSubmit} className="mt-10 space-y-6">
           {(
             [
-              ['firstName', 'First name'],
-              ['lastName', 'Last name'],
-              ['company', 'Company'],
-              ['phone', 'Phone'],
-              ['locale', 'Locale'],
-              ['preferredCurrency', 'Preferred currency'],
+              ['firstName', t('firstName')],
+              ['lastName', t('lastName')],
+              ['company', t('company')],
+              ['phone', t('phone')],
+              ['locale', t('locale')],
+              ['preferredCurrency', t('preferredCurrency')],
             ] as const
           ).map(([key, label]) => (
             <label key={key} className="block space-y-2">
@@ -86,12 +88,12 @@ export default function ProfilePage() {
               />
             </label>
           ))}
-          {saved && <p className="text-sm text-foreground">Profile saved.</p>}
+          {saved && <p className="text-sm text-foreground">{t('saved')}</p>}
           <button
             type="submit"
             className="bg-foreground px-8 py-4 text-sm font-medium text-primary-foreground hover:bg-foreground/90"
           >
-            Save profile
+            {t('saveProfile')}
           </button>
         </form>
       </div>

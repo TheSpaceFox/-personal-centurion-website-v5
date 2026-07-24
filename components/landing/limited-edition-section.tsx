@@ -5,34 +5,23 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useTranslations } from "next-intl";
 
 const ENQUIRY_EMAIL = "hello@1human1ai.com";
 
-const editions = [
-  {
-    id: "sovereign",
-    name: "Sovereign",
-    description: "Your private desk Sovereign — MSI Cubi NUC hardware you own.",
-    src: "/limited-edition/msi-cubi-nuc.webp",
-    fit: "contain" as const,
-  },
-  {
-    id: "prime-pilot",
-    name: "Prime Pilot",
-    description: "Walnut & copper Prime units — minimum order of three.",
-    src: "/limited-edition/walnut-copper.jpg",
-    fit: "cover" as const,
-  },
-  {
-    id: "prime-board",
-    name: "Prime Board",
-    description: "Marble & brass Prime units for the boardroom — minimum order of four.",
-    src: "/limited-edition/carbon-marble.jpg",
-    fit: "cover" as const,
-  },
-] as const;
-
 export function LimitedEditionSection() {
+  const t = useTranslations("limitedEdition");
+  const editions = t("editions")
+    .split("||")
+    .map((record) => record.split("|").map((item) => item.trim()))
+    .filter(([name, description]) => name && description)
+    .map(([name, description], index) => ({
+      id: ["sovereign", "prime-pilot", "prime-board"][index] ?? `edition-${index}`,
+      name,
+      description,
+      src: ["/limited-edition/msi-cubi-nuc.webp", "/limited-edition/walnut-copper.jpg", "/limited-edition/carbon-marble.jpg"][index] ?? "",
+      fit: index === 0 ? ("contain" as const) : ("cover" as const),
+    }));
   const [isVisible, setIsVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [userPaused, setUserPaused] = useState(false);
@@ -90,7 +79,7 @@ export function LimitedEditionSection() {
         setName("");
         setEmail("");
         setNote("");
-        window.alert("Thank you — your Centurion range interest is registered.");
+        window.alert(t("successAlert"));
         return;
       }
     } catch {
@@ -98,21 +87,15 @@ export function LimitedEditionSection() {
     }
 
     const subject = encodeURIComponent(
-      `Centurion Range — Registration (${active.name})`
+      t("mailSubject", { edition: active.name })
     );
     const body = encodeURIComponent(
-      [
-        "I would like to register interest in the Centurion range.",
-        "",
-        `Name: ${trimmedName}`,
-        `Email: ${trimmedEmail}`,
-        `Preferred edition: ${active.name}`,
-        note.trim() ? `Note: ${note.trim()}` : null,
-        "",
-        "Please keep me informed on allocation and next steps.",
-      ]
-        .filter(Boolean)
-        .join("\n")
+      t("mailBody", {
+        name: trimmedName,
+        email: trimmedEmail,
+        edition: active.name,
+        note: note.trim(),
+      })
     );
 
     window.location.href = `mailto:${ENQUIRY_EMAIL}?subject=${subject}&body=${body}`;
@@ -162,17 +145,15 @@ export function LimitedEditionSection() {
           >
             <span className="inline-flex items-center gap-3 font-mono text-xs tracking-[0.25em] uppercase text-white/60 mb-6">
               <span className="w-8 h-px bg-white/40" />
-              Hardware you own
+              {t("eyebrow")}
             </span>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-6">
-              Choose your
+              {t("titleLine1")}
               <br />
-              Centurion
+              {t("titleLine2")}
             </h2>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-xl mb-8">
-              Sovereign for the desk, Prime Pilot in walnut &amp; copper, Prime
-              Board in marble &amp; brass — the same lines offered below.
-              Register interest, or secure a build slot in pricing.
+              {t("lead")}
             </p>
             <p className="font-mono text-xs tracking-widest uppercase text-white/50">
               {active.name}
@@ -222,12 +203,10 @@ export function LimitedEditionSection() {
         >
           <div>
             <h3 className="font-display text-3xl lg:text-4xl tracking-tight mb-4">
-              Register interest in the Centurion range
+              {t("formTitle")}
             </h3>
             <p className="text-white/60 leading-relaxed max-w-md">
-              Tell us which edition fits — Sovereign, Prime Pilot, or Prime
-              Board. Early registration helps us plan allocation. Your details
-              stay private.
+              {t("formLead")}
             </p>
           </div>
 
@@ -235,26 +214,26 @@ export function LimitedEditionSection() {
             <div className="grid sm:grid-cols-2 gap-4">
               <label className="block space-y-2">
                 <span className="font-mono text-xs tracking-widest uppercase text-white/50">
-                  Name
+                  {t("nameLabel")}
                 </span>
                 <Input
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name"
+                  placeholder={t("namePlaceholder")}
                   className="h-12 rounded-none border-white/20 bg-white/5 text-[#f4f1ec] placeholder:text-white/35 focus-visible:border-white/50 focus-visible:ring-white/20"
                 />
               </label>
               <label className="block space-y-2">
                 <span className="font-mono text-xs tracking-widest uppercase text-white/50">
-                  Email
+                  {t("emailLabel")}
                 </span>
                 <Input
                   required
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@example.com"
+                  placeholder={t("emailPlaceholder")}
                   className="h-12 rounded-none border-white/20 bg-white/5 text-[#f4f1ec] placeholder:text-white/35 focus-visible:border-white/50 focus-visible:ring-white/20"
                 />
               </label>
@@ -262,7 +241,7 @@ export function LimitedEditionSection() {
 
             <fieldset className="space-y-3">
               <legend className="font-mono text-xs tracking-widest uppercase text-white/50 mb-2">
-                Preferred edition
+                {t("editionLabel")}
               </legend>
               <div className="flex flex-wrap gap-2">
                 {editions.map((edition, index) => (
@@ -284,13 +263,13 @@ export function LimitedEditionSection() {
 
             <label className="block space-y-2">
               <span className="font-mono text-xs tracking-widest uppercase text-white/50">
-                Note <span className="normal-case tracking-normal">(optional)</span>
+                {t("noteLabel")} <span className="normal-case tracking-normal">{t("optional")}</span>
               </span>
               <textarea
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 rows={3}
-                placeholder="Delivery region, timeline, or preferences"
+                placeholder={t("notePlaceholder")}
                 className="w-full rounded-none border border-white/20 bg-white/5 px-3 py-3 text-base text-[#f4f1ec] placeholder:text-white/35 outline-none focus-visible:border-white/50 focus-visible:ring-[3px] focus-visible:ring-white/20 md:text-sm"
               />
             </label>
@@ -300,7 +279,7 @@ export function LimitedEditionSection() {
               size="lg"
               className="bg-[#f4f1ec] hover:bg-white text-black px-8 h-14 text-base rounded-full group"
             >
-              Register Interest
+              {t("submit")}
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </form>
