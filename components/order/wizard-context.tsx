@@ -66,7 +66,7 @@ export function WizardProvider({
   initialEngagement?: EngagementTier
   resume?: boolean
 }) {
-  const [step, setStep] = useState(resume ? TOTAL_STEPS : 1)
+  const [step, setStep] = useState(1)
   const [state, setStateInternal] = useState<WizardState>({
     ...DEFAULT_WIZARD_STATE,
     ...(initialEngagement ? { engagement: initialEngagement } : {}),
@@ -90,7 +90,14 @@ export function WizardProvider({
           })
         }
         if (parsed.step && !resume) setStep(clampStep(parsed.step))
-        if (resume) setStep(TOTAL_STEPS)
+        if (resume) {
+          const merged = {
+            ...DEFAULT_WIZARD_STATE,
+            ...(parsed.state ?? {}),
+            ...(initialEngagement ? { engagement: initialEngagement } : {}),
+          }
+          setStep(canAccessWizardStep(TOTAL_STEPS, merged) ? TOTAL_STEPS : 1)
+        }
       }
 
       const handoffRaw = sessionStorage.getItem(COUNSEL_HANDOFF_KEY)
